@@ -43,9 +43,9 @@
 
 #include "mcc_generated_files/mcc.h"
 
-#define CHIP_NUMBER 3
-#define CHIP_ADDRESS 0x53
-#define MAXIMUM_KEY_NUMBER 19
+#define CHIP_NUMBER 2
+#define CHIP_ADDRESS 0x62
+#define MAXIMUM_KEY_NUMBER 17
 #define SCAN_THRESHOLD 4 //min. 00 0000 0100 (half of 000 0001)
 
 ///from eusart.c
@@ -119,8 +119,6 @@ void main(void)
         max_with_threshold(&scan_max[15], ADCC_GetSingleConversion(AN_KEY15));
         max_with_threshold(&scan_max[16], ADCC_GetSingleConversion(AN_KEY16));
         max_with_threshold(&scan_max[17], ADCC_GetSingleConversion(AN_KEY17));
-        max_with_threshold(&scan_max[18], ADCC_GetSingleConversion(AN_KEY18));
-        max_with_threshold(&scan_max[19], ADCC_GetSingleConversion(AN_KEY19));
         
         if (tx_request != 0)
         {

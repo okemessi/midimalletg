@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=malletg_chip3.X
+PROJECTNAME=malletg_chip2.X
 
 # Active Configuration
 DEFAULTCONF=default

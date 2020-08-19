@@ -3,6 +3,7 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
+            <name>malletg_chip4</name>
             <name>malletg_chip1</name>
             <name>malletg_chip3</name>
             <creation-uuid>52fd7bc2-27f3-4bbd-a513-ca7abe8136e6</creation-uuid>

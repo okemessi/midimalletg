@@ -114,10 +114,13 @@ void main(void)
         max_with_threshold(&scan_max[9], ADCC_GetSingleConversion(AN_KEY9));
         max_with_threshold(&scan_max[10], ADCC_GetSingleConversion(AN_KEY10));
         max_with_threshold(&scan_max[11], ADCC_GetSingleConversion(AN_KEY11));
-        max_with_threshold(&scan_max[12], ADCC_GetSingleConversion(AN_Fader1));
-        max_with_threshold(&scan_max[13], ADCC_GetSingleConversion(AN_Fader2));
-        max_with_threshold(&scan_max[14], IOvalue[IO_Button1_GetValue()]);
-        max_with_threshold(&scan_max[15], IOvalue[IO_Button2_GetValue()]);
+        max_with_threshold(&scan_max[12], ADCC_GetSingleConversion(AN_KEY12));
+        max_with_threshold(&scan_max[13], ADCC_GetSingleConversion(AN_KEY13));
+        max_with_threshold(&scan_max[14], ADCC_GetSingleConversion(AN_KEY14));
+        max_with_threshold(&scan_max[15], ADCC_GetSingleConversion(AN_Fader1));
+        max_with_threshold(&scan_max[16], ADCC_GetSingleConversion(AN_Fader2));
+        max_with_threshold(&scan_max[17], IOvalue[IO_Button1_GetValue()]);
+        max_with_threshold(&scan_max[18], IOvalue[IO_Button2_GetValue()]);
         max_with_threshold(&scan_max[0], IOvalue[IO_ShiftButton_GetValue()]);
         
         if (tx_request != 0)

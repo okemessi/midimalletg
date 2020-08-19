@@ -97,8 +97,6 @@ typedef enum
     AN_KEY15 =  0xB,
     AN_KEY16 =  0xC,
     AN_KEY17 =  0xD,
-    AN_KEY18 =  0xE,
-    AN_KEY19 =  0xF,
     AN_KEY7 =  0x10,
     AN_KEY8 =  0x11,
     AN_KEY9 =  0x12,
