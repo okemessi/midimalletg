@@ -118,7 +118,7 @@ void main(void)
         max_with_threshold(&scan_max[13], ADCC_GetSingleConversion(AN_Fader2));
         max_with_threshold(&scan_max[14], IOvalue[IO_Button1_GetValue()]);
         max_with_threshold(&scan_max[15], IOvalue[IO_Button2_GetValue()]);
-        max_with_threshold(&scan_max[16], IOvalue[IO_ShiftButton_GetValue()]);
+        max_with_threshold(&scan_max[0], IOvalue[IO_ShiftButton_GetValue()]);
         
         if (tx_request != 0)
         {
