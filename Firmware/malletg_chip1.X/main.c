@@ -43,9 +43,9 @@
 
 #include "mcc_generated_files/mcc.h"
 
-#define CHIP_NUMBER 3
-#define CHIP_ADDRESS 0x53
-#define MAXIMUM_KEY_NUMBER 19
+#define CHIP_NUMBER 1
+#define CHIP_ADDRESS 0x31
+#define MAXIMUM_KEY_NUMBER 15
 #define SCAN_THRESHOLD 4 //min. 00 0000 0100 (half of 000 0001)
 
 ///from eusart.c
