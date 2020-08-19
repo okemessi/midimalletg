@@ -73,6 +73,7 @@ bool tx_request=0;
 void main(void)
 {
     unsigned int scan_max[MAXIMUM_KEY_NUMBER]={0};
+    unsigned int scan_max_prev[MAXIMUM_KEY_NUMBER]={0};
     unsigned int i = 0;
     union 
     {
@@ -127,13 +128,14 @@ void main(void)
           IO_DE_SetHigh();
           for (i = 0; i < MAXIMUM_KEY_NUMBER; i++)
           {
-            if (scan_max[i]>0)
+            if (scan_max[i]>0 && scan_max_prev[i]!=scan_max[i])
             {
               packet.twobyte = (i<<10) & scan_max[i];
               EUSART_Write(packet.bytes[0]);
               EUSART_Write(packet.bytes[1]);
-              scan_max[i]= 0;
             }
+            scan_max_prev[i]=scan_max[i];
+            scan_max[i]= 0;
           }
 
           while (!EUSART_is_tx_done());
