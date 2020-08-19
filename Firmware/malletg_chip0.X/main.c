@@ -43,13 +43,12 @@
 
 #include "mcc_generated_files/mcc.h"
 
-#define CHIP_NUMBER 3
-#define CHIP_ADDRESS 0x53
-#define MAXIMUM_KEY_NUMBER 19
-#define SCAN_THRESHOLD 4 //min. 00 0000 0100 (half of 000 0001)
+#define CHIP_NUMBER 0
+#define CHIP_ADDRESS 0x00
+#define USER_RX_BUFFER_SIZE 4
+#define EUSART_RX_BUFFER_SIZE 8
 
 ///from eusart.c
-#define EUSART_RX_BUFFER_SIZE 8
 
 extern void (*EUSART_FramingErrorHandler)(void);
 extern void (*EUSART_OverrunErrorHandler)(void);
@@ -62,24 +61,27 @@ extern volatile eusart_status_t eusartRxStatusBuffer[EUSART_RX_BUFFER_SIZE];
 extern volatile uint8_t eusartRxCount;
 extern volatile eusart_status_t eusartRxLastError;
 
+///for user usart function
+uint8_t user_rx_buffer[USER_RX_BUFFER_SIZE] = {0};
+uint8_t user_rx_count = 0;
+
 /*
                          Main application
  */
-inline static void max_with_threshold(unsigned int*,unsigned int);
 extern void UserRxInterruptHandler(void);
 
-bool tx_request=0;
+bool change_request=0;
+
+void LED_increment(uint8_t *buffer);
 
 void main(void)
 {
-    unsigned int scan_max[MAXIMUM_KEY_NUMBER]={0};
-    unsigned int scan_max_prev[MAXIMUM_KEY_NUMBER]={0};
-    unsigned int i = 0;
-    union 
-    {
-      unsigned int twobyte;
-      unsigned char bytes[2];
-    }packet;
+    uint8_t command_buffer = 0;
+    uint8_t LED_buffer[3] = {0};
+    const uint8_t LED_zeros[3] = {0};
+    uint8_t LEDpointer = 0;
+    uint8_t timecounter = 0;
+    uint8_t statecounter = 0;
 
     // initialize the device
     SYSTEM_Initialize();
@@ -100,53 +102,99 @@ void main(void)
     // Disable the Peripheral Interrupts
     //INTERRUPT_PeripheralInterruptDisable();
 
+    TMR2_Start();
+
     while (1)
     {
-        max_with_threshold(&scan_max[1], ADCC_GetSingleConversion(AN_KEY1));
-        max_with_threshold(&scan_max[2], ADCC_GetSingleConversion(AN_KEY2));
-        max_with_threshold(&scan_max[3], ADCC_GetSingleConversion(AN_KEY3));
-        max_with_threshold(&scan_max[4], ADCC_GetSingleConversion(AN_KEY4));
-        max_with_threshold(&scan_max[5], ADCC_GetSingleConversion(AN_KEY5));
-        max_with_threshold(&scan_max[6], ADCC_GetSingleConversion(AN_KEY6));
-        max_with_threshold(&scan_max[7], ADCC_GetSingleConversion(AN_KEY7));
-        max_with_threshold(&scan_max[8], ADCC_GetSingleConversion(AN_KEY8));
-        max_with_threshold(&scan_max[9], ADCC_GetSingleConversion(AN_KEY9));
-        max_with_threshold(&scan_max[10], ADCC_GetSingleConversion(AN_KEY10));
-        max_with_threshold(&scan_max[11], ADCC_GetSingleConversion(AN_KEY11));
-        max_with_threshold(&scan_max[12], ADCC_GetSingleConversion(AN_KEY12));
-        max_with_threshold(&scan_max[13], ADCC_GetSingleConversion(AN_KEY13));
-        max_with_threshold(&scan_max[14], ADCC_GetSingleConversion(AN_KEY14));
-        max_with_threshold(&scan_max[15], ADCC_GetSingleConversion(AN_KEY15));
-        max_with_threshold(&scan_max[16], ADCC_GetSingleConversion(AN_KEY16));
-        max_with_threshold(&scan_max[17], ADCC_GetSingleConversion(AN_KEY17));
-        max_with_threshold(&scan_max[18], ADCC_GetSingleConversion(AN_KEY18));
-        max_with_threshold(&scan_max[19], ADCC_GetSingleConversion(AN_KEY19));
-        
-        if (tx_request != 0)
+        while (!TMR2_HasOverflowOccured())
         {
-          tx_request = 0;
-          IO_DE_SetHigh();
-          for (i = 0; i < MAXIMUM_KEY_NUMBER; i++)
+          if (change_request != 0)
           {
-            if (scan_max[i]>0 && scan_max_prev[i]!=scan_max[i])
-            {
-              packet.twobyte = (i<<10) & scan_max[i];
-              EUSART_Write(packet.bytes[0]);
-              EUSART_Write(packet.bytes[1]);
-            }
-            scan_max_prev[i]=scan_max[i];
-            scan_max[i]= 0;
+            INTERRUPT_GlobalInterruptDisable();
+            command_buffer = user_rx_buffer[0]>>5;
+            LED_buffer[0] = 0x7F & (user_rx_buffer[0]<<2 | user_rx_buffer[1]>>6);
+            LED_buffer[1] = 0x7F & (user_rx_buffer[1]<<1 | user_rx_buffer[2]>>7);
+            LED_buffer[2] = 0x7F & (user_rx_buffer[2]);
+            change_request = 0;
+            INTERRUPT_GlobalInterruptEnable();
+            
+            timecounter = 0;
+            statecounter = 0;
           }
+        }
+        switch (command_buffer)
+        {
+        case 0:
+          LED_increment(LED_buffer);
+          break;
+        
+        case 1:
+          if (timecounter++ >= 36)
+          {
+            timecounter = 0;
+            if (statecounter==0)
+            {
+              statecounter = 1;
+            }else{
+              statecounter = 0;
+            }
+          }
+          
+          if (statecounter==0)
+          {
+            LED_increment(LED_zeros);
+          }else{
+            LED_increment(LED_buffer);
+          }
+          
+          break;
 
-          while (!EUSART_is_tx_done());
+        case 2:
+          if (statecounter >= 5)
+          {
+            LED_increment(LED_buffer);
+          }else
+          {
+            if (timecounter++ >= 6){
+              timecounter = 0;
+              statecounter++;
+            }
+            
+            if ((statecounter&1)==0)
+            {
+              LED_increment(LED_zeros);
+            }else{
+              LED_increment(LED_buffer);
+            }
 
-          TX1STAbits.TX9D = 1;
-          EUSART_Write(0x7F); //0111 1111
-          while (!EUSART_is_tx_done());
-          TX1STAbits.TX9D = 0;
-          IO_DE_SetLow();
+          }
+          break;
         }
     }
+}
+
+void LED_increment(uint8_t *buffer){
+  uint8_t i=0;
+  if (IO_LED1_GetValue() == 1){
+    IO_LED1_SetLow();
+    IO_LED2_SetHigh();
+    i=1;
+  }else if (IO_LED2_GetValue() == 1){
+    IO_LED2_SetLow();
+    IO_LED3_SetHigh();
+    i=2;
+  }else{
+    IO_LED3_SetLow();
+    IO_LED1_SetHigh();
+    i=0;
+  }
+  IO_LEDA_LAT = buffer[i] & 1;
+  IO_LEDB_LAT = (buffer[i]>>1) & 1;
+  IO_LEDB_LAT = (buffer[i]>>2) & 1;
+  IO_LEDB_LAT = (buffer[i]>>3) & 1;
+  IO_LEDB_LAT = (buffer[i]>>4) & 1;
+  IO_LEDB_LAT = (buffer[i]>>5) & 1;
+  IO_LEDB_LAT = (buffer[i]>>6) & 1;
 }
 
 void UserRxInterruptHandler(void){
@@ -167,26 +215,41 @@ void UserRxInterruptHandler(void){
   if(eusartRxStatusBuffer[eusartRxHead].status){
       EUSART_ErrorHandler();
   } else {
-      EUSART_RxDataHandler();
+      /*MCC*/
+      /*eusartRxBuffer[*/eusartRxHead++/*] = RC1REG*/;
+      if(sizeof(eusartRxBuffer) <= eusartRxHead)
+      {
+          eusartRxHead = 0;
+      }
+      eusartRxCount++;
+      /*MCC end*/
+      
+      if (RC1STAbits.RX9D == 1)
+      {
+        if(RC1REG==CHIP_ADDRESS){
+          RC1STAbits.ADDEN = 0;
+          change_request = 0;
+          user_rx_count = 0;
+        }else if(RC1STAbits.ADDEN == 0){
+          RC1STAbits.ADDEN = 1;
+          change_request = 1;
+        }
+      }else
+      {
+        user_rx_buffer[user_rx_count++] = RC1REG;
+        if(sizeof(user_rx_buffer) <= user_rx_count)
+        {
+            user_rx_count = 0;
+        }
+      }
   }
     
   // or set custom function using EUSART_SetRxInterruptHandler()
   /**********************/
 
-  if (EUSART_Read() == CHIP_ADDRESS)
-  {
-    tx_request = 1;
-  }
   return;
 }
 
-static void max_with_threshold(unsigned int *scan_max, unsigned int scan_buffer){
-  if (*scan_max < scan_buffer && scan_buffer >= SCAN_THRESHOLD)
-  {
-    *scan_max = scan_buffer;
-  }
-  return;
-}
 /**
  End of File
 */
