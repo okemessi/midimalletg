@@ -128,7 +128,7 @@ void main(void)
           {
             if (scan_max[i]>0 && scan_max_prev[i]!=scan_max[i])
             {
-              packet.twobyte = (i<<10) & scan_max[i];
+              packet.twobyte = (i<<10) | scan_max[i];
               EUSART_Write(packet.bytes[0]);
               EUSART_Write(packet.bytes[1]);
             }
