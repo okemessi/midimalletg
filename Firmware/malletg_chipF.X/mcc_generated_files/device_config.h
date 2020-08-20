@@ -1,26 +1,24 @@
 /**
-  Generated Pin Manager File
+  @Generated PIC10 / PIC12 / PIC16 / PIC18 MCUs Header File
 
-  Company:
+  @Company:
     Microchip Technology Inc.
 
-  File Name:
-    pin_manager.c
+  @File Name:
+    mcc.c
 
-  Summary:
-    This is the Pin Manager file generated using PIC10 / PIC12 / PIC16 / PIC18 MCUs
+  @Summary:
+    This is the device_config.h file generated using PIC10 / PIC12 / PIC16 / PIC18 MCUs
 
-  Description:
-    This header file provides implementations for pin APIs for all pins selected in the GUI.
+  @Description:
+    This header file provides implementations for driver APIs for all modules selected in the GUI.
     Generation Information :
         Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.81.4
-        Device            :  PIC16F18857
-        Driver Version    :  2.11
+        Device            :  PIC18F25K42
+        Driver Version    :  2.00
     The generated drivers are tested against the following:
-        Compiler          :  XC8 2.20 and above
+        Compiler          :  XC8 2.20 and above or later
         MPLAB             :  MPLAB X 5.40
-
-    Copyright (c) 2013 - 2015 released Microchip Technology Inc.  All rights reserved.
 */
 
 /*
@@ -46,80 +44,12 @@
     SOFTWARE.
 */
 
-#include "pin_manager.h"
+#ifndef DEVICE_CONFIG_H
+#define	DEVICE_CONFIG_H
 
+#define _XTAL_FREQ 32000000
 
-
-
-
-void PIN_MANAGER_Initialize(void)
-{
-    /**
-    LATx registers
-    */
-    LATA = 0x00;
-    LATB = 0x00;
-    LATC = 0x07;
-
-    /**
-    TRISx registers
-    */
-    TRISA = 0x80;
-    TRISB = 0xFF;
-    TRISC = 0x98;
-
-    /**
-    ANSELx registers
-    */
-    ANSELC = 0x67;
-    ANSELB = 0x00;
-    ANSELA = 0x7F;
-
-    /**
-    WPUx registers
-    */
-    WPUE = 0x00;
-    WPUB = 0xFF;
-    WPUA = 0x80;
-    WPUC = 0x18;
-
-    /**
-    ODx registers
-    */
-    ODCONA = 0x00;
-    ODCONB = 0x00;
-    ODCONC = 0x00;
-
-    /**
-    SLRCONx registers
-    */
-    SLRCONA = 0xFF;
-    SLRCONB = 0xFF;
-    SLRCONC = 0xFF;
-
-    /**
-    INLVLx registers
-    */
-    INLVLA = 0xFF;
-    INLVLB = 0xFF;
-    INLVLC = 0xFF;
-    INLVLE = 0x00;
-
-
-
-
-
-   
-    
-	
-    RXPPS = 0x17;   //RC7->EUSART:RX;    
-    RC5PPS = 0x10;   //RC5->EUSART:TX;    
-}
-  
-void PIN_MANAGER_IOC(void)
-{   
-}
-
+#endif	/* DEVICE_CONFIG_H */
 /**
  End of File
 */

@@ -1,26 +1,24 @@
 /**
-  Generated Pin Manager File
+  DAC1 Generated Driver File
 
-  Company:
+  @Company
     Microchip Technology Inc.
 
-  File Name:
-    pin_manager.c
+  @File Name
+    dac1.c
 
-  Summary:
-    This is the Pin Manager file generated using PIC10 / PIC12 / PIC16 / PIC18 MCUs
+  @Summary
+    This is the generated driver implementation file for the DAC1 driver using PIC10 / PIC12 / PIC16 / PIC18 MCUs
 
-  Description:
-    This header file provides implementations for pin APIs for all pins selected in the GUI.
+  @Description
+    This source file provides APIs for DAC1.
     Generation Information :
         Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.81.4
-        Device            :  PIC16F18857
-        Driver Version    :  2.11
+        Device            :  PIC18F25K42
+        Driver Version    :  2.10
     The generated drivers are tested against the following:
         Compiler          :  XC8 2.20 and above
-        MPLAB             :  MPLAB X 5.40
-
-    Copyright (c) 2013 - 2015 released Microchip Technology Inc.  All rights reserved.
+        MPLAB 	          :  MPLAB X 5.40
 */
 
 /*
@@ -46,80 +44,34 @@
     SOFTWARE.
 */
 
-#include "pin_manager.h"
+/**
+  Section: Included Files
+*/
 
+#include <xc.h>
+#include "dac1.h"
 
+/**
+  Section: DAC1 APIs
+*/
 
-
-
-void PIN_MANAGER_Initialize(void)
+void DAC1_Initialize(void)
 {
-    /**
-    LATx registers
-    */
-    LATA = 0x00;
-    LATB = 0x00;
-    LATC = 0x07;
-
-    /**
-    TRISx registers
-    */
-    TRISA = 0x80;
-    TRISB = 0xFF;
-    TRISC = 0x98;
-
-    /**
-    ANSELx registers
-    */
-    ANSELC = 0x67;
-    ANSELB = 0x00;
-    ANSELA = 0x7F;
-
-    /**
-    WPUx registers
-    */
-    WPUE = 0x00;
-    WPUB = 0xFF;
-    WPUA = 0x80;
-    WPUC = 0x18;
-
-    /**
-    ODx registers
-    */
-    ODCONA = 0x00;
-    ODCONB = 0x00;
-    ODCONC = 0x00;
-
-    /**
-    SLRCONx registers
-    */
-    SLRCONA = 0xFF;
-    SLRCONB = 0xFF;
-    SLRCONC = 0xFF;
-
-    /**
-    INLVLx registers
-    */
-    INLVLA = 0xFF;
-    INLVLB = 0xFF;
-    INLVLC = 0xFF;
-    INLVLE = 0x00;
-
-
-
-
-
-   
-    
-	
-    RXPPS = 0x17;   //RC7->EUSART:RX;    
-    RC5PPS = 0x10;   //RC5->EUSART:TX;    
-}
-  
-void PIN_MANAGER_IOC(void)
-{   
+    // DAC1EN enabled; NSS VSS; PSS FVR_buf2; OE1 disabled; OE2 enabled; 
+    DAC1CON0 = 0x98;
+    // DAC1R 16; 
+    DAC1CON1 = 0x10;
 }
 
+void DAC1_SetOutput(uint8_t inputData)
+{
+    DAC1CON1  = inputData;
+}
+
+uint8_t DAC1_GetOutput(void)
+{
+    return DAC1CON1;
+}
 /**
  End of File
 */

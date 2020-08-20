@@ -72,13 +72,13 @@ extern void UserRxInterruptHandler(void);
 
 bool change_request=0;
 
-void LED_increment(uint8_t *buffer);
+void LED_increment(uint8_t buffer[3]);
 
 void main(void)
 {
     uint8_t command_buffer = 0;
     uint8_t LED_buffer[3] = {0};
-    const uint8_t LED_zeros[3] = {0};
+    uint8_t LED_zeros[3] = {0};
     uint8_t LEDpointer = 0;
     uint8_t timecounter = 0;
     uint8_t statecounter = 0;
@@ -173,28 +173,28 @@ void main(void)
     }
 }
 
-void LED_increment(uint8_t *buffer){
+void LED_increment(uint8_t buffer[3]){
   uint8_t i=0;
-  if (IO_LED1_GetValue() == 1){
-    IO_LED1_SetLow();
-    IO_LED2_SetHigh();
-    i=1;
-  }else if (IO_LED2_GetValue() == 1){
+  if (IO_LED1_GetValue() == 0){
+    IO_LED1_SetHigh();
     IO_LED2_SetLow();
-    IO_LED3_SetHigh();
+    i=1;
+  }else if (IO_LED2_GetValue() == 0){
+    IO_LED2_SetHigh();
+    IO_LED3_SetLow();
     i=2;
   }else{
-    IO_LED3_SetLow();
-    IO_LED1_SetHigh();
+    IO_LED3_SetHigh();
+    IO_LED1_SetLow();
     i=0;
   }
   IO_LEDA_LAT = buffer[i] & 1;
   IO_LEDB_LAT = (buffer[i]>>1) & 1;
-  IO_LEDB_LAT = (buffer[i]>>2) & 1;
-  IO_LEDB_LAT = (buffer[i]>>3) & 1;
-  IO_LEDB_LAT = (buffer[i]>>4) & 1;
-  IO_LEDB_LAT = (buffer[i]>>5) & 1;
-  IO_LEDB_LAT = (buffer[i]>>6) & 1;
+  IO_LEDC_LAT = (buffer[i]>>2) & 1;
+  IO_LEDD_LAT = (buffer[i]>>3) & 1;
+  IO_LEDE_LAT = (buffer[i]>>4) & 1;
+  IO_LEDF_LAT = (buffer[i]>>5) & 1;
+  IO_LEDG_LAT = (buffer[i]>>6) & 1;
 }
 
 void UserRxInterruptHandler(void){
