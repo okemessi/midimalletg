@@ -129,7 +129,7 @@ void main(void)
           IO_DE_SetHigh();
           for (i = 0; i < MAXIMUM_KEY_NUMBER; i++)
           {
-            if (scan_max[i]>0 && scan_max_prev[i]!=scan_max[i])
+            if (scan_max_prev[i]!=scan_max[i])
             {
               packet.twobyte = (i<<10) | scan_max[i];
               EUSART_Write(packet.bytes[0]);
