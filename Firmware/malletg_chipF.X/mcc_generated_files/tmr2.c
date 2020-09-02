@@ -1,5 +1,6 @@
+
 /**
-  TMR2 Generated Driver File
+  TMR2 Generated Driver API Source File 
 
   @Company
     Microchip Technology Inc.
@@ -8,40 +9,39 @@
     tmr2.c
 
   @Summary
-    This is the generated driver implementation file for the TMR2 driver using PIC10 / PIC12 / PIC16 / PIC18 MCUs
+    This is the generated source file for the TMR2 driver using PIC32MX MCUs
 
   @Description
-    This source file provides APIs for TMR2.
-    Generation Information :
-        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.81.4
-        Device            :  PIC18F25K42
-        Driver Version    :  2.11
+    This source file provides APIs for driver for TMR2. 
+    Generation Information : 
+        Product Revision  :  PIC32MX MCUs - pic32mx : v1.35
+        Device            :  PIC32MX210F016B
+        Driver Version    :  0.5
     The generated drivers are tested against the following:
-        Compiler          :  XC8 2.20 and above 
-        MPLAB 	          :  MPLAB X 5.40
+        Compiler          :  XC32 1.42
+        MPLAB 	          :  MPLAB X 3.55
 */
 
 /*
-    (c) 2018 Microchip Technology Inc. and its subsidiaries. 
-    
-    Subject to your compliance with these terms, you may use Microchip software and any 
-    derivatives exclusively with Microchip products. It is your responsibility to comply with third party 
-    license terms applicable to your use of third party software (including open source software) that 
-    may accompany Microchip software.
-    
-    THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER 
-    EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY 
-    IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS 
-    FOR A PARTICULAR PURPOSE.
-    
-    IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, 
-    INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND 
-    WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP 
-    HAS BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO 
-    THE FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL 
-    CLAIMS IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT 
-    OF FEES, IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS 
-    SOFTWARE.
+    (c) 2016 Microchip Technology Inc. and its subsidiaries. You may use this
+    software and any derivatives exclusively with Microchip products.
+
+    THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER
+    EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED
+    WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A
+    PARTICULAR PURPOSE, OR ITS INTERACTION WITH MICROCHIP PRODUCTS, COMBINATION
+    WITH ANY OTHER PRODUCTS, OR USE IN ANY APPLICATION.
+
+    IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE,
+    INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND
+    WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS
+    BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE
+    FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
+    ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
+    THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
+
+    MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE
+    TERMS.
 */
 
 /**
@@ -52,146 +52,148 @@
 #include "tmr2.h"
 
 /**
-  Section: Global Variables Definitions
+  Section: Data Type Definitions
 */
 
-void (*TMR2_InterruptHandler)(void);
+/** TMR Driver Hardware Instance Object
+
+  @Summary
+    Defines the object required for the maintainence of the hardware instance.
+
+  @Description
+    This defines the object required for the maintainence of the hardware
+    instance. This object exists once per hardware instance of the peripheral.
+
+  Remarks:
+    None.
+*/
+
+typedef struct _TMR_OBJ_STRUCT
+{
+    /* Timer Elapsed */
+    bool                                                    timerElapsed;
+    /*Software Counter value*/
+    uint8_t                                                 count;
+
+} TMR_OBJ;
+
+static TMR_OBJ tmr2_obj;
 
 /**
-  Section: TMR2 APIs
+  Section: Driver Interface
 */
 
-void TMR2_Initialize(void)
+
+void TMR2_Initialize (void)
 {
-    // Set TMR2 to the options selected in the User Interface
-
-    // T2CS HFINTOSC; 
-    T2CLKCON = 0x03;
-
-    // T2PSYNC Not Synchronized; T2MODE Software control; T2CKPOL Rising Edge; T2CKSYNC Not Synchronized; 
-    T2HLT = 0x00;
-
-    // T2RSEL T2CKIPPS pin; 
-    T2RST = 0x00;
-
-    // PR2 249; 
-    T2PR = 0xF9;
-
     // TMR2 0; 
-    T2TMR = 0x00;
+    TMR2 = 0x0;
+    // Period = 0.0010069333 s; Frequency = 3750000 Hz; PR2 118; 
+    PR2 = 0x76;
+    // TCKPS 1:32; T32 16 Bit; TCS PBCLK; SIDL disabled; TGATE disabled; ON enabled; 
+    T2CON = 0x8050;
 
-    // Clearing IF flag before enabling the interrupt.
-    PIR4bits.TMR2IF = 0;
+    IFS0CLR= 1 << _IFS0_T2IF_POSITION;
+    IEC0bits.T2IE = true;
+	
+    tmr2_obj.timerElapsed = false;
 
-    // Enabling TMR2 interrupt.
-    PIE4bits.TMR2IE = 1;
-
-    // Set Default Interrupt Handler
-    TMR2_SetInterruptHandler(TMR2_DefaultInterruptHandler);
-
-    // T2CKPS 1:128; T2OUTPS 1:1; TMR2ON on; 
-    T2CON = 0xF0;
 }
 
-void TMR2_ModeSet(TMR2_HLT_MODE mode)
-{
-   // Configure different types HLT mode
-    T2HLTbits.MODE = mode;
-}
 
-void TMR2_ExtResetSourceSet(TMR2_HLT_EXT_RESET_SOURCE reset)
-{
-    //Configure different types of HLT external reset source
-    T2RSTbits.RSEL = reset;
-}
 
-void TMR2_Start(void)
-{
-    // Start the Timer by writing to TMRxON bit
-    T2CONbits.TMR2ON = 1;
-}
-
-void TMR2_StartTimer(void)
-{
-    TMR2_Start();
-}
-
-void TMR2_Stop(void)
-{
-    // Stop the Timer by writing to TMRxON bit
-    T2CONbits.TMR2ON = 0;
-}
-
-void TMR2_StopTimer(void)
-{
-    TMR2_Stop();
-}
-
-uint8_t TMR2_Counter8BitGet(void)
-{
-    uint8_t readVal;
-
-    readVal = TMR2;
-
-    return readVal;
-}
-
-uint8_t TMR2_ReadTimer(void)
-{
-    return TMR2_Counter8BitGet();
-}
-
-void TMR2_Counter8BitSet(uint8_t timerVal)
-{
-    // Write to the Timer2 register
-    TMR2 = timerVal;
-}
-
-void TMR2_WriteTimer(uint8_t timerVal)
-{
-    TMR2_Counter8BitSet(timerVal);
-}
-
-void TMR2_Period8BitSet(uint8_t periodVal)
-{
-   PR2 = periodVal;
-}
-
-void TMR2_LoadPeriodRegister(uint8_t periodVal)
-{
-   TMR2_Period8BitSet(periodVal);
-}
-
-void TMR2_ISR(void)
+void __ISR(_TIMER_2_VECTOR, IPL1AUTO) _T2Interrupt (  )
 {
 
-    // clear the TMR2 interrupt flag
-    PIR4bits.TMR2IF = 0;
+    //***User Area Begin
 
     // ticker function call;
     // ticker is 1 -> Callback function gets called everytime this ISR executes
     TMR2_CallBack();
+
+    //***User Area End
+
+    tmr2_obj.count++;
+    tmr2_obj.timerElapsed = true;
+    IFS0CLR= 1 << _IFS0_T2IF_POSITION;
 }
 
-void TMR2_CallBack(void)
+void TMR2_Period16BitSet( uint16_t value )
+{
+    /* Update the counter values */
+    PR2 = value;
+    /* Reset the status information */
+    tmr2_obj.timerElapsed = false;
+}
+
+uint16_t TMR2_Period16BitGet( void )
+{
+    return( PR2 );
+}
+
+void TMR2_Counter16BitSet ( uint16_t value )
+{
+    /* Update the counter values */
+    TMR2 = value;
+    /* Reset the status information */
+    tmr2_obj.timerElapsed = false;
+}
+
+uint16_t TMR2_Counter16BitGet( void )
+{
+    return( TMR2 );
+}
+
+void __attribute__ ((weak)) TMR2_CallBack(void)
 {
     // Add your custom callback code here
-    // this code executes every TMR2_INTERRUPT_TICKER_FACTOR periods of TMR2
-    if(TMR2_InterruptHandler)
+}
+
+void TMR2_Start( void )
+{
+    /* Reset the status information */
+    tmr2_obj.timerElapsed = false;
+
+    IFS0CLR= 1 << _IFS0_T2IF_POSITION;
+    /*Enable the interrupt*/
+    IEC0bits.T2IE = true;
+
+    /* Start the Timer */
+    T2CONbits.ON = 1;
+}
+
+void TMR2_Stop( void )
+{
+    /* Stop the Timer */
+    T2CONbits.ON = false;
+
+    /*Disable the interrupt*/
+    IEC0bits.T2IE = false;
+}
+
+bool TMR2_GetElapsedThenClear(void)
+{
+    bool status;
+    
+    status = tmr2_obj.timerElapsed;
+
+    if(status == true)
     {
-        TMR2_InterruptHandler();
+        tmr2_obj.timerElapsed = false;
     }
+    return status;
 }
 
-void TMR2_SetInterruptHandler(void (* InterruptHandler)(void)){
-    TMR2_InterruptHandler = InterruptHandler;
+int TMR2_SoftwareCounterGet(void)
+{
+    return tmr2_obj.count;
 }
 
-void TMR2_DefaultInterruptHandler(void){
-    // add your TMR2 interrupt custom code
-    // or set custom function using TMR2_SetInterruptHandler()
+void TMR2_SoftwareCounterClear(void)
+{
+    tmr2_obj.count = 0; 
 }
 
 /**
-  End of File
+ End of File
 */

@@ -1,88 +1,77 @@
 /**
-  Generated Interrupt Manager Source File
+  System Interrupts Generated Driver File 
 
   @Company:
     Microchip Technology Inc.
 
   @File Name:
-    interrupt_manager.c
+    interrupt_manager.h
 
   @Summary:
-    This is the Interrupt Manager file generated using PIC10 / PIC12 / PIC16 / PIC18 MCUs
+    This is the generated driver implementation file for setting up the
+    interrupts using PIC32MX MCUs
 
   @Description:
-    This header file provides implementations for global interrupt handling.
-    For individual peripheral handlers please see the peripheral driver for
-    all modules selected in the GUI.
-    Generation Information :
-        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.81.4
-        Device            :  PIC18F25K42
-        Driver Version    :  2.03
+    This source file provides implementations for PIC32MX MCUs interrupts.
+    Generation Information : 
+        Product Revision  :  PIC32MX MCUs - pic32mx : v1.35
+        Device            :  PIC32MX210F016B
+        Version           :  1.01
     The generated drivers are tested against the following:
-        Compiler          :  XC8 2.20 and above or later
-        MPLAB 	          :  MPLAB X 5.40
+        Compiler          :  XC32 1.42
+        MPLAB             :  MPLAB X 3.55
 */
-
 /*
-    (c) 2018 Microchip Technology Inc. and its subsidiaries. 
-    
-    Subject to your compliance with these terms, you may use Microchip software and any 
-    derivatives exclusively with Microchip products. It is your responsibility to comply with third party 
-    license terms applicable to your use of third party software (including open source software) that 
-    may accompany Microchip software.
-    
-    THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER 
-    EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY 
-    IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS 
-    FOR A PARTICULAR PURPOSE.
-    
-    IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, 
-    INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND 
-    WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP 
-    HAS BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO 
-    THE FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL 
-    CLAIMS IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT 
-    OF FEES, IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS 
-    SOFTWARE.
+    (c) 2016 Microchip Technology Inc. and its subsidiaries. You may use this
+    software and any derivatives exclusively with Microchip products.
+
+    THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER
+    EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED
+    WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A
+    PARTICULAR PURPOSE, OR ITS INTERACTION WITH MICROCHIP PRODUCTS, COMBINATION
+    WITH ANY OTHER PRODUCTS, OR USE IN ANY APPLICATION.
+
+    IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE,
+    INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND
+    WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS
+    BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE
+    FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
+    ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
+    THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
+
+    MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE
+    TERMS.
 */
 
-#include "interrupt_manager.h"
-#include "mcc.h"
-
-void  INTERRUPT_Initialize (void)
-{
-    // Disable Interrupt Priority Vectors (16CXXX Compatibility Mode)
-    INTCON0bits.IPEN = 0;
-}
-
-void __interrupt() INTERRUPT_InterruptManager (void)
-{
-    // interrupt handler
-    if(PIE6bits.U2TXIE == 1 && PIR6bits.U2TXIF == 1)
-    {
-        UART2_TxInterruptHandler();
-    }
-    else if(PIE6bits.U2RXIE == 1 && PIR6bits.U2RXIF == 1)
-    {
-        UART2_RxInterruptHandler();
-    }
-    else if(PIE3bits.U1TXIE == 1 && PIR3bits.U1TXIF == 1)
-    {
-        UART1_TxInterruptHandler();
-    }
-    else if(PIE3bits.U1RXIE == 1 && PIR3bits.U1RXIF == 1)
-    {
-        UART1_RxInterruptHandler();
-    }
-    else if(PIE4bits.TMR2IE == 1 && PIR4bits.TMR2IF == 1)
-    {
-        TMR2_ISR();
-    }
-    else
-    {
-        //Unhandled Interrupt
-    }
-}
 /**
- End of File
+    Section: Includes
 */
+#include <xc.h>
+
+/**
+    void INTERRUPT_Initialize (void)
+*/
+void INTERRUPT_Initialize (void)
+{    
+    //    UERI: UART2 Error
+    //    Priority: 1
+    //    SubPriority: 0
+        IPC9bits.U2IP = 1;
+        IPC9bits.U2IS = 0;
+    //    TI: Timer 2
+    //    Priority: 1
+    //    SubPriority: 0
+        IPC2bits.T2IP = 1;
+        IPC2bits.T2IS = 0;
+    //    UERI: UART1 Error
+    //    Priority: 1
+    //    SubPriority: 0
+        IPC8bits.U1IP = 1;
+        IPC8bits.U1IS = 0;
+
+    //  Enable the multi vector
+    INTCONbits.MVEC = 1;
+    //  Enable Global Interrupts 
+    __builtin_mtc0(12,0,(__builtin_mfc0(12,0) | 0x0001));
+
+}

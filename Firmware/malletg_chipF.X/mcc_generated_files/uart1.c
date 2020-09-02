@@ -1,5 +1,5 @@
 /**
-  UART1 Generated Driver File
+  UART1 Generated Driver File 
 
   @Company
     Microchip Technology Inc.
@@ -8,311 +8,430 @@
     uart1.c
 
   @Summary
-    This is the generated driver implementation file for the UART1 driver using PIC10 / PIC12 / PIC16 / PIC18 MCUs
+    This is the generated source file for the UART1 driver using PIC32MX MCUs
 
   @Description
-    This source file provides APIs for UART1.
-    Generation Information :
-        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.81.4
-        Device            :  PIC18F25K42
-        Driver Version    :  2.4.0
+    This source file provides APIs for driver for UART1. 
+    Generation Information : 
+        Product Revision  :  PIC32MX MCUs - pic32mx : v1.35
+        Device            :  PIC32MX210F016B
+        Driver Version    :  0.5
     The generated drivers are tested against the following:
-        Compiler          :  XC8 2.20 and above
-        MPLAB             :  MPLAB X 5.40
+        Compiler          :  XC32 1.42
+        MPLAB 	          :  MPLAB X 3.55
 */
 
 /*
-    (c) 2018 Microchip Technology Inc. and its subsidiaries. 
-    
-    Subject to your compliance with these terms, you may use Microchip software and any 
-    derivatives exclusively with Microchip products. It is your responsibility to comply with third party 
-    license terms applicable to your use of third party software (including open source software) that 
-    may accompany Microchip software.
-    
-    THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER 
-    EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY 
-    IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS 
-    FOR A PARTICULAR PURPOSE.
-    
-    IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, 
-    INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND 
-    WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP 
-    HAS BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO 
-    THE FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL 
-    CLAIMS IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT 
-    OF FEES, IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS 
-    SOFTWARE.
+    (c) 2016 Microchip Technology Inc. and its subsidiaries. You may use this
+    software and any derivatives exclusively with Microchip products.
+
+    THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER
+    EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED
+    WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A
+    PARTICULAR PURPOSE, OR ITS INTERACTION WITH MICROCHIP PRODUCTS, COMBINATION
+    WITH ANY OTHER PRODUCTS, OR USE IN ANY APPLICATION.
+
+    IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE,
+    INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND
+    WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS
+    BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE
+    FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
+    ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
+    THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
+
+    MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE
+    TERMS.
 */
 
 /**
   Section: Included Files
 */
-#include <xc.h>
+
 #include "uart1.h"
 
 /**
-  Section: Macro Declarations
+  Section: Data Type Definitions
 */
-#define UART1_TX_BUFFER_SIZE 8
-#define UART1_RX_BUFFER_SIZE 64
+
+/** UART Driver Queue Status
+
+  @Summary
+    Defines the object required for the status of the queue.
+*/
+
+typedef union
+{
+    struct
+    {
+            uint8_t full:1;
+            uint8_t empty:1;
+            uint8_t reserved:6;
+    }s;
+    uint8_t status;
+}
+
+UART_BYTEQ_STATUS;
+
+/** UART Driver Hardware Instance Object
+
+  @Summary
+    Defines the object required for the maintenance of the hardware instance.
+
+*/
+typedef struct
+{
+    /* RX Byte Q */
+    uint8_t                                      *rxTail ;
+
+    uint8_t                                      *rxHead ;
+
+    /* TX Byte Q */
+    uint8_t                                      *txTail ;
+
+    uint8_t                                      *txHead ;
+
+    UART_BYTEQ_STATUS                        rxStatus ;
+
+    UART_BYTEQ_STATUS                        txStatus ;
+
+} UART_OBJECT ;
+
+static UART_OBJECT uart1_obj ;
+
+/** UART Driver Queue Length
+
+  @Summary
+    Defines the length of the Transmit and Receive Buffers
+
+*/
+
+#define UART1_CONFIG_TX_BYTEQ_LENGTH 64
+#define UART1_CONFIG_RX_BYTEQ_LENGTH 8
+
+
+/** UART Driver Queue
+
+  @Summary
+    Defines the Transmit and Receive Buffers
+
+*/
+
+static uint8_t uart1_txByteQ[UART1_CONFIG_TX_BYTEQ_LENGTH] ;
+static uint8_t uart1_rxByteQ[UART1_CONFIG_RX_BYTEQ_LENGTH] ;
+
+/** UART Hardware FIFO Buffer Length
+
+  @Summary
+    Defines the length of the Transmit and Receive FIFOs
+ 
+*/
+
+#define UART1_TX_FIFO_LENGTH 1
+#define UART1_RX_FIFO_LENGTH 1 
 
 /**
-  Section: Global Variables
+  Section: Driver Interface
 */
 
-static volatile uint8_t uart1TxHead = 0;
-static volatile uint8_t uart1TxTail = 0;
-static volatile uint8_t uart1TxBuffer[UART1_TX_BUFFER_SIZE];
-volatile uint8_t uart1TxBufferRemaining;
 
-static volatile uint8_t uart1RxHead = 0;
-static volatile uint8_t uart1RxTail = 0;
-static volatile uint8_t uart1RxBuffer[UART1_RX_BUFFER_SIZE];
-static volatile uart1_status_t uart1RxStatusBuffer[UART1_RX_BUFFER_SIZE];
-volatile uint8_t uart1RxCount;
-static volatile uart1_status_t uart1RxLastError;
+void UART1_Initialize (void)
+{
+   // STSEL 1S; IREN disabled; PDSEL 8N; RTSMD disabled; RXINV disabled; SIDL disabled; WAKE disabled; ABAUD disabled; LPBACK disabled; BRGH enabled; UEN TX_RX; ON enabled; 
+   U1MODE = 0x8008;
+   // UTXISEL TX_ONE_CHAR; UTXINV disabled; ADDR 0; URXEN disabled; OERR disabled; ADM_EN disabled; URXISEL RX_ONE_CHAR; UTXBRK disabled; UTXEN disabled; ADDEN disabled; 
+   U1STA = 0x0;
+   // U1TXREG 0; 
+   U1TXREG = 0x0;
+   // BaudRate = 31250; Frequency = 3750000 Hz; BRG 29; 
+   U1BRG = 0x1D;
+
+   IEC1bits.U1RXIE = 1;
+
+   U1STAbits.UTXEN = 1;
+   U1STAbits.URXEN = 1;
+
+   //Enabling UART
+   U1MODEbits.ON = 1;
+
+   uart1_obj.txHead = uart1_txByteQ;
+   uart1_obj.txTail = uart1_txByteQ;
+   uart1_obj.rxHead = uart1_rxByteQ;
+   uart1_obj.rxTail = uart1_rxByteQ;
+   uart1_obj.rxStatus.s.empty = true;
+   uart1_obj.txStatus.s.empty = true;
+   uart1_obj.txStatus.s.full = false;
+   uart1_obj.rxStatus.s.full = false;
+}
+
+
+
 
 /**
-  Section: UART1 APIs
+    Maintains the driver's transmitter/receiver/error state machine and implements its ISR
 */
-void (*UART1_FramingErrorHandler)(void);
-void (*UART1_OverrunErrorHandler)(void);
-void (*UART1_ErrorHandler)(void);
-
-void UART1_DefaultFramingErrorHandler(void);
-void UART1_DefaultOverrunErrorHandler(void);
-void UART1_DefaultErrorHandler(void);
-
-void UART1_Initialize(void)
-{
-    // Disable interrupts before changing states
-    PIE3bits.U1RXIE = 0;
-    UART1_SetRxInterruptHandler(UART1_Receive_ISR);
-    PIE3bits.U1TXIE = 0;
-    UART1_SetTxInterruptHandler(UART1_Transmit_ISR);
-
-    // Set the UART1 module to the options selected in the user interface.
-
-    // P1L 0; 
-    U1P1L = 0x00;
-
-    // P1H 0; 
-    U1P1H = 0x00;
-
-    // P2L 15; 
-    U1P2L = 0x0F;
-
-    // P2H 0; 
-    U1P2H = 0x00;
-
-    // P3L 0; 
-    U1P3L = 0x00;
-
-    // P3H 0; 
-    U1P3H = 0x00;
-
-    // BRGS high speed; MODE Asynchronous 9-bit mode; RXEN enabled; TXEN enabled; ABDEN disabled; 
-    U1CON0 = 0xB4;
-
-    // RXBIMD Set RXBKIF on rising RX input; BRKOVR disabled; WUE disabled; SENDB disabled; ON enabled; 
-    U1CON1 = 0x80;
-
-    // TXPOL not inverted; FLO off; C0EN Checksum Mode 0; RXPOL not inverted; RUNOVF RX input shifter stops all activity; STP Transmit 1Stop bit, receiver verifies first Stop bit; 
-    U1CON2 = 0x00;
-
-    // BRGL 63; 
-    U1BRGL = 0x3F;
-
-    // BRGH 0; 
-    U1BRGH = 0x00;
-
-    // STPMD in middle of first Stop bit; TXWRE No error; 
-    U1FIFO = 0x00;
-
-    // ABDIF Auto-baud not enabled or not complete; WUIF WUE not enabled by software; ABDIE disabled; 
-    U1UIR = 0x00;
-
-    // ABDOVF Not overflowed; TXCIF 0; RXBKIF No Break detected; RXFOIF not overflowed; CERIF No Checksum error; 
-    U1ERRIR = 0x00;
-
-    // TXCIE disabled; FERIE disabled; TXMTIE disabled; ABDOVE disabled; CERIE disabled; RXFOIE disabled; PERIE disabled; RXBKIE disabled; 
-    U1ERRIE = 0x00;
-
-
-    UART1_SetFramingErrorHandler(UART1_DefaultFramingErrorHandler);
-    UART1_SetOverrunErrorHandler(UART1_DefaultOverrunErrorHandler);
-    UART1_SetErrorHandler(UART1_DefaultErrorHandler);
-
-    uart1RxLastError.status = 0;
-
-    // initializing the driver state
-    uart1TxHead = 0;
-    uart1TxTail = 0;
-    uart1TxBufferRemaining = sizeof(uart1TxBuffer);
-    uart1RxHead = 0;
-    uart1RxTail = 0;
-    uart1RxCount = 0;
-
-    // enable receive interrupt
-    PIE3bits.U1RXIE = 1;
-}
-
-bool UART1_is_rx_ready(void)
-{
-    return (uart1RxCount ? true : false);
-}
-
-bool UART1_is_tx_ready(void)
-{
-    return (uart1TxBufferRemaining ? true : false);
-}
-
-bool UART1_is_tx_done(void)
-{
-    return U1ERRIRbits.TXMTIF;
-}
-
-uart1_status_t UART1_get_last_status(void){
-    return uart1RxLastError;
-}
-
-uint8_t UART1_Read(void)
-{
-    uint8_t readValue  = 0;
-    
-    while(0 == uart1RxCount)
+void __ISR(_UART_1_VECTOR, IPL1AUTO) _UART_1 ( void )
+{ 
+    if(IFS1bits.U1RXIF)
     {
+        int count = 0;
+
+        while((count < UART1_RX_FIFO_LENGTH) && (U1STAbits.URXDA == 1))
+        {
+            count++;
+
+            *uart1_obj.rxTail = U1RXREG;
+
+            uart1_obj.rxTail++;
+
+            if(uart1_obj.rxTail == (uart1_rxByteQ + UART1_CONFIG_RX_BYTEQ_LENGTH))
+            {
+                uart1_obj.rxTail = uart1_rxByteQ;
+            }
+
+            uart1_obj.rxStatus.s.empty = false;
+        
+            if(uart1_obj.rxTail == uart1_obj.rxHead)
+            {
+                //Sets the flag RX full
+                uart1_obj.rxStatus.s.full = true;
+                break;
+            }
+        }
+        IFS1CLR= 1 << _IFS1_U1RXIF_POSITION;
     }
-
-    uart1RxLastError = uart1RxStatusBuffer[uart1RxTail];
-
-    readValue = uart1RxBuffer[uart1RxTail++];
-   	if(sizeof(uart1RxBuffer) <= uart1RxTail)
+    else if (IFS1bits.U1TXIF)
     {
-        uart1RxTail = 0;
-    }
-    PIE3bits.U1RXIE = 0;
-    uart1RxCount--;
-    PIE3bits.U1RXIE = 1;
+        if(uart1_obj.txStatus.s.empty)
+        {
+            IEC1bits.U1TXIE = false;
+            return;
+        }
 
-    return readValue;
-}
+        IFS1CLR= 1 << _IFS1_U1TXIF_POSITION;
 
-void UART1_Write(uint8_t txData)
-{
-    while(0 == uart1TxBufferRemaining)
-    {
-    }
+        int count = 0;
+        while((count < UART1_TX_FIFO_LENGTH)&& !(U1STAbits.UTXBF == 1))
+        {
+            count++;
 
-    if(0 == PIE3bits.U1TXIE)
-    {
-        U1TXB = txData;
+            U1TXREG = *uart1_obj.txHead;
+
+            uart1_obj.txHead++;
+
+            if(uart1_obj.txHead == (uart1_txByteQ + UART1_CONFIG_TX_BYTEQ_LENGTH))
+            {
+                uart1_obj.txHead = uart1_txByteQ;
+            }
+
+            uart1_obj.txStatus.s.full = false;
+
+            if(uart1_obj.txHead == uart1_obj.txTail)
+            {
+                uart1_obj.txStatus.s.empty = true;
+                break;
+            }
+        }
     }
     else
     {
-        PIE3bits.U1TXIE = 0;
-        uart1TxBuffer[uart1TxHead++] = txData;
-        if(sizeof(uart1TxBuffer) <= uart1TxHead)
+        if ((U1STAbits.OERR == 1))
         {
-            uart1TxHead = 0;
+            U1STAbits.OERR = 0;
         }
-        uart1TxBufferRemaining--;
-    }
-    PIE3bits.U1TXIE = 1;
+
+        IFS1CLR= 1 << _IFS1_U1EIF_POSITION;
+    }  
 }
 
-void UART1_SetAddresstoTransmit(uint8_t txAddress)
+/**
+  Section: UART Driver Client Routines
+*/
+
+uint8_t UART1_Read( void)
 {
-    U1P1L = txAddress;
-}
+    uint8_t data = 0;
 
+    data = *uart1_obj.rxHead;
 
+    uart1_obj.rxHead++;
 
-
-
-void UART1_Transmit_ISR(void)
-{
-    // use this default transmit interrupt handler code
-    if(sizeof(uart1TxBuffer) > uart1TxBufferRemaining)
+    if (uart1_obj.rxHead == (uart1_rxByteQ + UART1_CONFIG_RX_BYTEQ_LENGTH))
     {
-        U1TXB = uart1TxBuffer[uart1TxTail++];
-       if(sizeof(uart1TxBuffer) <= uart1TxTail)
+        uart1_obj.rxHead = uart1_rxByteQ;
+    }
+
+    if (uart1_obj.rxHead == uart1_obj.rxTail)
+    {
+        uart1_obj.rxStatus.s.empty = true;
+    }
+
+    uart1_obj.rxStatus.s.full = false;
+
+    return data;
+}
+
+
+unsigned int UART1_ReadBuffer( uint8_t *buffer, const unsigned int bufLen)
+{
+    unsigned int numBytesRead = 0 ;
+    while ( numBytesRead < ( bufLen ))
+    {
+        if( uart1_obj.rxStatus.s.empty)
         {
-            uart1TxTail = 0;
+            break;
         }
-        uart1TxBufferRemaining++;
+        else
+        {
+            buffer[numBytesRead++] = UART1_Read () ;
+        }
+    }
+
+    return numBytesRead ;
+}
+
+
+
+void UART1_Write( const uint8_t byte)
+{
+    IEC1bits.U1TXIE = false;
+    
+    *uart1_obj.txTail = byte;
+
+    uart1_obj.txTail++;
+    
+    if (uart1_obj.txTail == (uart1_txByteQ + UART1_CONFIG_TX_BYTEQ_LENGTH))
+    {
+        uart1_obj.txTail = uart1_txByteQ;
+    }
+
+    uart1_obj.txStatus.s.empty = false;
+
+    if (uart1_obj.txHead == uart1_obj.txTail)
+    {
+        uart1_obj.txStatus.s.full = true;
+    }
+
+    IEC1bits.U1TXIE = true ;
+	
+}
+
+
+unsigned int UART1_WriteBuffer( const uint8_t *buffer , const unsigned int bufLen )
+{
+    unsigned int numBytesWritten = 0 ;
+
+    while ( numBytesWritten < ( bufLen ))
+    {
+        if((uart1_obj.txStatus.s.full))
+        {
+            break;
+        }
+        else
+        {
+            UART1_Write (buffer[numBytesWritten++] ) ;
+        }
+    }
+
+    return numBytesWritten ;
+
+}
+
+
+UART1_TRANSFER_STATUS UART1_TransferStatusGet (void )
+{
+    UART1_TRANSFER_STATUS status = 0;
+
+    if(uart1_obj.txStatus.s.full)
+    {
+        status |= UART1_TRANSFER_STATUS_TX_FULL;
+    }
+
+    if(uart1_obj.txStatus.s.empty)
+    {
+        status |= UART1_TRANSFER_STATUS_TX_EMPTY;
+    }
+
+    if(uart1_obj.rxStatus.s.full)
+    {
+        status |= UART1_TRANSFER_STATUS_RX_FULL;
+    }
+
+    if(uart1_obj.rxStatus.s.empty)
+    {
+        status |= UART1_TRANSFER_STATUS_RX_EMPTY;
     }
     else
     {
-        PIE3bits.U1TXIE = 0;
+        status |= UART1_TRANSFER_STATUS_RX_DATA_PRESENT;
     }
-    
-    // or set custom function using UART1_SetTxInterruptHandler()
+    return status;
 }
 
-void UART1_Receive_ISR(void)
+
+uint8_t UART1_Peek(uint16_t offset)
 {
-    // use this default receive interrupt handler code
-    uart1RxStatusBuffer[uart1RxHead].status = 0;
-
-    if(U1ERRIRbits.FERIF){
-        uart1RxStatusBuffer[uart1RxHead].ferr = 1;
-        UART1_FramingErrorHandler();
-    }
-    
-    if(U1ERRIRbits.RXFOIF){
-        uart1RxStatusBuffer[uart1RxHead].oerr = 1;
-        UART1_OverrunErrorHandler();
-    }
-    
-    if(uart1RxStatusBuffer[uart1RxHead].status){
-        UART1_ErrorHandler();
-    } else {
-        UART1_RxDataHandler();
-    }
-
-    // or set custom function using UART1_SetRxInterruptHandler()
-}
-
-void UART1_RxDataHandler(void){
-    // use this default receive interrupt handler code
-    uart1RxBuffer[uart1RxHead++] = U1RXB;
-    if(sizeof(uart1RxBuffer) <= uart1RxHead)
+    if( (uart1_obj.rxHead + offset) > (uart1_rxByteQ + UART1_CONFIG_RX_BYTEQ_LENGTH))
     {
-        uart1RxHead = 0;
+      return uart1_rxByteQ[offset - (uart1_rxByteQ + UART1_CONFIG_RX_BYTEQ_LENGTH - uart1_obj.rxHead)];
     }
-    uart1RxCount++;
-}
-
-void UART1_DefaultFramingErrorHandler(void){}
-
-void UART1_DefaultOverrunErrorHandler(void){}
-
-void UART1_DefaultErrorHandler(void){
-    UART1_RxDataHandler();
-}
-
-void UART1_SetFramingErrorHandler(void (* interruptHandler)(void)){
-    UART1_FramingErrorHandler = interruptHandler;
-}
-
-void UART1_SetOverrunErrorHandler(void (* interruptHandler)(void)){
-    UART1_OverrunErrorHandler = interruptHandler;
-}
-
-void UART1_SetErrorHandler(void (* interruptHandler)(void)){
-    UART1_ErrorHandler = interruptHandler;
+    else
+    {
+      return *(uart1_obj.rxHead + offset);
+    }
 }
 
 
-
-void UART1_SetRxInterruptHandler(void (* InterruptHandler)(void)){
-    UART1_RxInterruptHandler = InterruptHandler;
+unsigned int UART1_ReceiveBufferSizeGet(void)
+{
+    if(!uart1_obj.rxStatus.s.full)
+    {
+        if(uart1_obj.rxHead > uart1_obj.rxTail)
+        {
+            return(uart1_obj.rxHead - uart1_obj.rxTail);
+        }
+        else
+        {
+            return(UART1_CONFIG_RX_BYTEQ_LENGTH - (uart1_obj.rxTail - uart1_obj.rxHead));
+        } 
+    }
+    return 0;
 }
 
-void UART1_SetTxInterruptHandler(void (* InterruptHandler)(void)){
-    UART1_TxInterruptHandler = InterruptHandler;
+
+unsigned int UART1_TransmitBufferSizeGet(void)
+{
+    if(!uart1_obj.txStatus.s.full)
+    { 
+        if(uart1_obj.txHead > uart1_obj.txTail)
+        {
+            return(uart1_obj.txHead - uart1_obj.txTail);
+        }
+        else
+        {
+            return(UART1_CONFIG_TX_BYTEQ_LENGTH - (uart1_obj.txTail - uart1_obj.txHead));
+        }
+    }
+    return 0;
 }
+
+
+bool UART1_ReceiveBufferIsEmpty (void)
+{
+    return(uart1_obj.rxStatus.s.empty);
+}
+
+
+bool UART1_TransmitBufferIsFull(void)
+{
+    return(uart1_obj.txStatus.s.full);
+}
+
+
+UART1_STATUS UART1_StatusGet (void)
+{
+    return U1STA;
+}
+
 
 
 /**

@@ -1,135 +1,109 @@
 /**
-  Generated Pin Manager File
+  System Interrupts Generated Driver File 
 
-  Company:
+  @Company:
     Microchip Technology Inc.
 
-  File Name:
+  @File Name:
     pin_manager.c
 
-  Summary:
-    This is the Pin Manager file generated using PIC10 / PIC12 / PIC16 / PIC18 MCUs
+  @Summary:
+    This is the generated manager file for the MPLAB(c) Code Configurator device.  This manager
+    configures the pins direction, initial state, analog setting.
+    The peripheral pin select, PPS, configuration is also handled by this manager.
 
-  Description:
-    This header file provides implementations for pin APIs for all pins selected in the GUI.
-    Generation Information :
-        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.81.4
-        Device            :  PIC18F25K42
-        Driver Version    :  2.11
+  @Description:
+    This source file provides implementations for MPLAB(c) Code Configurator interrupts.
+    Generation Information : 
+        Product Revision  :  MPLAB(c) Code Configurator - 4.85.0
+        Device            :  PIC32MX210F016B
+        Version           :  1.02
     The generated drivers are tested against the following:
-        Compiler          :  XC8 2.20 and above
-        MPLAB             :  MPLAB X 5.40
+        Compiler          :  XC32 1.42
+        MPLAB             :  MPLAB X 3.55
 
     Copyright (c) 2013 - 2015 released Microchip Technology Inc.  All rights reserved.
+
+    Microchip licenses to you the right to use, modify, copy and distribute
+    Software only when embedded on a Microchip microcontroller or digital signal
+    controller that is integrated into your product or third party product
+    (pursuant to the sublicense terms in the accompanying license agreement).
+
+    You should refer to the license agreement accompanying this Software for
+    additional information regarding your rights and obligations.
+
+    SOFTWARE AND DOCUMENTATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND,
+    EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF
+    MERCHANTABILITY, TITLE, NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE.
+    IN NO EVENT SHALL MICROCHIP OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER
+    CONTRACT, NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR
+    OTHER LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+    INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE OR
+    CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT OF
+    SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+    (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+
 */
 
-/*
-    (c) 2018 Microchip Technology Inc. and its subsidiaries. 
-    
-    Subject to your compliance with these terms, you may use Microchip software and any 
-    derivatives exclusively with Microchip products. It is your responsibility to comply with third party 
-    license terms applicable to your use of third party software (including open source software) that 
-    may accompany Microchip software.
-    
-    THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER 
-    EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY 
-    IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS 
-    FOR A PARTICULAR PURPOSE.
-    
-    IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, 
-    INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND 
-    WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP 
-    HAS BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO 
-    THE FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL 
-    CLAIMS IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT 
-    OF FEES, IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS 
-    SOFTWARE.
-*/
-
-#include "pin_manager.h"
-
-
-
-
-
-void PIN_MANAGER_Initialize(void)
-{
-    /**
-    LATx registers
-    */
-    LATA = 0x00;
-    LATB = 0x00;
-    LATC = 0x00;
-
-    /**
-    TRISx registers
-    */
-    TRISA = 0xFF;
-    TRISB = 0xF7;
-    TRISC = 0x9F;
-
-    /**
-    ANSELx registers
-    */
-    ANSELC = 0x60;
-    ANSELB = 0x88;
-    ANSELA = 0x00;
-
-    /**
-    WPUx registers
-    */
-    WPUE = 0x00;
-    WPUB = 0x77;
-    WPUA = 0xFF;
-    WPUC = 0x1F;
-
-    /**
-    RxyI2C registers
-    */
-    RB1I2C = 0x00;
-    RB2I2C = 0x00;
-    RC3I2C = 0x00;
-    RC4I2C = 0x00;
-
-    /**
-    ODx registers
-    */
-    ODCONA = 0x00;
-    ODCONB = 0x00;
-    ODCONC = 0x00;
-
-    /**
-    SLRCONx registers
-    */
-    SLRCONA = 0xFF;
-    SLRCONB = 0xFF;
-    SLRCONC = 0xFF;
-
-    /**
-    INLVLx registers
-    */
-    INLVLA = 0xFF;
-    INLVLB = 0xFF;
-    INLVLC = 0xFF;
-    INLVLE = 0x08;
-
-
-
-
-
-   
-    
-	
-    U2RXPPS = 0x0C;   //RB4->UART2:RX2;    
-    RB3PPS = 0x16;   //RB3->UART2:TX2;    
-    RC5PPS = 0x13;   //RC5->UART1:TX1;    
-    U1RXPPS = 0x17;   //RC7->UART1:RX1;    
-}
-  
-void PIN_MANAGER_IOC(void)
-{   
-}
 
 /**
- End of File
+    Section: Includes
 */
+#include <xc.h>
+#include <sys/attribs.h>
+#include "pin_manager.h"
+#include "mcc.h"
+
+/**
+    void PIN_MANAGER_Initialize(void)
+*/
+void PIN_MANAGER_Initialize(void)
+{
+    /****************************************************************************
+     * Setting the Output Latch SFR(s)
+     ***************************************************************************/
+    LATA = 0x0000;
+    LATB = 0x0000;
+
+    /****************************************************************************
+     * Setting the GPIO Direction SFR(s)
+     ***************************************************************************/
+    TRISA = 0x0003;
+    TRISB = 0x4C20;
+
+    /****************************************************************************
+     * Setting the Weak Pull Up and Weak Pull Down SFR(s)
+     ***************************************************************************/
+    CNPDA = 0x0000;
+    CNPDB = 0x0000;
+    CNPUA = 0x0000;
+    CNPUB = 0x0000;
+
+    /****************************************************************************
+     * Setting the Open Drain SFR(s)
+     ***************************************************************************/
+    ODCA = 0x0000;
+    ODCB = 0x0080;
+
+    /****************************************************************************
+     * Setting the Analog/Digital Configuration SFR(s)
+     ***************************************************************************/
+    ANSELA = 0x0000;
+    ANSELB = 0xA00F;
+
+    /****************************************************************************
+     * Set the PPS
+     ***************************************************************************/
+    SYSTEM_RegUnlock(); // unlock PPS
+    CFGCONbits.IOLOCK = 0;
+
+    RPA3Rbits.RPA3R = 0x0002;   //RA3->UART2:U2TX;
+    RPB7Rbits.RPB7R = 0x0001;   //RB7->UART1:U1TX;
+    U2RXRbits.U2RXR = 0x0001;   //RB5->UART2:U2RX;
+
+    CFGCONbits.IOLOCK = 1; // lock   PPS
+    SYSTEM_RegLock(); 
+
+    
+}
+

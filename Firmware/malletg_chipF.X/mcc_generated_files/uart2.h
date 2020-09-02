@@ -1,5 +1,5 @@
 /**
-  UART2 Generated Driver API Header File
+  UART2 Generated Driver API Header File 
 
   @Company
     Microchip Technology Inc.
@@ -8,579 +8,616 @@
     uart2.h
 
   @Summary
-    This is the generated header file for the UART2 driver using PIC10 / PIC12 / PIC16 / PIC18 MCUs
+    This is the generated header file for the UART2 driver using PIC32MX MCUs
 
   @Description
-    This header file provides APIs for driver for UART2.
-    Generation Information :
-        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.81.4
-        Device            :  PIC18F25K42
-        Driver Version    :  2.4.0
+    This header file provides APIs for driver for UART2. 
+    Generation Information : 
+        Product Revision  :  PIC32MX MCUs - pic32mx : v1.35
+        Device            :  PIC32MX210F016B
+        Driver Version    :  0.5
     The generated drivers are tested against the following:
-        Compiler          :  XC8 2.20 and above
-        MPLAB             :  MPLAB X 5.40
+        Compiler          :  XC32 1.42
+        MPLAB 	          :  MPLAB X 3.55
 */
 
 /*
-    (c) 2018 Microchip Technology Inc. and its subsidiaries. 
-    
-    Subject to your compliance with these terms, you may use Microchip software and any 
-    derivatives exclusively with Microchip products. It is your responsibility to comply with third party 
-    license terms applicable to your use of third party software (including open source software) that 
-    may accompany Microchip software.
-    
-    THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER 
-    EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY 
-    IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS 
-    FOR A PARTICULAR PURPOSE.
-    
-    IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, 
-    INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND 
-    WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP 
-    HAS BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO 
-    THE FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL 
-    CLAIMS IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT 
-    OF FEES, IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS 
-    SOFTWARE.
+    (c) 2016 Microchip Technology Inc. and its subsidiaries. You may use this
+    software and any derivatives exclusively with Microchip products.
+
+    THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER
+    EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED
+    WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A
+    PARTICULAR PURPOSE, OR ITS INTERACTION WITH MICROCHIP PRODUCTS, COMBINATION
+    WITH ANY OTHER PRODUCTS, OR USE IN ANY APPLICATION.
+
+    IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE,
+    INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND
+    WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS
+    BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE
+    FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
+    ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
+    THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
+
+    MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE
+    TERMS.
 */
 
-#ifndef UART2_H
-#define UART2_H
+#ifndef _UART2_H
+#define _UART2_H
 
 /**
-  Section: Included Files
+ Section: Included Files
 */
 
 #include <xc.h>
 #include <stdbool.h>
 #include <stdint.h>
-
+#include <stdlib.h>
+#include <sys/attribs.h>
 #ifdef __cplusplus  // Provide C++ Compatibility
 
     extern "C" {
 
 #endif
-
+        
 /**
-  Section: Macro Declarations
+  Section: Data Types
 */
 
-#define UART2_DataReady  (UART2_is_rx_ready())
+/** UART2 Driver Hardware Flags
 
-/**
-  Section: Data Type Definitions
+  @Summary
+    Specifies the status of the hardware receive or transmit
+
+  @Description
+    This type specifies the status of the hardware receive or transmit.
+    More than one of these values may be OR'd together to create a complete
+    status value.  To test a value of this type, the bit of interest must be
+    AND'ed with value and checked to see if the result is non-zero.
+*/
+typedef enum
+{
+    /* Indicates that Receive buffer has data, at least one more character can be read */
+    UART2_RX_DATA_AVAILABLE
+        /*DOM-IGNORE-BEGIN*/  = (1 << 0) /*DOM-IGNORE-END*/,
+    
+    /* Indicates that Receive buffer has overflowed */
+    UART2_RX_OVERRUN_ERROR
+        /*DOM-IGNORE-BEGIN*/  = (1 << 1) /*DOM-IGNORE-END*/,
+
+    /* Indicates that Framing error has been detected for the current character */
+    UART2_FRAMING_ERROR
+        /*DOM-IGNORE-BEGIN*/  = (1 << 2) /*DOM-IGNORE-END*/,
+
+    /* Indicates that Parity error has been detected for the current character */
+    UART2_PARITY_ERROR
+        /*DOM-IGNORE-BEGIN*/  = (1 << 3) /*DOM-IGNORE-END*/,
+
+    /* Indicates that Receiver is Idle */
+    UART2_RECEIVER_IDLE
+        /*DOM-IGNORE-BEGIN*/  = (1 << 4) /*DOM-IGNORE-END*/,
+
+    /* Indicates that the last transmission has completed */
+    UART2_TX_COMPLETE
+        /*DOM-IGNORE-BEGIN*/  = (1 << 8) /*DOM-IGNORE-END*/,
+
+    /* Indicates that Transmit buffer is full */
+    UART2_TX_FULL
+        /*DOM-IGNORE-BEGIN*/  = (1 << 9) /*DOM-IGNORE-END*/
+
+}UART2_STATUS;
+
+
+
+/** UART2 Driver Transfer Flags
+
+  @Summary
+    Specifies the status of the receive or transmit
+
+  @Description
+    This type specifies the status of the receive or transmit operation.
+    More than one of these values may be OR'd together to create a complete
+    status value.  To test a value of this type, the bit of interest must be
+    AND'ed with value and checked to see if the result is non-zero.
 */
 
-typedef union {
-    struct {
-        unsigned perr : 1;
-        unsigned ferr : 1;
-        unsigned oerr : 1;
-        unsigned reserved : 5;
-    };
-    uint8_t status;
-}uart2_status_t;
+typedef enum
+{
+    /* Indicates that the core driver buffer is full */
+    UART2_TRANSFER_STATUS_RX_FULL
+        /*DOM-IGNORE-BEGIN*/  = (1 << 0) /*DOM-IGNORE-END*/,
+
+    /* Indicates that at least one byte of Data has been received */
+    UART2_TRANSFER_STATUS_RX_DATA_PRESENT
+        /*DOM-IGNORE-BEGIN*/  = (1 << 1) /*DOM-IGNORE-END*/,
+
+    /* Indicates that the core driver receiver buffer is empty */
+    UART2_TRANSFER_STATUS_RX_EMPTY
+        /*DOM-IGNORE-BEGIN*/  = (1 << 2) /*DOM-IGNORE-END*/,
+
+    /* Indicates that the core driver transmitter buffer is full */
+    UART2_TRANSFER_STATUS_TX_FULL
+        /*DOM-IGNORE-BEGIN*/  = (1 << 3) /*DOM-IGNORE-END*/,
+
+    /* Indicates that the core driver transmitter buffer is empty */
+    UART2_TRANSFER_STATUS_TX_EMPTY
+        /*DOM-IGNORE-BEGIN*/  = (1 << 4) /*DOM-IGNORE-END*/
+
+} UART2_TRANSFER_STATUS;
+
 
 /**
- Section: Global variables
- */
-extern volatile uint8_t uart2TxBufferRemaining;
-extern volatile uint8_t uart2RxCount;
-
-/**
-  Section: UART2 APIs
+  Section: UART2 Driver Routines
 */
+
 
 /**
   @Summary
-    Initialization routine that takes inputs from the UART2 GUI.
+    Initializes the UART instance : 2
 
   @Description
-    This routine initializes the UART2 driver.
-    This routine must be called before any other UART2 routine is called.
-
+    This routine initializes the UART driver instance for : 2
+    index.
+    This routine must be called before any other UART routine is called.
+    
   @Preconditions
-    None
-
-  @Param
-    None
+    None.
 
   @Returns
-    None
+    None.
+
+  @Param
+    None.
 
   @Comment
-
+    
+ 
   @Example
+    <code>
+        const uint8_t writeBuffer[35] = "1234567890ABCDEFGHIJKLMNOP\n" ;
+        unsigned int numBytes = 0;
+        int  writebufferLen = strlen((char *)writeBuffer);
+        UART2_Initialize();
+        while(numBytes < writebufferLen)
+        {    
+            int bytesToWrite = UART2_TransmitBufferSizeGet();
+            numBytes = UART2_WriteBuffer ( writeBuffer+numBytes, bytesToWrite)  ;
+            UART2_TasksTransmit ( );
+            if (!UART2_TransmitBufferisFull())
+            {
+                //continue other operation
+            }
+        }
+    </code>
+
 */
+
 void UART2_Initialize(void);
 
 /**
   @Summary
-    Checks if the UART2 receiver ready for reading
-
-  @Description
-    This routine checks if UART2 receiver has received data 
-    and ready to be read
-
-  @Preconditions
-    UART2_Initialize() function should be called
-    before calling this function
-    UART2 receiver should be enabled before calling this 
-    function
-
-  @Param
-    None
-
-  @Returns
-    Status of UART2 receiver
-    TRUE: UART2 receiver is ready for reading
-    FALSE: UART2 receiver is not ready for reading
-    
-  @Example
-    <code>
-    void main(void)
-    {
-        volatile uint8_t rxData;
-        
-        // Initialize the device
-        SYSTEM_Initialize();
-        
-        while(1)
-        {
-            // Logic to echo received data
-            if(UART2_is_rx_ready())
-            {
-                rxData = UART2_Read();
-                if(UART2_is_tx_ready())
-                {
-                    UART2_Write(rxData);
-                }
-            }
-        }
-    }
-    </code>
-*/
-bool UART2_is_rx_ready(void);
-
-/**
-  @Summary
-    Checks if the UART2 transmitter is ready to transmit data
-
-  @Description
-    This routine checks if UART2 transmitter is ready 
-    to accept and transmit data byte
-
-  @Preconditions
-    UART2_Initialize() function should have been called
-    before calling this function.
-    UART2 transmitter should be enabled before calling 
-    this function
-
-  @Param
-    None
-
-  @Returns
-    Status of UART2 transmitter
-    TRUE: UART2 transmitter is ready
-    FALSE: UART2 transmitter is not ready
-    
-  @Example
-    <code>
-    void main(void)
-    {
-        volatile uint8_t rxData;
-        
-        // Initialize the device
-        SYSTEM_Initialize();
-        
-        while(1)
-        {
-            // Logic to echo received data
-            if(UART2_is_rx_ready())
-            {
-                rxData = UART2_Read();
-                if(UART2_is_tx_ready())
-                {
-                    UART2_Write(rxData);
-                }
-            }
-        }
-    }
-    </code>
-*/
-bool UART2_is_tx_ready(void);
-
-/**
-  @Summary
-    Checks if UART2 data is transmitted
-
-  @Description
-    This function return the status of transmit shift register
-
-  @Preconditions
-    UART2_Initialize() function should be called
-    before calling this function
-    UART2 transmitter should be enabled and UART2_Write
-    should be called before calling this function
-
-  @Param
-    None
-
-  @Returns
-    Status of UART2 transmit shift register
-    TRUE: Data completely shifted out if the UART shift register
-    FALSE: Data is not completely shifted out of the shift register
-    
-  @Example
-    <code>
-    void main(void)
-    {
-        volatile uint8_t rxData;
-        
-        // Initialize the device
-        SYSTEM_Initialize();
-        
-        while(1)
-        {
-            if(UART2_is_tx_ready())
-            {
-                LED_0_SetHigh();
-                UART2Write(rxData);
-            }
-            if(UART2_is_tx_done()
-            {
-                LED_0_SetLow();
-            }
-        }
-    }
-    </code>
-*/
-bool UART2_is_tx_done(void);
-
-/**
-  @Summary
-    Gets the error status of the last read byte.
-
-  @Description
-    This routine gets the error status of the last read byte.
-
-  @Preconditions
-    UART2_Initialize() function should have been called
-    before calling this function. The returned value is only
-    updated after a read is called.
-
-  @Param
-    None
-
-  @Returns
-    the status of the last read byte
-
-  @Example
-	<code>
-    void main(void)
-    {
-        volatile uint8_t rxData;
-        volatile uart2_status_t rxStatus;
-        
-        // Initialize the device
-        SYSTEM_Initialize();
-        
-        // Enable the Global Interrupts
-        INTERRUPT_GlobalInterruptEnable();
-        
-        while(1)
-        {
-            // Logic to echo received data
-            if(UART2_is_rx_ready())
-            {
-                rxData = UART2_Read();
-                rxStatus = UART2_get_last_status();
-                if(rxStatus.ferr){
-                    LED_0_SetHigh();
-                }
-            }
-        }
-    }
-    </code>
- */
-uart2_status_t UART2_get_last_status(void);
-
-/**
-  @Summary
-    Read a byte of data from the UART2.
+    Read a byte of data from the UART2
 
   @Description
     This routine reads a byte of data from the UART2.
 
   @Preconditions
-    UART2_Initialize() function should have been called
-    before calling this function. The transfer status should be checked to see
+    UART2_Initializer function should have been called 
+    before calling this function. The transfer status should be checked to see 
     if the receiver is not empty before calling this function.
-	
-	UART2_DataReady is a macro which checks if any byte is received.
-	Call this macro before using this function.
 
   @Param
-    None
+    None.
 
   @Returns
     A data byte received by the driver.
-	
+
   @Example
-	<code>
-            void main(void) {
-                            // initialize the device
-                            SYSTEM_Initialize();
-                            uint8_t data;
+    <code>
+    char            myBuffer[MY_BUFFER_SIZE];
+    unsigned int    numBytes;
 
-                            // Enable the Global Interrupts
-                            INTERRUPT_GlobalInterruptEnable();
+    numBytes = 0;
+    do
+    {
+        if( UART2_TRANSFER_STATUS_RX_DATA_PRESENT & UART2_TransferStatusGet() )
+        {
+            myBuffer[numBytes++] = UART2_Read();
+        }
 
-                            // Enable the Peripheral Interrupts
-                            INTERRUPT_PeripheralInterruptEnable();
+        // Do something else...
 
-                            printf("\t\tTEST CODE\n\r");		//Enable redirect STDIO to USART before using printf statements
-                            printf("\t\t---- ----\n\r");
-                            printf("\t\tECHO TEST\n\r");
-                            printf("\t\t---- ----\n\n\r");
-                            printf("Enter any string: ");
-                            do{
-                            data = UART2_Read();		// Read data received
-                            UART2_Write(data);			// Echo back the data received
-                            }while(!UART2_DataReady);		//check if any data is received
-
-                    }
+    } while( numBytes < MY_BUFFER_SIZE);
     </code>
 */
-uint8_t UART2_Read(void);
 
- /**
+uint8_t UART2_Read( void);
+
+/**
   @Summary
-    Writes a byte of data to the UART2.
+    Returns the number of bytes read by the UART2 peripheral
+
+  @Description
+    This routine returns the number of bytes read by the Peripheral and fills the
+    application read buffer with the read data.
+
+  @Preconditions
+    UART2_Initializer function should have been called 
+    before calling this function
+
+  @Param
+    buffer       - Buffer into which the data read from the UART2
+
+  @Param
+    numbytes     - Total number of bytes that need to be read from the UART2
+                   (must be equal to or less than the size of the buffer)
+
+  @Returns
+    Number of bytes actually copied into the caller's buffer or -1 if there
+    is an error.
+
+  @Example
+    <code>
+    char                     myBuffer[MY_BUFFER_SIZE];
+    unsigned int             numBytes;
+    UART2_TRANSFER_STATUS status ;
+
+    // Pre-initialize myBuffer with MY_BUFFER_SIZE bytes of valid data.
+
+    numBytes = 0;
+    while( numBytes < MY_BUFFER_SIZE);
+    {
+        status = UART2_TransferStatusGet ( ) ;
+        if (status & UART2_TRANSFER_STATUS_RX_FULL)
+        {
+            numBytes += UART2_ReadBuffer( myBuffer + numBytes, MY_BUFFER_SIZE - numBytes )  ;
+            if(numBytes < readbufferLen)
+            {
+                continue;
+            }
+            else
+            {
+                break;
+            }
+        }
+        else
+        {
+            continue;
+        }
+
+        // Do something else...
+    }
+    </code>
+*/
+
+unsigned int UART2_ReadBuffer( uint8_t *buffer ,  const unsigned int numbytes);
+
+/**
+  @Summary
+    Writes a byte of data to the UART2
 
   @Description
     This routine writes a byte of data to the UART2.
 
   @Preconditions
-    UART2_Initialize() function should have been called
-    before calling this function. The transfer status should be checked to see
-    if transmitter is not busy before calling this function.
+    UART2_Initializer function should have been called 
+    before calling this function. The transfer status should be checked to see if
+    transmitter is not full before calling this function.
 
   @Param
-    txData  - Data byte to write to the UART2
+    byte         - Data byte to write to the UART2
 
   @Returns
-    None
-  
+    None.
+
   @Example
-      <code>
-          Refer to UART2_Read() for an example	
-      </code>
+    <code>
+    char            myBuffer[MY_BUFFER_SIZE];
+    unsigned int    numBytes;
+
+    // Pre-initialize myBuffer with MY_BUFFER_SIZE bytes of valid data.
+
+    numBytes = 0;
+    while( numBytes < MY_BUFFER_SIZE);
+    {
+        if( !(UART2_TRANSFER_STATUS_TX_FULL & UART2_TransferStatusGet()) )
+        {
+            UART2_Write(handle, myBuffer[numBytes++]);
+        }
+
+        // Do something else...
+    }
+    </code>
 */
-void UART2_Write(uint8_t txData);
+
+void UART2_Write( const uint8_t byte);
 
 /**
   @Summary
-    Maintains the driver's transmitter state machine and implements its ISR.
+    Returns the number of bytes written into the internal buffer
 
   @Description
-    This routine is used to maintain the driver's internal transmitter state
-    machine.This interrupt service routine is called when the state of the
-    transmitter needs to be maintained in a non polled manner.
+    This API transfers the data from application buffer to internal buffer and 
+    returns the number of bytes added in that queue
 
   @Preconditions
-    UART2_Initialize() function should have been called
-    for the ISR to execute correctly.
+    UART2_Initializer function should have been called 
+    before calling this function
 
-  @Param
-    None
+  @Example
+    <code>
+    char                     myBuffer[MY_BUFFER_SIZE];
+    unsigned int             numBytes;
+    UART2_TRANSFER_STATUS status ;
 
-  @Returns
-    None
-*/     
-void UART2_Transmit_ISR(void);
+    // Pre-initialize myBuffer with MY_BUFFER_SIZE bytes of valid data.
 
-/**
-  @Summary
-    Maintains the driver's receiver state machine and implements its ISR
+    numBytes = 0;
+    while( numBytes < MY_BUFFER_SIZE);
+    {
+        status = UART2_TransferStatusGet ( ) ;
+        if (status & UART2_TRANSFER_STATUS_TX_EMPTY)
+        {
+            numBytes += UART2_WriteBuffer ( myBuffer + numBytes, MY_BUFFER_SIZE - numBytes )  ;
+            if(numBytes < writebufferLen)
+            {
+                continue;
+            }
+            else
+            {
+                break;
+            }
+        }
+        else
+        {
+            continue;
+        }
 
-  @Description
-    This routine is used to maintain the driver's internal receiver state
-    machine.This interrupt service routine is called when the state of the
-    receiver needs to be maintained in a non polled manner.
-
-  @Preconditions
-    UART2_Initialize() function should have been called
-    for the ISR to execute correctly.
-
-  @Param
-    None
-
-  @Returns
-    None
-*/       
-void UART2_Receive_ISR(void);
-
-/**
-  @Summary
-    Maintains the driver's receiver state machine
-
-  @Description
-    This routine is called by the receive state routine and is used to maintain 
-    the driver's internal receiver state machine. It should be called by a custom
-    ISR to maintain normal behavior
-
-  @Preconditions
-    UART2_Initialize() function should have been called
-    for the ISR to execute correctly.
-
-  @Param
-    None
-
-  @Returns
-    None
+        // Do something else...
+    }
+    </code>
 */
-void UART2_RxDataHandler(void);
+
+unsigned int UART2_WriteBuffer( const uint8_t *buffer , const unsigned int numbytes );
 
 /**
   @Summary
-    Set UART2 Framing Error Handler
+    Returns the transmitter and receiver transfer status
 
   @Description
-    This API sets the function to be called upon UART2 framing error
+    This returns the transmitter and receiver transfer status.The returned status 
+    may contain a value with more than one of the bits
+    specified in the UART2_TRANSFER_STATUS enumeration set.  
+    The caller should perform an "AND" with the bit of interest and verify if the
+    result is non-zero (as shown in the example) to verify the desired status
+    bit.
 
   @Preconditions
-    Initialize  the UART2 before calling this API
+    UART2_Initializer function should have been called 
+    before calling this function
 
   @Param
-    Address of function to be set as framing error handler
+    None.
 
   @Returns
-    None
+    A UART2_TRANSFER_STATUS value describing the current status 
+    of the transfer.
+
+  @Example
+    Refer to UART2_ReadBuffer and UART2_WriteBuffer for example
+
 */
-void UART2_SetFramingErrorHandler(void (* interruptHandler)(void));
+
+UART2_TRANSFER_STATUS UART2_TransferStatusGet (void );
 
 /**
   @Summary
-    Set UART2 Overrun Error Handler
+    Returns the character in the read sequence at the offset provided, without
+    extracting it
 
   @Description
-    This API sets the function to be called upon UART2 overrun error
-
-  @Preconditions
-    Initialize  the UART2 module before calling this API
-
+    This routine returns the character in the read sequence at the offset provided,
+    without extracting it
+ 
   @Param
-    Address of function to be set as overrun error handler
-
-  @Returns
-    None
+    None.
+    
+  @Example 
+    <code>
+    const uint8_t readBuffer[5];
+    unsigned int data, numBytes = 0;
+    unsigned int readbufferLen = sizeof(readBuffer);
+    UART2_Initializer();
+    
+    while(numBytes < readbufferLen)        
+    {   
+        UART2_TasksReceive ( );
+        //Check for data at a particular place in the buffer
+        data = UART2_Peek(3);
+        if(data == 5)
+        {
+            //discard all other data if byte that is wanted is received.    
+            //continue other operation
+            numBytes += UART2_ReadBuffer ( readBuffer + numBytes , readbufferLen ) ;
+        }
+        else
+        {
+            break;
+        }
+    }
+    </code>
+ 
 */
-void UART2_SetOverrunErrorHandler(void (* interruptHandler)(void));
+
+uint8_t UART2_Peek(uint16_t offset);
 
 /**
   @Summary
-    Set UART2 Error Handler
+    Returns the size of the receive buffer
 
   @Description
-    This API sets the function to be called upon UART2 error
-
-  @Preconditions
-    Initialize  the UART2 module before calling this API
+    This routine returns the size of the receive buffer.
 
   @Param
-    Address of function to be set as error handler
+    None.
 
   @Returns
-    None
+    Size of receive buffer.
+    
+  @Example 
+    <code>
+    const uint8_t readBuffer[5];
+    unsigned int size, numBytes = 0;
+    unsigned int readbufferLen = sizeof(readBuffer);
+    UART2__Initializer();
+    
+    while(size < readbufferLen)
+	{
+	    UART2_TasksReceive ( );
+	    size = UART2_ReceiveBufferSizeGet();
+	}
+    numBytes = UART2_ReadBuffer ( readBuffer , readbufferLen ) ;
+    </code>
+ 
 */
-void UART2_SetErrorHandler(void (* interruptHandler)(void));
 
-
+unsigned int UART2_ReceiveBufferSizeGet(void);
 
 /**
   @Summary
-    UART2 Receive Interrupt Handler
+    Returns the size of the transmit buffer
 
   @Description
-    This is a pointer to the function that will be called upon UART2 receive interrupt
+    This routine returns the size of the transmit buffer.
 
-  @Preconditions
-    Initialize  the UART2 module with receive interrupt enabled
+ @Param
+    None.
+ 
+ @Returns
+    Size of transmit buffer.
 
-  @Param
-    None
-
-  @Returns
-    None
+ @Example
+    Refer to UART2_Initializer(); for example.
 */
-void (*UART2_RxInterruptHandler)(void);
+
+unsigned int UART2_TransmitBufferSizeGet(void);
 
 /**
   @Summary
-    UART2 Transmit Interrupt Handler
+    Returns the status of the receive buffer
 
   @Description
-    This is a pointer to the function that will be called upon UART2 transmit interrupt
-
-  @Preconditions
-    Initialize  the UART2 module with transmit interrupt enabled
+    This routine returns if the receive buffer is empty or not.
 
   @Param
-    None
-
+    None.
+ 
   @Returns
-    None
+    True if the receive buffer is empty
+    False if the receive buffer is not empty
+    
+  @Example
+    <code>
+    char                     myBuffer[MY_BUFFER_SIZE];
+    unsigned int             numBytes;
+    UART2_TRANSFER_STATUS status ;
+
+    // Pre-initialize myBuffer with MY_BUFFER_SIZE bytes of valid data.
+
+    numBytes = 0;
+    while( numBytes < MY_BUFFER_SIZE);
+    {
+        status = UART2_TransferStatusGet ( ) ;
+        if (!UART2_ReceiveBufferIsEmpty())
+        {
+            numBytes += UART2_ReadBuffer( myBuffer + numBytes, MY_BUFFER_SIZE - numBytes )  ;
+            if(numBytes < readbufferLen)
+            {
+                continue;
+            }
+            else
+            {
+                break;
+            }
+        }
+        else
+        {
+            continue;
+        }
+
+        // Do something else...
+    }
+    </code>
+ 
 */
-void (*UART2_TxInterruptHandler)(void);
 
-
+bool UART2_ReceiveBufferIsEmpty (void);
 
 /**
   @Summary
-    Set UART2 Receive Interrupt Handler
+    Returns the status of the transmit buffer
 
   @Description
-    This API sets the function to be called upon UART2 receive interrupt
+    This routine returns if the transmit buffer is full or not.
 
-  @Preconditions
-    Initialize  the UART2 module with receive interrupt enabled before calling this API
+ @Param
+    None.
+ 
+ @Returns
+    True if the transmit buffer is full
+    False if the transmit buffer is not full
 
-  @Param
-    Address of function to be set as receive interrupt handler
-
-  @Returns
-    None
+ @Example
+    Refer to UART2_Initializer() for example.
+ 
 */
-void UART2_SetRxInterruptHandler(void (* InterruptHandler)(void));
+
+bool UART2_TransmitBufferIsFull (void);
 
 /**
   @Summary
-    Set UART2 Transmit Interrupt Handler
+    Returns the transmitter and receiver status
 
   @Description
-    This API sets the function to be called upon UART2 transmit interrupt
+    This returns the transmitter and receiver status. The returned status may 
+    contain a value with more than one of the bits
+    specified in the UART2_STATUS enumeration set.  
+    The caller should perform an "AND" with the bit of interest and verify if the
+    result is non-zero (as shown in the example) to verify the desired status
+    bit.
 
   @Preconditions
-    Initialize  the UART2 module with transmit interrupt enabled before calling this API
+    UART2_Initializer function should have been called 
+    before calling this function
 
   @Param
-    Address of function to be set as transmit interrupt handler
+    None.
 
   @Returns
-    None
+    A UART2_STATUS value describing the current status 
+    of the transfer.
+
+  @Example
+    <code>
+        while(!(UART2_StatusGet & UART2_TX_COMPLETE ))
+        {
+           // Wait for the tranmission to complete
+        }
+    </code>
 */
-void UART2_SetTxInterruptHandler(void (* InterruptHandler)(void));
 
-
+UART2_STATUS UART2_StatusGet (void );
 
 #ifdef __cplusplus  // Provide C++ Compatibility
 
     }
 
 #endif
+    
+#endif  // _UART2_H
 
-#endif  // UART2_H
-/**
- End of File
+/*
+  End of File
 */
+

@@ -1,5 +1,5 @@
 /**
-  Generated Interrupt Manager Header File
+  System Interrupts Generated Driver File 
 
   @Company:
     Microchip Technology Inc.
@@ -8,85 +8,71 @@
     interrupt_manager.h
 
   @Summary:
-    This is the Interrupt Manager file generated using PIC10 / PIC12 / PIC16 / PIC18 MCUs
+    This is the generated driver implementation file for setting up the
+    interrupts using PIC32MX MCUs
 
   @Description:
-    This header file provides implementations for global interrupt handling.
-    For individual peripheral handlers please see the peripheral driver for
-    all modules selected in the GUI.
-    Generation Information :
-        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.81.4
-        Device            :  PIC18F25K42
-        Driver Version    :  2.03
+    This source file provides implementations for PIC32MX MCUs interrupts.
+    Generation Information : 
+        Product Revision  :  PIC32MX MCUs - pic32mx : v1.35
+        Device            :  PIC32MX210F016B
+        Version           :  1.01
     The generated drivers are tested against the following:
-        Compiler          :  XC8 2.20 and above or later
-        MPLAB 	          :  MPLAB X 5.40
+        Compiler          :  XC32 1.42
+        MPLAB             :  MPLAB X 3.55
 */
-
 /*
-    (c) 2018 Microchip Technology Inc. and its subsidiaries. 
-    
-    Subject to your compliance with these terms, you may use Microchip software and any 
-    derivatives exclusively with Microchip products. It is your responsibility to comply with third party 
-    license terms applicable to your use of third party software (including open source software) that 
-    may accompany Microchip software.
-    
-    THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER 
-    EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY 
-    IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS 
-    FOR A PARTICULAR PURPOSE.
-    
-    IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, 
-    INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND 
-    WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP 
-    HAS BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO 
-    THE FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL 
-    CLAIMS IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT 
-    OF FEES, IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS 
-    SOFTWARE.
+    (c) 2016 Microchip Technology Inc. and its subsidiaries. You may use this
+    software and any derivatives exclusively with Microchip products.
+
+    THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER
+    EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED
+    WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A
+    PARTICULAR PURPOSE, OR ITS INTERACTION WITH MICROCHIP PRODUCTS, COMBINATION
+    WITH ANY OTHER PRODUCTS, OR USE IN ANY APPLICATION.
+
+    IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE,
+    INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND
+    WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS
+    BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE
+    FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
+    ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
+    THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
+
+    MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE
+    TERMS.
 */
 
-#ifndef INTERRUPT_MANAGER_H
-#define INTERRUPT_MANAGER_H
-
-
-/**
- * @Param
-    none
- * @Returns
-    none
- * @Description
-    This macro will enable global interrupts.
- * @Example
-    INTERRUPT_GlobalInterruptEnable();
- */
-#define INTERRUPT_GlobalInterruptEnable() (INTCON0bits.GIE = 1)
+#ifndef _INTERRUPT_MANAGER_H
+#define _INTERRUPT_MANAGER_H
 
 /**
- * @Param
-    none
- * @Returns
-    none
- * @Description
-    This macro will disable global interrupts.
- * @Example
-    INTERRUPT_GlobalInterruptDisable();
- */
-#define INTERRUPT_GlobalInterruptDisable() (INTCON0bits.GIE = 0)
+  @Summary
+    Initializes the interrupt priorities of the PIC32MX210F016B
 
-/**
- * @Param
-    none
- * @Returns
-    none
- * @Description
-    Initializes PIC18 peripheral interrupt priorities; enables/disables priority vectors
- * @Example
-    INTERRUPT_Initialize();
- */
-void INTERRUPT_Initialize (void);
+  @Description
+    This routine sets the interrupt priorities of the modules that have been configured
+    for the PIC32MX210F016B
 
-#endif  // INTERRUPT_MANAGER_H
-/**
- End of File
+  @Preconditions
+    None.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    void SYSTEM_Initialize(void)
+    {
+        // Other initializers are called from this function
+        INTERRUPT_Initialize ();
+    }
+    </code>
+
 */
+void INTERRUPT_Initialize(void);
+
+#endif
