@@ -80,7 +80,7 @@ void main(void)
       unsigned int twobyte;
       unsigned char bytes[2];
     }packet;
-    unsigned int IOvalue[2]={0,0x3FF};
+    unsigned int IOvalue[2]={0x3FF,0};
 
     // initialize the device
     SYSTEM_Initialize();
