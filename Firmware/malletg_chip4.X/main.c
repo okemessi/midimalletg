@@ -80,7 +80,7 @@ void main(void)
       unsigned int twobyte;
       unsigned char bytes[2];
     }packet;
-    unsigned int IOvalue[2]={0x3FF,0};
+    unsigned int IOvalue[3][2]={0x3FF,0,0x3FF,0,0x3FF,0};
 
     // initialize the device
     SYSTEM_Initialize();
@@ -100,6 +100,30 @@ void main(void)
 
     // Disable the Peripheral Interrupts
     //INTERRUPT_PeripheralInterruptDisable();
+    
+    if(IO_Button1_GetValue()==1){
+        IOvalue[1][1]=0;
+        IOvalue[1][0]=1;
+    }else{
+        IOvalue[1][0]=0;
+        IOvalue[1][1]=1;
+    }
+    
+    if(IO_Button2_GetValue()==1){
+        IOvalue[2][1]=0;
+        IOvalue[2][0]=1;
+    }else{
+        IOvalue[2][0]=0;
+        IOvalue[2][1]=1;
+    }
+    
+    if(IO_ShiftButton_GetValue()==1){
+        IOvalue[0][1]=0;
+        IOvalue[0][0]=1;
+    }else{
+        IOvalue[0][0]=0;
+        IOvalue[0][1]=1;
+    }
 
     while (1)
     {
@@ -119,9 +143,9 @@ void main(void)
         max_with_threshold(&scan_max[14], ADCC_GetSingleConversion(AN_KEY14));
         max_with_threshold(&scan_max[15], ADCC_GetSingleConversion(AN_Fader1));
         max_with_threshold(&scan_max[16], ADCC_GetSingleConversion(AN_Fader2));
-        max_with_threshold(&scan_max[17], IOvalue[IO_Button1_GetValue()]);
-        max_with_threshold(&scan_max[18], IOvalue[IO_Button2_GetValue()]);
-        max_with_threshold(&scan_max[0], IOvalue[IO_ShiftButton_GetValue()]);
+        max_with_threshold(&scan_max[17], IOvalue[1][IO_Button1_GetValue()]);
+        max_with_threshold(&scan_max[18], IOvalue[2][IO_Button2_GetValue()]);
+        max_with_threshold(&scan_max[0], IOvalue[0][IO_ShiftButton_GetValue()]);
         
         if (tx_request != 0)
         {
