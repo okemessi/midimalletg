@@ -91,6 +91,7 @@ typedef enum
     AN_KEY4 =  0x5,
     AN_KEY6 =  0x6,
     AN_KEY5 =  0x7,
+    AN_Fader3 =  0xA,
     AN_Fader1 =  0xB,
     AN_Fader2 =  0xC,
     AN_KEY7 =  0x10,

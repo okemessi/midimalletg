@@ -45,7 +45,7 @@
 
 #define CHIP_NUMBER 1
 #define CHIP_ADDRESS 0x31
-#define MAXIMUM_KEY_NUMBER 15
+#define MAXIMUM_KEY_NUMBER 18
 #define SCAN_THRESHOLD 4 //min. 00 0000 0100 (half of 000 0001)
 
 ///from eusart.c
@@ -118,6 +118,9 @@ void main(void)
         max_with_threshold(&scan_max[13], ADCC_GetSingleConversion(AN_Fader2));
         max_with_threshold(&scan_max[14], IOvalue[IO_Button1_GetValue()]);
         max_with_threshold(&scan_max[15], IOvalue[IO_Button2_GetValue()]);
+        max_with_threshold(&scan_max[16], IOvalue[IO_Button3_GetValue()]);
+        max_with_threshold(&scan_max[17], IOvalue[IO_Button4_GetValue()]);
+        max_with_threshold(&scan_max[18], ADCC_GetSingleConversion(AN_Fader3));
         max_with_threshold(&scan_max[0], IOvalue[IO_ShiftButton_GetValue()]);
         
         if (tx_request != 0)
