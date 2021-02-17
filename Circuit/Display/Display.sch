@@ -479,11 +479,11 @@ Text Label 4400 5300 2    50   ~ 0
 LED_D0
 Text Label 6300 5300 2    50   ~ 0
 LED_D1
-Text Label 8200 5300 2    50   ~ 0
+Text Label 8200 5200 2    50   ~ 0
 LED_D2
 Text Label 4400 6550 2    50   ~ 0
 LED_D3
-Text Label 6300 6550 2    50   ~ 0
+Text Label 6300 6450 2    50   ~ 0
 LED_D4
 Text Label 2500 5650 2    50   ~ 0
 LED_D5
@@ -800,10 +800,7 @@ Wire Wire Line
 Wire Wire Line
 	2800 5800 3100 5800
 Wire Wire Line
-	4100 5200 4100 5300
-Wire Wire Line
 	4100 5300 4400 5300
-Connection ~ 4100 5300
 Entry Wire Line
 	2700 6350 2800 6450
 Entry Wire Line
@@ -860,10 +857,7 @@ Wire Wire Line
 Wire Wire Line
 	2800 7050 3100 7050
 Wire Wire Line
-	4100 6450 4100 6550
-Wire Wire Line
 	4100 6550 4400 6550
-Connection ~ 4100 6550
 NoConn ~ 4100 5900
 NoConn ~ 4100 7150
 Connection ~ 4500 4500
@@ -929,10 +923,7 @@ Wire Wire Line
 Wire Wire Line
 	4700 5800 5000 5800
 Wire Wire Line
-	6000 5200 6000 5300
-Wire Wire Line
 	6000 5300 6300 5300
-Connection ~ 6000 5300
 Entry Wire Line
 	4600 6350 4700 6450
 Entry Wire Line
@@ -962,18 +953,7 @@ LED_S5
 Text Label 4700 7050 0    50   ~ 0
 LED_S6
 Entry Wire Line
-	6300 6550 6400 6650
-$Comp
-L Display_Character:LTS-6960HR AFF4
-U 1 1 60B00F71
-P 5500 6850
-F 0 "AFF4" H 5500 7517 50  0000 C CNN
-F 1 "LTS-6960HR" H 5500 7426 50  0000 C CNN
-F 2 "Display_7Segment:7SegmentLED_LTS6760_LTS6780" H 5500 6250 50  0001 C CNN
-F 3 "https://datasheet.octopart.com/LTS-6960HR-Lite-On-datasheet-11803242.pdf" H 5500 6850 50  0001 C CNN
-	1    5500 6850
-	1    0    0    -1  
-$EndComp
+	6300 6450 6400 6550
 Wire Wire Line
 	4700 6450 5000 6450
 Wire Wire Line
@@ -988,11 +968,6 @@ Wire Wire Line
 	5000 6950 4700 6950
 Wire Wire Line
 	4700 7050 5000 7050
-Wire Wire Line
-	6000 6450 6000 6550
-Wire Wire Line
-	6000 6550 6300 6550
-Connection ~ 6000 6550
 NoConn ~ 6000 5900
 NoConn ~ 6000 7150
 Connection ~ 6400 4500
@@ -1027,7 +1002,7 @@ LED_S5
 Text Label 6600 5800 0    50   ~ 0
 LED_S6
 Entry Wire Line
-	8200 5300 8300 5400
+	8200 5200 8300 5300
 $Comp
 L Display_Character:LTS-6960HR AFF5
 U 1 1 60B49BFA
@@ -1053,17 +1028,10 @@ Wire Wire Line
 	6900 5700 6600 5700
 Wire Wire Line
 	6600 5800 6900 5800
-Wire Wire Line
-	7900 5200 7900 5300
-Wire Wire Line
-	7900 5300 8200 5300
-Connection ~ 7900 5300
 NoConn ~ 7900 5900
 Wire Bus Line
 	6500 4700 4600 4700
 Connection ~ 4600 4700
-Wire Bus Line
-	8300 5400 8300 4500
 Connection ~ 8300 4500
 Wire Bus Line
 	8300 4500 8850 4500
@@ -1198,6 +1166,49 @@ Wire Wire Line
 	3750 3450 3750 3550
 Wire Wire Line
 	3550 3450 3750 3450
+$Comp
+L power:GND #PWR0101
+U 1 1 60CC475E
+P 3550 3450
+F 0 "#PWR0101" H 3550 3200 50  0001 C CNN
+F 1 "GND" H 3555 3277 50  0000 C CNN
+F 2 "" H 3550 3450 50  0001 C CNN
+F 3 "" H 3550 3450 50  0001 C CNN
+	1    3550 3450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0102
+U 1 1 60CC507C
+P 4850 3650
+F 0 "#PWR0102" H 4850 3400 50  0001 C CNN
+F 1 "GND" H 4855 3477 50  0000 C CNN
+F 2 "" H 4850 3650 50  0001 C CNN
+F 3 "" H 4850 3650 50  0001 C CNN
+	1    4850 3650
+	1    0    0    -1  
+$EndComp
+NoConn ~ 6000 5200
+NoConn ~ 4100 6450
+$Comp
+L Display_Character:LTS-6960HR AFF4
+U 1 1 60B00F71
+P 5500 6850
+F 0 "AFF4" H 5500 7517 50  0000 C CNN
+F 1 "LTS-6960HR" H 5500 7426 50  0000 C CNN
+F 2 "Display_7Segment:7SegmentLED_LTS6760_LTS6780" H 5500 6250 50  0001 C CNN
+F 3 "https://datasheet.octopart.com/LTS-6960HR-Lite-On-datasheet-11803242.pdf" H 5500 6850 50  0001 C CNN
+	1    5500 6850
+	1    0    0    -1  
+$EndComp
+NoConn ~ 6000 6550
+NoConn ~ 7900 5300
+Wire Wire Line
+	6000 6450 6300 6450
+Wire Wire Line
+	8200 5200 7900 5200
+Wire Bus Line
+	8300 4500 8300 5400
 Wire Bus Line
 	2600 4500 2600 7350
 Wire Bus Line
@@ -1216,26 +1227,4 @@ Wire Bus Line
 	2700 4700 2700 6950
 Wire Bus Line
 	4600 4700 4600 6950
-$Comp
-L power:GND #PWR?
-U 1 1 60CC475E
-P 3550 3450
-F 0 "#PWR?" H 3550 3200 50  0001 C CNN
-F 1 "GND" H 3555 3277 50  0000 C CNN
-F 2 "" H 3550 3450 50  0001 C CNN
-F 3 "" H 3550 3450 50  0001 C CNN
-	1    3550 3450
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 60CC507C
-P 4850 3650
-F 0 "#PWR?" H 4850 3400 50  0001 C CNN
-F 1 "GND" H 4855 3477 50  0000 C CNN
-F 2 "" H 4850 3650 50  0001 C CNN
-F 3 "" H 4850 3650 50  0001 C CNN
-	1    4850 3650
-	1    0    0    -1  
-$EndComp
 $EndSCHEMATC

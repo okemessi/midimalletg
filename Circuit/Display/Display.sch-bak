@@ -521,10 +521,6 @@ Wire Wire Line
 Wire Wire Line
 	5400 4250 4750 4250
 NoConn ~ 5350 1800
-NoConn ~ 3750 3350
-NoConn ~ 3750 3450
-NoConn ~ 3750 3550
-NoConn ~ 4750 3550
 NoConn ~ 2400 3150
 NoConn ~ 6250 3350
 NoConn ~ 6250 2550
@@ -804,10 +800,7 @@ Wire Wire Line
 Wire Wire Line
 	2800 5800 3100 5800
 Wire Wire Line
-	4100 5200 4100 5300
-Wire Wire Line
 	4100 5300 4400 5300
-Connection ~ 4100 5300
 Entry Wire Line
 	2700 6350 2800 6450
 Entry Wire Line
@@ -864,10 +857,7 @@ Wire Wire Line
 Wire Wire Line
 	2800 7050 3100 7050
 Wire Wire Line
-	4100 6450 4100 6550
-Wire Wire Line
 	4100 6550 4400 6550
-Connection ~ 4100 6550
 NoConn ~ 4100 5900
 NoConn ~ 4100 7150
 Connection ~ 4500 4500
@@ -933,10 +923,7 @@ Wire Wire Line
 Wire Wire Line
 	4700 5800 5000 5800
 Wire Wire Line
-	6000 5200 6000 5300
-Wire Wire Line
 	6000 5300 6300 5300
-Connection ~ 6000 5300
 Entry Wire Line
 	4600 6350 4700 6450
 Entry Wire Line
@@ -1058,10 +1045,7 @@ Wire Wire Line
 Wire Wire Line
 	6600 5800 6900 5800
 Wire Wire Line
-	7900 5200 7900 5300
-Wire Wire Line
 	7900 5300 8200 5300
-Connection ~ 7900 5300
 NoConn ~ 7900 5900
 Wire Bus Line
 	6500 4700 4600 4700
@@ -1191,6 +1175,44 @@ Wire Wire Line
 	3750 3100 3200 3100
 Wire Wire Line
 	3200 3100 3200 3050
+Wire Wire Line
+	4750 3550 4850 3550
+Wire Wire Line
+	4850 3550 4850 3650
+Wire Wire Line
+	3750 3350 3750 3450
+Connection ~ 3750 3450
+Wire Wire Line
+	3750 3450 3750 3550
+Wire Wire Line
+	3550 3450 3750 3450
+$Comp
+L power:GND #PWR0101
+U 1 1 60CC475E
+P 3550 3450
+F 0 "#PWR0101" H 3550 3200 50  0001 C CNN
+F 1 "GND" H 3555 3277 50  0000 C CNN
+F 2 "" H 3550 3450 50  0001 C CNN
+F 3 "" H 3550 3450 50  0001 C CNN
+	1    3550 3450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0102
+U 1 1 60CC507C
+P 4850 3650
+F 0 "#PWR0102" H 4850 3400 50  0001 C CNN
+F 1 "GND" H 4855 3477 50  0000 C CNN
+F 2 "" H 4850 3650 50  0001 C CNN
+F 3 "" H 4850 3650 50  0001 C CNN
+	1    4850 3650
+	1    0    0    -1  
+$EndComp
+NoConn ~ 6000 5200
+Wire Wire Line
+	7900 5200 7900 5300
+Connection ~ 7900 5300
+NoConn ~ 4100 6450
 Wire Bus Line
 	2600 4500 2600 7350
 Wire Bus Line
