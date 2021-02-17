@@ -1,0 +1,1241 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title "LEDs board"
+Date "2021-02-17"
+Rev "Proto"
+Comp "okemessi"
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L MCU_Microchip_PIC16:PIC16F18854-SO U2
+U 1 1 602D1501
+P 4250 3050
+F 0 "U2" H 4250 4031 50  0000 C CNN
+F 1 "PIC16F18854-SO" H 4250 3940 50  0000 C CNN
+F 2 "Package_DIP:DIP-28_W7.62mm" H 4250 1950 50  0001 C CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/PIC16(L)F18854%20Data%20Sheet_DS40001826C.pdf" H 4550 2450 50  0001 C CNN
+	1    4250 3050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5200 3350 5200 3250
+Wire Wire Line
+	4750 3350 5200 3350
+Wire Wire Line
+	3200 2450 3750 2450
+Wire Wire Line
+	3750 2550 3200 2550
+Wire Wire Line
+	3200 2650 3750 2650
+Wire Wire Line
+	3750 2750 3200 2750
+Wire Wire Line
+	3200 2850 3750 2850
+Wire Wire Line
+	3750 2950 3200 2950
+$Comp
+L power:GND #PWR03
+U 1 1 602E0BCF
+P 2300 1950
+F 0 "#PWR03" H 2300 1700 50  0001 C CNN
+F 1 "GND" H 2305 1777 50  0000 C CNN
+F 2 "" H 2300 1950 50  0001 C CNN
+F 3 "" H 2300 1950 50  0001 C CNN
+	1    2300 1950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2300 1750 2300 1950
+$Comp
+L power:GND #PWR07
+U 1 1 602E5533
+P 4250 4050
+F 0 "#PWR07" H 4250 3800 50  0001 C CNN
+F 1 "GND" H 4255 3877 50  0000 C CNN
+F 2 "" H 4250 4050 50  0001 C CNN
+F 3 "" H 4250 4050 50  0001 C CNN
+	1    4250 4050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4250 3850 4250 4050
+$Comp
+L power:GND #PWR09
+U 1 1 602E59D5
+P 5850 3750
+F 0 "#PWR09" H 5850 3500 50  0001 C CNN
+F 1 "GND" H 5855 3577 50  0000 C CNN
+F 2 "" H 5850 3750 50  0001 C CNN
+F 3 "" H 5850 3750 50  0001 C CNN
+	1    5850 3750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5850 3550 5850 3750
+$Comp
+L power:VDD #PWR08
+U 1 1 602E7943
+P 5050 3750
+F 0 "#PWR08" H 5050 3600 50  0001 C CNN
+F 1 "VDD" H 5065 3923 50  0000 C CNN
+F 2 "" H 5050 3750 50  0001 C CNN
+F 3 "" H 5050 3750 50  0001 C CNN
+	1    5050 3750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R9
+U 1 1 602E82B1
+P 5050 4000
+F 0 "R9" H 5120 4046 50  0000 L CNN
+F 1 "4.7k" H 5120 3955 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 4980 4000 50  0001 C CNN
+F 3 "~" H 5050 4000 50  0001 C CNN
+	1    5050 4000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5050 3750 5050 3800
+Wire Wire Line
+	5150 2550 4750 2550
+Wire Wire Line
+	4750 2450 5050 2450
+$Comp
+L Connector:Conn_PIC_ICSP_ICD J1
+U 1 1 60309286
+P 5850 1600
+F 0 "J1" H 5520 1646 50  0000 R CNN
+F 1 "Conn_PIC_ICSP_ICD" H 5520 1555 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical" H 5900 1750 50  0001 C CNN
+F 3 "http://ww1.microchip.com/downloads/en/devicedoc/30277d.pdf" V 5550 1450 50  0001 C CNN
+	1    5850 1600
+	-1   0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR011
+U 1 1 6030F787
+P 6050 2000
+F 0 "#PWR011" H 6050 1750 50  0001 C CNN
+F 1 "GND" H 6055 1827 50  0000 C CNN
+F 2 "" H 6050 2000 50  0001 C CNN
+F 3 "" H 6050 2000 50  0001 C CNN
+	1    6050 2000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VDD #PWR010
+U 1 1 603123AC
+P 6050 1200
+F 0 "#PWR010" H 6050 1050 50  0001 C CNN
+F 1 "VDD" H 6065 1373 50  0000 C CNN
+F 2 "" H 6050 1200 50  0001 C CNN
+F 3 "" H 6050 1200 50  0001 C CNN
+	1    6050 1200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5350 1700 5150 1700
+Wire Wire Line
+	5150 1700 5150 2550
+Wire Wire Line
+	5050 2450 5050 1600
+Wire Wire Line
+	5050 1600 5350 1600
+$Comp
+L Device:LED D1
+U 1 1 60331377
+P 1950 6350
+F 0 "D1" H 1943 6095 50  0000 C CNN
+F 1 "LED" H 1943 6186 50  0000 C CNN
+F 2 "LED_THT:LED_D3.0mm" H 1950 6350 50  0001 C CNN
+F 3 "~" H 1950 6350 50  0001 C CNN
+	1    1950 6350
+	-1   0    0    1   
+$EndComp
+$Comp
+L LED:HDSP-4830_2 BAR1
+U 1 1 60332800
+P 2000 5450
+F 0 "BAR1" H 2000 6117 50  0000 C CNN
+F 1 "HDSP-4830_2" H 2000 6026 50  0000 C CNN
+F 2 "Display:HDSP-4830" H 2000 4650 50  0001 C CNN
+F 3 "https://docs.broadcom.com/docs/AV02-1798EN" H 0   5650 50  0001 C CNN
+	1    2000 5450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Transistor_Array:TBD62783A U1
+U 1 1 60340DE8
+P 2800 2850
+F 0 "U1" H 2800 2069 50  0000 C CNN
+F 1 "TBD62783A" H 2800 2160 50  0000 C CNN
+F 2 "Package_DIP:DIP-18_W7.62mm" H 2800 2300 50  0001 C CNN
+F 3 "http://toshiba.semicon-storage.com/info/docget.jsp?did=30523&prodName=TBD62783APG" H 2500 3250 50  0001 C CNN
+	1    2800 2850
+	-1   0    0    1   
+$EndComp
+$Comp
+L Transistor_Array:ULN2803A U3
+U 1 1 6035D1F1
+P 5850 2850
+F 0 "U3" H 5850 3417 50  0000 C CNN
+F 1 "ULN2803A" H 5850 3326 50  0000 C CNN
+F 2 "Package_DIP:DIP-18_W7.62mm" H 5900 2200 50  0001 L CNN
+F 3 "http://www.ti.com/lit/ds/symlink/uln2803a.pdf" H 5950 2650 50  0001 C CNN
+	1    5850 2850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4750 2650 5450 2650
+Wire Wire Line
+	4750 2750 5450 2750
+Wire Wire Line
+	4750 2850 5450 2850
+Wire Wire Line
+	4750 2950 5450 2950
+Wire Wire Line
+	4750 3050 5450 3050
+Wire Wire Line
+	4750 3150 5450 3150
+Wire Wire Line
+	5450 3250 5200 3250
+Wire Wire Line
+	5450 3350 5300 3350
+Wire Wire Line
+	5300 3350 5300 3450
+Wire Wire Line
+	5300 3450 4750 3450
+Entry Wire Line
+	1200 2350 1300 2450
+Entry Wire Line
+	1200 2450 1300 2550
+Entry Wire Line
+	1200 2550 1300 2650
+Entry Wire Line
+	1200 2650 1300 2750
+Entry Wire Line
+	1200 2750 1300 2850
+Entry Wire Line
+	1200 2850 1300 2950
+Entry Wire Line
+	1200 2950 1300 3050
+Wire Wire Line
+	2400 2450 1900 2450
+Wire Wire Line
+	1900 2550 2400 2550
+Wire Wire Line
+	2400 2650 1900 2650
+Wire Wire Line
+	1900 2750 2400 2750
+Wire Wire Line
+	2400 2850 1900 2850
+Wire Wire Line
+	1900 2950 2400 2950
+Wire Wire Line
+	2400 3050 1900 3050
+Text Label 1300 2450 0    50   ~ 0
+LED_S0
+Text Label 1300 2550 0    50   ~ 0
+LED_S1
+Text Label 1300 2650 0    50   ~ 0
+LED_S2
+Text Label 1300 2750 0    50   ~ 0
+LED_S3
+Text Label 1300 2850 0    50   ~ 0
+LED_S4
+Text Label 1300 2950 0    50   ~ 0
+LED_S5
+Text Label 1300 3050 0    50   ~ 0
+LED_S6
+Wire Bus Line
+	1200 4700 2700 4700
+Entry Wire Line
+	2700 5100 2800 5200
+Entry Wire Line
+	2700 5200 2800 5300
+Entry Wire Line
+	2700 5300 2800 5400
+Entry Wire Line
+	2700 5400 2800 5500
+Entry Wire Line
+	2700 5500 2800 5600
+Entry Wire Line
+	2700 5600 2800 5700
+Entry Wire Line
+	2700 5700 2800 5800
+Text Label 2800 5200 0    50   ~ 0
+LED_S0
+Text Label 2800 5300 0    50   ~ 0
+LED_S1
+Text Label 2800 5400 0    50   ~ 0
+LED_S2
+Text Label 2800 5500 0    50   ~ 0
+LED_S3
+Text Label 2800 5600 0    50   ~ 0
+LED_S4
+Text Label 2800 5700 0    50   ~ 0
+LED_S5
+Text Label 2800 5800 0    50   ~ 0
+LED_S6
+Entry Wire Line
+	1200 4950 1300 5050
+Entry Wire Line
+	1200 5050 1300 5150
+Entry Wire Line
+	1200 5150 1300 5250
+Entry Wire Line
+	1200 5250 1300 5350
+Entry Wire Line
+	1200 5350 1300 5450
+Entry Wire Line
+	1200 5450 1300 5550
+Entry Wire Line
+	1200 5550 1300 5650
+Wire Wire Line
+	1800 5050 1300 5050
+Wire Wire Line
+	1300 5150 1800 5150
+Wire Wire Line
+	1800 5250 1300 5250
+Wire Wire Line
+	1300 5350 1800 5350
+Wire Wire Line
+	1800 5450 1300 5450
+Wire Wire Line
+	1300 5550 1800 5550
+Wire Wire Line
+	1800 5650 1300 5650
+Text Label 1300 5050 0    50   ~ 0
+LED_S0
+Text Label 1300 5150 0    50   ~ 0
+LED_S1
+Text Label 1300 5250 0    50   ~ 0
+LED_S2
+Text Label 1300 5350 0    50   ~ 0
+LED_S3
+Text Label 1300 5450 0    50   ~ 0
+LED_S4
+Text Label 1300 5550 0    50   ~ 0
+LED_S5
+Text Label 1300 5650 0    50   ~ 0
+LED_S6
+Entry Wire Line
+	1200 5650 1300 5750
+Entry Wire Line
+	1200 5750 1300 5850
+Entry Wire Line
+	1200 5850 1300 5950
+Wire Wire Line
+	1800 5750 1300 5750
+Wire Wire Line
+	1300 5850 1800 5850
+Wire Wire Line
+	1800 5950 1300 5950
+Text Label 1300 5750 0    50   ~ 0
+LED_S0
+Text Label 1300 5850 0    50   ~ 0
+LED_S1
+Text Label 1300 5950 0    50   ~ 0
+LED_S2
+Entry Wire Line
+	1200 6250 1300 6350
+Entry Wire Line
+	1200 6550 1300 6650
+Entry Wire Line
+	1200 6850 1300 6950
+Entry Wire Line
+	1200 7150 1300 7250
+Wire Wire Line
+	1300 6350 1800 6350
+Wire Wire Line
+	1800 6650 1300 6650
+Wire Wire Line
+	1300 6950 1800 6950
+Wire Wire Line
+	1800 7250 1300 7250
+Text Label 1300 6350 0    50   ~ 0
+LED_S3
+Text Label 1300 6650 0    50   ~ 0
+LED_S4
+Text Label 1300 6950 0    50   ~ 0
+LED_S5
+Text Label 1300 7250 0    50   ~ 0
+LED_S6
+Connection ~ 1200 4700
+Wire Wire Line
+	1300 2450 1600 2450
+Wire Wire Line
+	1600 2550 1300 2550
+Wire Wire Line
+	1300 2650 1600 2650
+Wire Wire Line
+	1600 2750 1300 2750
+Wire Wire Line
+	1300 2850 1600 2850
+Wire Wire Line
+	1600 2950 1300 2950
+Wire Wire Line
+	1300 3050 1600 3050
+Wire Wire Line
+	2200 5050 2200 5150
+Connection ~ 2200 5150
+Wire Wire Line
+	2200 5150 2200 5250
+Connection ~ 2200 5250
+Wire Wire Line
+	2200 5250 2200 5350
+Connection ~ 2200 5350
+Wire Wire Line
+	2200 5350 2200 5450
+Connection ~ 2200 5450
+Wire Wire Line
+	2200 5450 2200 5550
+Connection ~ 2200 5550
+Wire Wire Line
+	2200 5550 2200 5650
+Wire Wire Line
+	2200 5750 2200 5850
+Connection ~ 2200 5850
+Wire Wire Line
+	2200 5850 2200 5950
+Wire Wire Line
+	2100 6350 2200 6350
+Wire Wire Line
+	2200 6350 2200 5950
+Connection ~ 2200 5950
+Wire Wire Line
+	2200 6350 2200 6650
+Wire Wire Line
+	2200 7250 2100 7250
+Connection ~ 2200 6350
+Wire Wire Line
+	2100 6950 2200 6950
+Connection ~ 2200 6950
+Wire Wire Line
+	2200 6950 2200 7250
+Wire Wire Line
+	2100 6650 2200 6650
+Connection ~ 2200 6650
+Wire Wire Line
+	2200 6650 2200 6950
+Entry Wire Line
+	2500 5650 2600 5750
+Entry Wire Line
+	2500 5650 2600 5750
+Entry Wire Line
+	2500 7250 2600 7350
+Entry Wire Line
+	4400 5300 4500 5400
+Entry Wire Line
+	8850 3350 8750 3250
+Entry Wire Line
+	8850 3250 8750 3150
+Entry Wire Line
+	8850 3150 8750 3050
+Entry Wire Line
+	8850 3050 8750 2950
+Entry Wire Line
+	8850 2950 8750 2850
+Entry Wire Line
+	8850 2850 8750 2750
+Entry Wire Line
+	8850 2750 8750 2650
+Text Label 8750 3250 2    50   ~ 0
+LED_D6
+Text Label 8750 3150 2    50   ~ 0
+LED_D5
+Text Label 8750 3050 2    50   ~ 0
+LED_D4
+Text Label 8750 2950 2    50   ~ 0
+LED_D3
+Text Label 8750 2850 2    50   ~ 0
+LED_D2
+Text Label 8750 2750 2    50   ~ 0
+LED_D1
+Text Label 8750 2650 2    50   ~ 0
+LED_D0
+Wire Wire Line
+	6250 2650 8750 2650
+Wire Wire Line
+	6250 2750 8750 2750
+Wire Wire Line
+	6250 2850 8750 2850
+Wire Wire Line
+	6250 2950 8750 2950
+Wire Wire Line
+	6250 3050 8750 3050
+Wire Wire Line
+	6250 3150 8750 3150
+Wire Wire Line
+	6250 3250 8750 3250
+Text Label 4400 5300 2    50   ~ 0
+LED_D0
+Text Label 6300 5300 2    50   ~ 0
+LED_D1
+Text Label 8200 5300 2    50   ~ 0
+LED_D2
+Text Label 4400 6550 2    50   ~ 0
+LED_D3
+Text Label 6300 6550 2    50   ~ 0
+LED_D4
+Text Label 2500 5650 2    50   ~ 0
+LED_D5
+Text Label 2500 7250 2    50   ~ 0
+LED_D6
+Wire Wire Line
+	4750 4250 4750 3650
+Wire Wire Line
+	3750 3650 3750 4350
+Wire Wire Line
+	3750 4350 5050 4350
+$Comp
+L Device:R R10
+U 1 1 6068B791
+P 5400 4000
+F 0 "R10" H 5470 4046 50  0000 L CNN
+F 1 "4.7k" H 5470 3955 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 5330 4000 50  0001 C CNN
+F 3 "~" H 5400 4000 50  0001 C CNN
+	1    5400 4000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5400 3850 5400 3800
+Wire Wire Line
+	5400 3800 5050 3800
+Connection ~ 5050 3800
+Wire Wire Line
+	5050 3800 5050 3850
+Wire Wire Line
+	5050 4150 5050 4350
+Connection ~ 5050 4350
+Wire Wire Line
+	5400 4150 5400 4250
+Wire Wire Line
+	5400 4250 4750 4250
+NoConn ~ 5350 1800
+NoConn ~ 2400 3150
+NoConn ~ 6250 3350
+NoConn ~ 6250 2550
+$Comp
+L Device:R R8
+U 1 1 6073D0F2
+P 3300 1000
+F 0 "R8" H 3370 1046 50  0000 L CNN
+F 1 "10k" H 3370 955 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 3230 1000 50  0001 C CNN
+F 3 "~" H 3300 1000 50  0001 C CNN
+	1    3300 1000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VDD #PWR04
+U 1 1 6073DAB8
+P 3300 850
+F 0 "#PWR04" H 3300 700 50  0001 C CNN
+F 1 "VDD" H 3315 1023 50  0000 C CNN
+F 2 "" H 3300 850 50  0001 C CNN
+F 3 "" H 3300 850 50  0001 C CNN
+	1    3300 850 
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R1
+U 1 1 6077F45E
+P 1750 2450
+F 0 "R1" V 1800 2250 50  0000 C CNN
+F 1 "4.7k" V 1800 2050 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 1680 2450 50  0001 C CNN
+F 3 "~" H 1750 2450 50  0001 C CNN
+	1    1750 2450
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Connector:Conn_01x04_Female J2
+U 1 1 607881ED
+P 8050 3800
+F 0 "J2" H 8078 3776 50  0000 L CNN
+F 1 "Conn_01x04_Female" H 8078 3685 50  0000 L CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x04_P2.54mm_Vertical" H 8050 3800 50  0001 C CNN
+F 3 "~" H 8050 3800 50  0001 C CNN
+	1    8050 3800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6700 3800 6700 4250
+Wire Wire Line
+	6800 4350 6800 3900
+Wire Wire Line
+	7000 4000 7000 4100
+Wire Wire Line
+	6250 3700 6250 3650
+$Comp
+L power:VDD #PWR012
+U 1 1 607AD093
+P 6250 3650
+F 0 "#PWR012" H 6250 3500 50  0001 C CNN
+F 1 "VDD" H 6265 3823 50  0000 C CNN
+F 2 "" H 6250 3650 50  0001 C CNN
+F 3 "" H 6250 3650 50  0001 C CNN
+	1    6250 3650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR014
+U 1 1 607ADB1E
+P 7000 4100
+F 0 "#PWR014" H 7000 3850 50  0001 C CNN
+F 1 "GND" H 7005 3927 50  0000 C CNN
+F 2 "" H 7000 4100 50  0001 C CNN
+F 3 "" H 7000 4100 50  0001 C CNN
+	1    7000 4100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6700 3800 7850 3800
+Wire Wire Line
+	6800 3900 7850 3900
+Wire Wire Line
+	7000 4000 7550 4000
+$Comp
+L power:PWR_FLAG #FLG01
+U 1 1 607F72AB
+P 7550 3700
+F 0 "#FLG01" H 7550 3775 50  0001 C CNN
+F 1 "PWR_FLAG" H 7550 3873 50  0000 C CNN
+F 2 "" H 7550 3700 50  0001 C CNN
+F 3 "~" H 7550 3700 50  0001 C CNN
+	1    7550 3700
+	1    0    0    -1  
+$EndComp
+Connection ~ 7550 3700
+Wire Wire Line
+	7550 3700 7850 3700
+$Comp
+L power:PWR_FLAG #FLG02
+U 1 1 607F7EAF
+P 7550 4000
+F 0 "#FLG02" H 7550 4075 50  0001 C CNN
+F 1 "PWR_FLAG" H 7550 4173 50  0000 C CNN
+F 2 "" H 7550 4000 50  0001 C CNN
+F 3 "~" H 7550 4000 50  0001 C CNN
+	1    7550 4000
+	-1   0    0    1   
+$EndComp
+Connection ~ 7550 4000
+Wire Wire Line
+	7550 4000 7850 4000
+$Comp
+L power:VDD #PWR02
+U 1 1 607FC6E4
+P 2300 3500
+F 0 "#PWR02" H 2300 3350 50  0001 C CNN
+F 1 "VDD" H 2315 3673 50  0000 C CNN
+F 2 "" H 2300 3500 50  0001 C CNN
+F 3 "" H 2300 3500 50  0001 C CNN
+	1    2300 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VDD #PWR06
+U 1 1 607FD398
+P 4250 1750
+F 0 "#PWR06" H 4250 1600 50  0001 C CNN
+F 1 "VDD" H 4265 1923 50  0000 C CNN
+F 2 "" H 4250 1750 50  0001 C CNN
+F 3 "" H 4250 1750 50  0001 C CNN
+	1    4250 1750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C1
+U 1 1 60811A21
+P 2150 3750
+F 0 "C1" V 1898 3750 50  0000 C CNN
+F 1 "0.1u" V 1989 3750 50  0000 C CNN
+F 2 "Capacitor_THT:C_Disc_D3.0mm_W1.6mm_P2.50mm" H 2188 3600 50  0001 C CNN
+F 3 "~" H 2150 3750 50  0001 C CNN
+	1    2150 3750
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR01
+U 1 1 60812496
+P 2000 3750
+F 0 "#PWR01" H 2000 3500 50  0001 C CNN
+F 1 "GND" H 2005 3577 50  0000 C CNN
+F 2 "" H 2000 3750 50  0001 C CNN
+F 3 "" H 2000 3750 50  0001 C CNN
+	1    2000 3750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2300 3500 2300 3750
+$Comp
+L Device:C C3
+U 1 1 6084F9B6
+P 3950 1900
+F 0 "C3" H 3835 1854 50  0000 R CNN
+F 1 "0.01u" H 3835 1945 50  0000 R CNN
+F 2 "Capacitor_THT:C_Disc_D3.0mm_W2.0mm_P2.50mm" H 3988 1750 50  0001 C CNN
+F 3 "~" H 3950 1900 50  0001 C CNN
+	1    3950 1900
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:C C2
+U 1 1 608502A4
+P 3550 1900
+F 0 "C2" H 3435 1854 50  0000 R CNN
+F 1 "0.1u" H 3435 1945 50  0000 R CNN
+F 2 "Capacitor_THT:C_Disc_D3.0mm_W1.6mm_P2.50mm" H 3588 1750 50  0001 C CNN
+F 3 "~" H 3550 1900 50  0001 C CNN
+	1    3550 1900
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR05
+U 1 1 60812E79
+P 3550 2100
+F 0 "#PWR05" H 3550 1850 50  0001 C CNN
+F 1 "GND" H 3555 1927 50  0000 C CNN
+F 2 "" H 3550 2100 50  0001 C CNN
+F 3 "" H 3550 2100 50  0001 C CNN
+	1    3550 2100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4250 1750 4250 2250
+Wire Wire Line
+	3300 1150 3300 1400
+Wire Wire Line
+	3300 3250 3750 3250
+Wire Wire Line
+	3300 1400 5350 1400
+Connection ~ 3300 1400
+Wire Wire Line
+	3300 1400 3300 3250
+Wire Wire Line
+	4250 1750 3950 1750
+Connection ~ 4250 1750
+Connection ~ 3950 1750
+Wire Wire Line
+	3950 1750 3550 1750
+Wire Wire Line
+	3950 2100 3950 2050
+Wire Wire Line
+	3550 2100 3550 2050
+Connection ~ 3550 2100
+Wire Wire Line
+	3550 2100 3950 2100
+Wire Wire Line
+	5400 4250 6700 4250
+Connection ~ 5400 4250
+Wire Wire Line
+	5050 4350 6800 4350
+$Comp
+L Device:C C4
+U 1 1 608EC962
+P 6350 3850
+F 0 "C4" H 6235 3804 50  0000 R CNN
+F 1 "10u" H 6235 3895 50  0000 R CNN
+F 2 "Capacitor_THT:CP_Radial_D5.0mm_P2.50mm" H 6388 3700 50  0001 C CNN
+F 3 "~" H 6350 3850 50  0001 C CNN
+	1    6350 3850
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR013
+U 1 1 608ED88B
+P 6350 4000
+F 0 "#PWR013" H 6350 3750 50  0001 C CNN
+F 1 "GND" H 6355 3827 50  0000 C CNN
+F 2 "" H 6350 4000 50  0001 C CNN
+F 3 "" H 6350 4000 50  0001 C CNN
+	1    6350 4000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6250 3700 6350 3700
+Connection ~ 6350 3700
+Wire Wire Line
+	6350 3700 7550 3700
+$Comp
+L Display_Character:LTS-6960HR AFF1
+U 1 1 6090E8FF
+P 3600 5600
+F 0 "AFF1" H 3600 6267 50  0000 C CNN
+F 1 "LTS-6960HR" H 3600 6176 50  0000 C CNN
+F 2 "Display_7Segment:7SegmentLED_LTS6760_LTS6780" H 3600 5000 50  0001 C CNN
+F 3 "https://datasheet.octopart.com/LTS-6960HR-Lite-On-datasheet-11803242.pdf" H 3600 5600 50  0001 C CNN
+	1    3600 5600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2500 7250 2200 7250
+Connection ~ 2200 7250
+Wire Wire Line
+	2200 5650 2500 5650
+Connection ~ 2200 5650
+Connection ~ 2700 4700
+Wire Wire Line
+	2800 5200 3100 5200
+Wire Wire Line
+	3100 5300 2800 5300
+Wire Wire Line
+	2800 5400 3100 5400
+Wire Wire Line
+	3100 5500 2800 5500
+Wire Wire Line
+	2800 5600 3100 5600
+Wire Wire Line
+	3100 5700 2800 5700
+Wire Wire Line
+	2800 5800 3100 5800
+Wire Wire Line
+	4100 5200 4100 5300
+Wire Wire Line
+	4100 5300 4400 5300
+Connection ~ 4100 5300
+Entry Wire Line
+	2700 6350 2800 6450
+Entry Wire Line
+	2700 6450 2800 6550
+Entry Wire Line
+	2700 6550 2800 6650
+Entry Wire Line
+	2700 6650 2800 6750
+Entry Wire Line
+	2700 6750 2800 6850
+Entry Wire Line
+	2700 6850 2800 6950
+Entry Wire Line
+	2700 6950 2800 7050
+Text Label 2800 6450 0    50   ~ 0
+LED_S0
+Text Label 2800 6550 0    50   ~ 0
+LED_S1
+Text Label 2800 6650 0    50   ~ 0
+LED_S2
+Text Label 2800 6750 0    50   ~ 0
+LED_S3
+Text Label 2800 6850 0    50   ~ 0
+LED_S4
+Text Label 2800 6950 0    50   ~ 0
+LED_S5
+Text Label 2800 7050 0    50   ~ 0
+LED_S6
+Entry Wire Line
+	4400 6550 4500 6650
+$Comp
+L Display_Character:LTS-6960HR AFF2
+U 1 1 60A89D10
+P 3600 6850
+F 0 "AFF2" H 3600 7517 50  0000 C CNN
+F 1 "LTS-6960HR" H 3600 7426 50  0000 C CNN
+F 2 "Display_7Segment:7SegmentLED_LTS6760_LTS6780" H 3600 6250 50  0001 C CNN
+F 3 "https://datasheet.octopart.com/LTS-6960HR-Lite-On-datasheet-11803242.pdf" H 3600 6850 50  0001 C CNN
+	1    3600 6850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2800 6450 3100 6450
+Wire Wire Line
+	3100 6550 2800 6550
+Wire Wire Line
+	2800 6650 3100 6650
+Wire Wire Line
+	3100 6750 2800 6750
+Wire Wire Line
+	2800 6850 3100 6850
+Wire Wire Line
+	3100 6950 2800 6950
+Wire Wire Line
+	2800 7050 3100 7050
+Wire Wire Line
+	4100 6450 4100 6550
+Wire Wire Line
+	4100 6550 4400 6550
+Connection ~ 4100 6550
+NoConn ~ 4100 5900
+NoConn ~ 4100 7150
+Connection ~ 4500 4500
+Wire Bus Line
+	4500 4500 6400 4500
+Wire Bus Line
+	2600 4500 4500 4500
+Wire Bus Line
+	2700 4700 4600 4700
+Entry Wire Line
+	4600 5100 4700 5200
+Entry Wire Line
+	4600 5200 4700 5300
+Entry Wire Line
+	4600 5300 4700 5400
+Entry Wire Line
+	4600 5400 4700 5500
+Entry Wire Line
+	4600 5500 4700 5600
+Entry Wire Line
+	4600 5600 4700 5700
+Entry Wire Line
+	4600 5700 4700 5800
+Text Label 4700 5200 0    50   ~ 0
+LED_S0
+Text Label 4700 5300 0    50   ~ 0
+LED_S1
+Text Label 4700 5400 0    50   ~ 0
+LED_S2
+Text Label 4700 5500 0    50   ~ 0
+LED_S3
+Text Label 4700 5600 0    50   ~ 0
+LED_S4
+Text Label 4700 5700 0    50   ~ 0
+LED_S5
+Text Label 4700 5800 0    50   ~ 0
+LED_S6
+Entry Wire Line
+	6300 5300 6400 5400
+$Comp
+L Display_Character:LTS-6960HR AFF3
+U 1 1 60B00F52
+P 5500 5600
+F 0 "AFF3" H 5500 6267 50  0000 C CNN
+F 1 "LTS-6960HR" H 5500 6176 50  0000 C CNN
+F 2 "Display_7Segment:7SegmentLED_LTS6760_LTS6780" H 5500 5000 50  0001 C CNN
+F 3 "https://datasheet.octopart.com/LTS-6960HR-Lite-On-datasheet-11803242.pdf" H 5500 5600 50  0001 C CNN
+	1    5500 5600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4700 5200 5000 5200
+Wire Wire Line
+	5000 5300 4700 5300
+Wire Wire Line
+	4700 5400 5000 5400
+Wire Wire Line
+	5000 5500 4700 5500
+Wire Wire Line
+	4700 5600 5000 5600
+Wire Wire Line
+	5000 5700 4700 5700
+Wire Wire Line
+	4700 5800 5000 5800
+Wire Wire Line
+	6000 5200 6000 5300
+Wire Wire Line
+	6000 5300 6300 5300
+Connection ~ 6000 5300
+Entry Wire Line
+	4600 6350 4700 6450
+Entry Wire Line
+	4600 6450 4700 6550
+Entry Wire Line
+	4600 6550 4700 6650
+Entry Wire Line
+	4600 6650 4700 6750
+Entry Wire Line
+	4600 6750 4700 6850
+Entry Wire Line
+	4600 6850 4700 6950
+Entry Wire Line
+	4600 6950 4700 7050
+Text Label 4700 6450 0    50   ~ 0
+LED_S0
+Text Label 4700 6550 0    50   ~ 0
+LED_S1
+Text Label 4700 6650 0    50   ~ 0
+LED_S2
+Text Label 4700 6750 0    50   ~ 0
+LED_S3
+Text Label 4700 6850 0    50   ~ 0
+LED_S4
+Text Label 4700 6950 0    50   ~ 0
+LED_S5
+Text Label 4700 7050 0    50   ~ 0
+LED_S6
+Entry Wire Line
+	6300 6550 6400 6650
+$Comp
+L Display_Character:LTS-6960HR AFF4
+U 1 1 60B00F71
+P 5500 6850
+F 0 "AFF4" H 5500 7517 50  0000 C CNN
+F 1 "LTS-6960HR" H 5500 7426 50  0000 C CNN
+F 2 "Display_7Segment:7SegmentLED_LTS6760_LTS6780" H 5500 6250 50  0001 C CNN
+F 3 "https://datasheet.octopart.com/LTS-6960HR-Lite-On-datasheet-11803242.pdf" H 5500 6850 50  0001 C CNN
+	1    5500 6850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4700 6450 5000 6450
+Wire Wire Line
+	5000 6550 4700 6550
+Wire Wire Line
+	4700 6650 5000 6650
+Wire Wire Line
+	5000 6750 4700 6750
+Wire Wire Line
+	4700 6850 5000 6850
+Wire Wire Line
+	5000 6950 4700 6950
+Wire Wire Line
+	4700 7050 5000 7050
+Wire Wire Line
+	6000 6450 6000 6550
+Wire Wire Line
+	6000 6550 6300 6550
+Connection ~ 6000 6550
+NoConn ~ 6000 5900
+NoConn ~ 6000 7150
+Connection ~ 6400 4500
+Wire Bus Line
+	6400 4500 8300 4500
+Entry Wire Line
+	6500 5100 6600 5200
+Entry Wire Line
+	6500 5200 6600 5300
+Entry Wire Line
+	6500 5300 6600 5400
+Entry Wire Line
+	6500 5400 6600 5500
+Entry Wire Line
+	6500 5500 6600 5600
+Entry Wire Line
+	6500 5600 6600 5700
+Entry Wire Line
+	6500 5700 6600 5800
+Text Label 6600 5200 0    50   ~ 0
+LED_S0
+Text Label 6600 5300 0    50   ~ 0
+LED_S1
+Text Label 6600 5400 0    50   ~ 0
+LED_S2
+Text Label 6600 5500 0    50   ~ 0
+LED_S3
+Text Label 6600 5600 0    50   ~ 0
+LED_S4
+Text Label 6600 5700 0    50   ~ 0
+LED_S5
+Text Label 6600 5800 0    50   ~ 0
+LED_S6
+Entry Wire Line
+	8200 5300 8300 5400
+$Comp
+L Display_Character:LTS-6960HR AFF5
+U 1 1 60B49BFA
+P 7400 5600
+F 0 "AFF5" H 7400 6267 50  0000 C CNN
+F 1 "LTS-6960HR" H 7400 6176 50  0000 C CNN
+F 2 "Display_7Segment:7SegmentLED_LTS6760_LTS6780" H 7400 5000 50  0001 C CNN
+F 3 "https://datasheet.octopart.com/LTS-6960HR-Lite-On-datasheet-11803242.pdf" H 7400 5600 50  0001 C CNN
+	1    7400 5600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6600 5200 6900 5200
+Wire Wire Line
+	6900 5300 6600 5300
+Wire Wire Line
+	6600 5400 6900 5400
+Wire Wire Line
+	6900 5500 6600 5500
+Wire Wire Line
+	6600 5600 6900 5600
+Wire Wire Line
+	6900 5700 6600 5700
+Wire Wire Line
+	6600 5800 6900 5800
+Wire Wire Line
+	7900 5200 7900 5300
+Wire Wire Line
+	7900 5300 8200 5300
+Connection ~ 7900 5300
+NoConn ~ 7900 5900
+Wire Bus Line
+	6500 4700 4600 4700
+Connection ~ 4600 4700
+Wire Bus Line
+	8300 5400 8300 4500
+Connection ~ 8300 4500
+Wire Bus Line
+	8300 4500 8850 4500
+$Comp
+L Device:LED D2
+U 1 1 60B826D7
+P 1950 6650
+F 0 "D2" H 1943 6395 50  0000 C CNN
+F 1 "LED" H 1943 6486 50  0000 C CNN
+F 2 "LED_THT:LED_D3.0mm" H 1950 6650 50  0001 C CNN
+F 3 "~" H 1950 6650 50  0001 C CNN
+	1    1950 6650
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:LED D3
+U 1 1 60B83140
+P 1950 6950
+F 0 "D3" H 1943 6695 50  0000 C CNN
+F 1 "LED" H 1943 6786 50  0000 C CNN
+F 2 "LED_THT:LED_D3.0mm" H 1950 6950 50  0001 C CNN
+F 3 "~" H 1950 6950 50  0001 C CNN
+	1    1950 6950
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:LED D4
+U 1 1 60B83C58
+P 1950 7250
+F 0 "D4" H 1943 6995 50  0000 C CNN
+F 1 "LED" H 1943 7086 50  0000 C CNN
+F 2 "LED_THT:LED_D3.0mm" H 1950 7250 50  0001 C CNN
+F 3 "~" H 1950 7250 50  0001 C CNN
+	1    1950 7250
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R R2
+U 1 1 60B974C8
+P 1750 2550
+F 0 "R2" V 1800 2350 50  0000 C CNN
+F 1 "4.7k" V 1800 2150 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 1680 2550 50  0001 C CNN
+F 3 "~" H 1750 2550 50  0001 C CNN
+	1    1750 2550
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R3
+U 1 1 60B97BFD
+P 1750 2650
+F 0 "R3" V 1800 2450 50  0000 C CNN
+F 1 "4.7k" V 1800 2250 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 1680 2650 50  0001 C CNN
+F 3 "~" H 1750 2650 50  0001 C CNN
+	1    1750 2650
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R4
+U 1 1 60B98389
+P 1750 2750
+F 0 "R4" V 1800 2550 50  0000 C CNN
+F 1 "4.7k" V 1800 2350 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 1680 2750 50  0001 C CNN
+F 3 "~" H 1750 2750 50  0001 C CNN
+	1    1750 2750
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R5
+U 1 1 60B98B37
+P 1750 2850
+F 0 "R5" V 1800 2650 50  0000 C CNN
+F 1 "4.7k" V 1800 2450 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 1680 2850 50  0001 C CNN
+F 3 "~" H 1750 2850 50  0001 C CNN
+	1    1750 2850
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R6
+U 1 1 60B99366
+P 1750 2950
+F 0 "R6" V 1800 2750 50  0000 C CNN
+F 1 "4.7k" V 1800 2550 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 1680 2950 50  0001 C CNN
+F 3 "~" H 1750 2950 50  0001 C CNN
+	1    1750 2950
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R7
+U 1 1 60B99B64
+P 1750 3050
+F 0 "R7" V 1800 2850 50  0000 C CNN
+F 1 "4.7k" V 1800 2650 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 1680 3050 50  0001 C CNN
+F 3 "~" H 1750 3050 50  0001 C CNN
+	1    1750 3050
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	2300 3750 2800 3750
+Wire Wire Line
+	2800 3750 2800 3350
+Connection ~ 2300 3750
+Wire Wire Line
+	2800 2250 2800 1750
+Wire Wire Line
+	2800 1750 2300 1750
+Wire Wire Line
+	3200 3150 3600 3150
+Wire Wire Line
+	3600 3150 3600 3050
+Wire Wire Line
+	3600 3050 3750 3050
+Wire Wire Line
+	3750 3150 3750 3100
+Wire Wire Line
+	3750 3100 3200 3100
+Wire Wire Line
+	3200 3100 3200 3050
+Wire Wire Line
+	4750 3550 4850 3550
+Wire Wire Line
+	4850 3550 4850 3650
+Wire Wire Line
+	3750 3350 3750 3450
+Connection ~ 3750 3450
+Wire Wire Line
+	3750 3450 3750 3550
+Wire Wire Line
+	3550 3450 3750 3450
+Wire Bus Line
+	2600 4500 2600 7350
+Wire Bus Line
+	4500 4500 4500 6650
+Wire Bus Line
+	6400 4500 6400 6650
+Wire Bus Line
+	1200 2350 1200 4700
+Wire Bus Line
+	8850 2750 8850 4500
+Wire Bus Line
+	6500 4700 6500 5700
+Wire Bus Line
+	1200 4700 1200 7150
+Wire Bus Line
+	2700 4700 2700 6950
+Wire Bus Line
+	4600 4700 4600 6950
+$Comp
+L power:GND #PWR?
+U 1 1 60CC475E
+P 3550 3450
+F 0 "#PWR?" H 3550 3200 50  0001 C CNN
+F 1 "GND" H 3555 3277 50  0000 C CNN
+F 2 "" H 3550 3450 50  0001 C CNN
+F 3 "" H 3550 3450 50  0001 C CNN
+	1    3550 3450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 60CC507C
+P 4850 3650
+F 0 "#PWR?" H 4850 3400 50  0001 C CNN
+F 1 "GND" H 4855 3477 50  0000 C CNN
+F 2 "" H 4850 3650 50  0001 C CNN
+F 3 "" H 4850 3650 50  0001 C CNN
+	1    4850 3650
+	1    0    0    -1  
+$EndComp
+$EndSCHEMATC

@@ -53,6 +53,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdlib.h>
+#include <sys/attribs.h>
 
 #ifdef __cplusplus  // Provide C++ Compatibility
 
@@ -297,29 +298,8 @@ bool ADC1_IsConversionComplete( void );
 
 void ADC1_ChannelSelect( ADC1_CHANNEL channel );
 
-/**
-  @Summary
-    Polled implementation
+uint32_t ADC1_GetSingleConversion( ADC1_CHANNEL channel );
 
-  @Description
-    This routine is used to implement the tasks for polled implementations.
-  
-  @Preconditions
-    ADC1_Initialize function should have been 
-    called before calling this function.
- 
-  @Returns 
-    None
- 
-  @Param
-    None
- 
-  @Example
-    Refer to ADC1_Initialize() for an example
-    
-*/
-
-void ADC1_Tasks(void);
        
 #ifdef __cplusplus  // Provide C++ Compatibility
 

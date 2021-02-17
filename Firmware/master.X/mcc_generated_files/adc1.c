@@ -73,6 +73,8 @@ void ADC1_Initialize (void)
    AD1CSSL = 0x0;
 
 
+   // Enabling ADC1 interrupt.
+   IEC0bits.AD1IE = 1;
 }
 
 void ADC1_Start(void)
@@ -114,15 +116,20 @@ void ADC1_ChannelSelect( ADC1_CHANNEL channel )
     AD1CHS = channel << 16;
 }
 
-void ADC1_Tasks ( void )
+void __ISR ( _ADC_VECTOR, IPL1AUTO ) ADC_1 (void)
 {
-    if(IFS0bits.AD1IF)
-    {
-        // Read ADC Buffer since the interrupt is persistent
+    // Read ADC Buffer since the interrupt is persistent
     
-        // clear ADC interrupt flag
-        IFS0CLR= 1 << _IFS0_AD1IF_POSITION;
-    }
+    // clear ADC interrupt flag
+    IFS0CLR= 1 << _IFS0_AD1IF_POSITION;
+}
+
+uint32_t ADC1_GetSingleConversion( ADC1_CHANNEL channel ){
+  ADC1_ChannelSelect(channel);ADC1_Start();
+  for(int i=0;i < 30;i++);//1us
+  ADC1_Stop();
+  while(!ADC1_IsConversionComplete());
+  return ADC1_ConversionResultGet();
 }
 
 /**
