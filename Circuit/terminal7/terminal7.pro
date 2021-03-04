@@ -1,4 +1,4 @@
-update=2021年02月25日 15時31分57秒
+update=2021年02月18日 07時04分06秒
 version=1
 last_client=kicad
 [general]
@@ -26,7 +26,7 @@ ERC_TestSimilarLabels=1
 version=1
 PageLayoutDescrFile=
 LastNetListRead=terminal1.net
-CopperLayerCount=4
+CopperLayerCount=2
 BoardThickness=1.6
 AllowMicroVias=0
 AllowBlindVias=0
@@ -67,7 +67,7 @@ OthersTextUpright=1
 SolderMaskClearance=0
 SolderMaskMinWidth=0
 SolderPasteClearance=0
-SolderPasteRatio=-0
+SolderPasteRatio=0
 [pcbnew/Layer.F.Cu]
 Name=F.Cu
 Type=0
@@ -75,11 +75,11 @@ Enabled=1
 [pcbnew/Layer.In1.Cu]
 Name=In1.Cu
 Type=0
-Enabled=1
+Enabled=0
 [pcbnew/Layer.In2.Cu]
 Name=In2.Cu
 Type=0
-Enabled=1
+Enabled=0
 [pcbnew/Layer.In3.Cu]
 Name=In3.Cu
 Type=0
@@ -233,7 +233,7 @@ Enabled=1
 [pcbnew/Layer.F.Fab]
 Enabled=1
 [pcbnew/Layer.Rescue]
-Enabled=0
+Enabled=1
 [pcbnew/Netclasses]
 [pcbnew/Netclasses/Default]
 Name=Default
