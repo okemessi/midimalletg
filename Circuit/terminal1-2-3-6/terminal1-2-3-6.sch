@@ -178,31 +178,17 @@ F 3 "~" H 3450 3000 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	3600 2400 4350 2400
-Wire Wire Line
 	4350 2400 4350 2350
 Wire Wire Line
 	4350 2450 4350 2500
-Wire Wire Line
-	4350 2500 3600 2500
-Wire Wire Line
-	3600 2600 4350 2600
 Wire Wire Line
 	4350 2600 4350 2550
 Wire Wire Line
 	4350 2650 4350 2700
 Wire Wire Line
-	4350 2700 3600 2700
-Wire Wire Line
-	3600 2800 4350 2800
-Wire Wire Line
 	4350 2800 4350 2750
 Wire Wire Line
 	4350 2850 4350 2900
-Wire Wire Line
-	4350 2900 3600 2900
-Wire Wire Line
-	3600 3000 4350 3000
 Wire Wire Line
 	4350 3000 4350 2950
 $Comp
@@ -216,8 +202,6 @@ F 3 "~" H 3450 3100 50  0001 C CNN
 	1    3450 3100
 	0    1    1    0   
 $EndComp
-Wire Wire Line
-	3600 3100 4350 3100
 Wire Wire Line
 	4350 3050 4350 3100
 Wire Wire Line
@@ -241,25 +225,11 @@ Connection ~ 3300 3000
 Wire Wire Line
 	3300 3000 3300 3100
 Connection ~ 3850 2450
-Wire Wire Line
-	3850 2450 3850 2350
 Connection ~ 3850 2550
-Wire Wire Line
-	3850 2550 3850 2450
 Connection ~ 3850 2650
-Wire Wire Line
-	3850 2650 3850 2550
 Connection ~ 3850 2750
-Wire Wire Line
-	3850 2750 3850 2650
 Connection ~ 3850 2850
-Wire Wire Line
-	3850 2850 3850 2750
 Connection ~ 3850 2950
-Wire Wire Line
-	3850 2950 3850 2850
-Wire Wire Line
-	3850 3050 3850 2950
 $Comp
 L Connector:Conn_01x02_Male J3
 U 1 1 604C548C
@@ -339,19 +309,6 @@ Wire Wire Line
 Connection ~ 2850 3250
 Wire Wire Line
 	2850 3250 1900 3250
-$Comp
-L Connector_Generic:Conn_02x08_Odd_Even J2
-U 1 1 602DFCF7
-P 4150 2750
-F 0 "J2" H 4200 2125 50  0000 C CNN
-F 1 "Conn_02x08_Odd_Even" H 4200 2216 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_2x08_P2.54mm_Horizontal" H 4150 2750 50  0001 C CNN
-F 3 "~" H 4150 2750 50  0001 C CNN
-	1    4150 2750
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	3850 2150 3850 2350
 Connection ~ 3850 2350
 Wire Wire Line
 	3300 1500 5850 1500
@@ -494,4 +451,47 @@ Wire Wire Line
 Wire Wire Line
 	4250 3850 5350 3850
 Connection ~ 4250 3850
+Wire Wire Line
+	3850 3050 3850 2950
+Wire Wire Line
+	3850 2950 3850 2850
+Wire Wire Line
+	3850 2850 3850 2750
+Wire Wire Line
+	3850 2750 3850 2650
+Wire Wire Line
+	3850 2650 3850 2550
+Wire Wire Line
+	3850 2550 3850 2450
+Wire Wire Line
+	3850 2450 3850 2350
+Wire Wire Line
+	3850 2150 3850 2350
+Wire Wire Line
+	3600 3100 4350 3100
+Wire Wire Line
+	3600 3000 4350 3000
+Wire Wire Line
+	4350 2900 3600 2900
+Wire Wire Line
+	3600 2800 4350 2800
+Wire Wire Line
+	4350 2700 3600 2700
+Wire Wire Line
+	3600 2600 4350 2600
+Wire Wire Line
+	4350 2500 3600 2500
+Wire Wire Line
+	3600 2400 4350 2400
+$Comp
+L Connector_Generic:Conn_02x08_Odd_Even J2
+U 1 1 602DFCF7
+P 4150 2750
+F 0 "J2" H 4200 2125 50  0000 C CNN
+F 1 "Conn_02x08_Odd_Even" H 4200 2216 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x08_P2.54mm_Horizontal" H 4150 2750 50  0001 C CNN
+F 3 "~" H 4150 2750 50  0001 C CNN
+	1    4150 2750
+	-1   0    0    1   
+$EndComp
 $EndSCHEMATC
