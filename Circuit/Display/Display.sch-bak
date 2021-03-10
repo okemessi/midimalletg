@@ -1209,12 +1209,16 @@ L Connector:Conn_01x04_Male J2
 U 1 1 607881ED
 P 9700 6150
 F 0 "J2" H 9728 6126 50  0000 L CNN
-F 1 "Conn_01x04_Female" H 9728 6035 50  0000 L CNN
+F 1 "Conn_01x04_Male" H 9728 6035 50  0000 L CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Horizontal" H 9700 6150 50  0001 C CNN
 F 3 "~" H 9700 6150 50  0001 C CNN
 	1    9700 6150
 	0    1    1    0   
 $EndComp
+Text Label 9200 6550 0    50   ~ 0
+SDA
+Text Label 9200 6650 0    50   ~ 0
+SCL
 Wire Bus Line
 	4100 7250 4100 10100
 Wire Bus Line

@@ -1,0 +1,21 @@
+Reference, Value, Footprint, Datasheet, terminal4N
+"U1","4051","Package_DIP:DIP-16_W7.62mm","http://www.intersil.com/content/dam/Intersil/documents/cd40/cd4051bms-52bms-53bms.pdf", terminal4N
+"C2","0.1u","Capacitor_THT:C_Disc_D3.0mm_W1.6mm_P2.50mm","~", terminal4N
+"C1","10u","Capacitor_THT:CP_Radial_D5.0mm_P2.50mm","~", terminal4N
+"J1","Conn_01x05_Male","Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Horizontal","~", terminal4N
+"R5","1Meg","Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal","~", terminal4N
+"R6","1Meg","Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal","~", terminal4N
+"R7","1Meg","Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal","~", terminal4N
+"R8","1Meg","Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal","~", terminal4N
+"J3","Conn_01x02_Male","Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Horizontal","~", terminal4N
+"J2","Conn_02x08_Odd_Even","Connector_PinHeader_2.54mm:PinHeader_2x08_P2.54mm_Horizontal","~", terminal4N
+"R9","220","Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal","~", terminal4N
+"R10","220","Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal","~", terminal4N
+"R11","220","Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal","~", terminal4N
+"R12","220","Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal","~", terminal4N
+"R13","220","Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal","~", terminal4N
+"R14","220","Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal","~", terminal4N
+"R15","220","Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal","~", terminal4N
+"R16","220","Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal","~", terminal4N
+"U2","74HC00","Package_DIP:DIP-14_W7.62mm","http://www.ti.com/lit/gpn/sn74hc00", terminal4N
+"C3","0.1u","Capacitor_THT:C_Disc_D3.0mm_W1.6mm_P2.50mm","~", terminal4N

@@ -78,13 +78,7 @@ Wire Wire Line
 Wire Wire Line
 	4700 5900 5100 5900
 Wire Wire Line
-	4300 4500 3800 4500
-Wire Wire Line
-	4300 5000 4300 4500
-Wire Wire Line
-	4300 6500 4300 6100
-Wire Wire Line
-	3800 6500 4300 6500
+	7350 4800 7350 5050
 $Comp
 L Device:LED D4
 U 1 1 60B83C58
@@ -94,7 +88,7 @@ F 1 "LED" H 3443 9836 50  0000 C CNN
 F 2 "LED_THT:LED_D3.0mm" H 3450 10000 50  0001 C CNN
 F 3 "~" H 3450 10000 50  0001 C CNN
 	1    3450 10000
-	-1   0    0    1   
+	1    0    0    -1  
 $EndComp
 $Comp
 L Device:LED D3
@@ -105,7 +99,7 @@ F 1 "LED" H 3443 9536 50  0000 C CNN
 F 2 "LED_THT:LED_D3.0mm" H 3450 9700 50  0001 C CNN
 F 3 "~" H 3450 9700 50  0001 C CNN
 	1    3450 9700
-	-1   0    0    1   
+	1    0    0    -1  
 $EndComp
 $Comp
 L Device:LED D2
@@ -116,7 +110,7 @@ F 1 "LED" H 3443 9236 50  0000 C CNN
 F 2 "LED_THT:LED_D3.0mm" H 3450 9400 50  0001 C CNN
 F 3 "~" H 3450 9400 50  0001 C CNN
 	1    3450 9400
-	-1   0    0    1   
+	1    0    0    -1  
 $EndComp
 Wire Bus Line
 	9800 7250 10350 7250
@@ -369,8 +363,6 @@ Wire Wire Line
 Wire Wire Line
 	4300 7950 4600 7950
 Wire Wire Line
-	3700 8400 4000 8400
-Wire Wire Line
 	4000 10000 3700 10000
 $Comp
 L Display_Character:LTS-6960HR AFF1
@@ -463,30 +455,27 @@ F 3 "~" H 5450 4650 50  0001 C CNN
 	1    5450 4650
 	-1   0    0    1   
 $EndComp
-Wire Wire Line
-	3800 6250 3800 6500
 $Comp
 L power:GND #PWR01
 U 1 1 60812496
-P 3500 6500
-F 0 "#PWR01" H 3500 6250 50  0001 C CNN
-F 1 "GND" H 3505 6327 50  0000 C CNN
-F 2 "" H 3500 6500 50  0001 C CNN
-F 3 "" H 3500 6500 50  0001 C CNN
-	1    3500 6500
+P 7650 5050
+F 0 "#PWR01" H 7650 4800 50  0001 C CNN
+F 1 "GND" H 7655 4877 50  0000 C CNN
+F 2 "" H 7650 5050 50  0001 C CNN
+F 3 "" H 7650 5050 50  0001 C CNN
+	1    7650 5050
 	1    0    0    -1  
 $EndComp
-Connection ~ 3800 6500
 $Comp
 L Device:C C1
 U 1 1 60811A21
-P 3650 6500
-F 0 "C1" V 3398 6500 50  0000 C CNN
-F 1 "0.1u" V 3489 6500 50  0000 C CNN
-F 2 "Capacitor_THT:C_Disc_D3.0mm_W1.6mm_P2.50mm" H 3688 6350 50  0001 C CNN
-F 3 "~" H 3650 6500 50  0001 C CNN
-	1    3650 6500
-	0    1    1    0   
+P 7500 5050
+F 0 "C1" V 7248 5050 50  0000 C CNN
+F 1 "0.1u" V 7339 5050 50  0000 C CNN
+F 2 "Capacitor_THT:C_Disc_D3.0mm_W1.6mm_P2.50mm" H 7538 4900 50  0001 C CNN
+F 3 "~" H 7500 5050 50  0001 C CNN
+	1    7500 5050
+	0    -1   -1   0   
 $EndComp
 Connection ~ 5750 4500
 $Comp
@@ -503,12 +492,12 @@ $EndComp
 $Comp
 L power:VDD #PWR02
 U 1 1 607FC6E4
-P 3800 6250
-F 0 "#PWR02" H 3800 6100 50  0001 C CNN
-F 1 "VDD" H 3815 6423 50  0000 C CNN
-F 2 "" H 3800 6250 50  0001 C CNN
-F 3 "" H 3800 6250 50  0001 C CNN
-	1    3800 6250
+P 7350 4800
+F 0 "#PWR02" H 7350 4650 50  0001 C CNN
+F 1 "VDD" H 7365 4973 50  0000 C CNN
+F 2 "" H 7350 4800 50  0001 C CNN
+F 3 "" H 7350 4800 50  0001 C CNN
+	1    7350 4800
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -600,7 +589,6 @@ F 3 "~" H 4800 3750 50  0001 C CNN
 	1    4800 3750
 	1    0    0    -1  
 $EndComp
-NoConn ~ 7750 5300
 NoConn ~ 7750 6100
 NoConn ~ 3900 5900
 NoConn ~ 6850 4550
@@ -716,7 +704,6 @@ Wire Wire Line
 	3700 10000 3600 10000
 Wire Wire Line
 	3700 9100 3700 9400
-Connection ~ 3700 9100
 Wire Wire Line
 	3600 9100 3700 9100
 Wire Wire Line
@@ -790,15 +777,11 @@ LED_S1
 Text Label 2800 7800 0    50   ~ 0
 LED_S0
 Wire Wire Line
-	3300 8400 2800 8400
-Wire Wire Line
 	2800 8300 3300 8300
 Wire Wire Line
 	3300 8200 2800 8200
 Wire Wire Line
 	2800 8100 3300 8100
-Wire Wire Line
-	3300 8000 2800 8000
 Wire Wire Line
 	2800 7900 3300 7900
 Wire Wire Line
@@ -914,60 +897,23 @@ Wire Wire Line
 $Comp
 L Transistor_Array:ULN2803A U3
 U 1 1 6035D1F1
-P 7350 5600
-F 0 "U3" H 7350 6167 50  0000 C CNN
-F 1 "ULN2803A" H 7350 6076 50  0000 C CNN
-F 2 "Package_DIP:DIP-18_W7.62mm" H 7400 4950 50  0001 L CNN
-F 3 "http://www.ti.com/lit/ds/symlink/uln2803a.pdf" H 7450 5400 50  0001 C CNN
-	1    7350 5600
-	1    0    0    -1  
+P 4300 5700
+F 0 "U3" H 4300 6267 50  0000 C CNN
+F 1 "ULN2803A" H 4300 6176 50  0000 C CNN
+F 2 "Package_DIP:DIP-18_W7.62mm" H 4350 5050 50  0001 L CNN
+F 3 "http://www.ti.com/lit/ds/symlink/uln2803a.pdf" H 4400 5500 50  0001 C CNN
+	1    4300 5700
+	-1   0    0    1   
 $EndComp
 $Comp
 L Transistor_Array:TBD62783A U1
 U 1 1 60340DE8
-P 4300 5600
-F 0 "U1" H 4300 4819 50  0000 C CNN
-F 1 "TBD62783A" H 4300 4910 50  0000 C CNN
-F 2 "Package_DIP:DIP-18_W7.62mm" H 4300 5050 50  0001 C CNN
-F 3 "http://toshiba.semicon-storage.com/info/docget.jsp?did=30523&prodName=TBD62783APG" H 4000 6000 50  0001 C CNN
-	1    4300 5600
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	3700 7800 3700 7900
-Connection ~ 3700 7900
-Wire Wire Line
-	3700 7900 3700 8000
-Connection ~ 3700 8000
-Wire Wire Line
-	3700 8000 3700 8100
-Connection ~ 3700 8100
-Wire Wire Line
-	3700 8100 3700 8200
-Connection ~ 3700 8200
-Wire Wire Line
-	3700 8300 3700 8400
-Wire Wire Line
-	3700 8200 3700 8300
-Connection ~ 3700 8300
-Connection ~ 3700 8400
-Wire Wire Line
-	3700 8500 3700 8600
-Connection ~ 3700 8600
-Wire Wire Line
-	3700 9100 3700 8700
-Wire Wire Line
-	3700 8600 3700 8700
-Connection ~ 3700 8700
-$Comp
-L LED:HDSP-4830_2 BAR1
-U 1 1 60332800
-P 3500 8200
-F 0 "BAR1" H 3500 8867 50  0000 C CNN
-F 1 "HDSP-4830_2" H 3500 8776 50  0000 C CNN
-F 2 "Display:HDSP-4830" H 3500 7400 50  0001 C CNN
-F 3 "https://docs.broadcom.com/docs/AV02-1798EN" H 1500 8400 50  0001 C CNN
-	1    3500 8200
+P 7350 5700
+F 0 "U1" H 7350 4919 50  0000 C CNN
+F 1 "TBD62783A" H 7350 5010 50  0000 C CNN
+F 2 "Package_DIP:DIP-18_W7.62mm" H 7350 5150 50  0001 C CNN
+F 3 "http://toshiba.semicon-storage.com/info/docget.jsp?did=30523&prodName=TBD62783APG" H 7050 6100 50  0001 C CNN
+	1    7350 5700
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -979,7 +925,7 @@ F 1 "LED" H 3443 8936 50  0000 C CNN
 F 2 "LED_THT:LED_D3.0mm" H 3450 9100 50  0001 C CNN
 F 3 "~" H 3450 9100 50  0001 C CNN
 	1    3450 9100
-	-1   0    0    1   
+	1    0    0    -1  
 $EndComp
 Wire Wire Line
 	6550 4350 6850 4350
@@ -1052,16 +998,16 @@ F 3 "" H 6550 6500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	7350 6300 7350 6500
+	4300 5000 4300 4800
 $Comp
 L power:GND #PWR09
 U 1 1 602E59D5
-P 7350 6500
-F 0 "#PWR09" H 7350 6250 50  0001 C CNN
-F 1 "GND" H 7355 6327 50  0000 C CNN
-F 2 "" H 7350 6500 50  0001 C CNN
-F 3 "" H 7350 6500 50  0001 C CNN
-	1    7350 6500
+P 4000 4800
+F 0 "#PWR09" H 4000 4550 50  0001 C CNN
+F 1 "GND" H 4005 4627 50  0000 C CNN
+F 2 "" H 4000 4800 50  0001 C CNN
+F 3 "" H 4000 4800 50  0001 C CNN
+	1    4000 4800
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -1077,17 +1023,15 @@ F 3 "" H 5750 6800 50  0001 C CNN
 	1    5750 6800
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	3800 4500 3800 4700
 $Comp
 L power:GND #PWR03
 U 1 1 602E0BCF
-P 3800 4700
-F 0 "#PWR03" H 3800 4450 50  0001 C CNN
-F 1 "GND" H 3805 4527 50  0000 C CNN
-F 2 "" H 3800 4700 50  0001 C CNN
-F 3 "" H 3800 4700 50  0001 C CNN
-	1    3800 4700
+P 7350 6300
+F 0 "#PWR03" H 7350 6050 50  0001 C CNN
+F 1 "GND" H 7355 6127 50  0000 C CNN
+F 2 "" H 7350 6300 50  0001 C CNN
+F 3 "" H 7350 6300 50  0001 C CNN
+	1    7350 6300
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -1209,12 +1153,63 @@ L Connector:Conn_01x04_Male J2
 U 1 1 607881ED
 P 9700 6150
 F 0 "J2" H 9728 6126 50  0000 L CNN
-F 1 "Conn_01x04_Female" H 9728 6035 50  0000 L CNN
+F 1 "Conn_01x04_Male" H 9728 6035 50  0000 L CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Horizontal" H 9700 6150 50  0001 C CNN
 F 3 "~" H 9700 6150 50  0001 C CNN
 	1    9700 6150
 	0    1    1    0   
 $EndComp
+Text Label 9200 6550 0    50   ~ 0
+SDA
+Text Label 9200 6650 0    50   ~ 0
+SCL
+Connection ~ 3700 8000
+Connection ~ 3700 9100
+Connection ~ 3700 8700
+Wire Wire Line
+	3700 9100 3700 8700
+Connection ~ 3700 8600
+Wire Wire Line
+	3700 8600 3700 8700
+Wire Wire Line
+	3700 8500 3700 8600
+Connection ~ 3700 8400
+Connection ~ 3700 8300
+Wire Wire Line
+	3700 8200 3700 8300
+Wire Wire Line
+	3700 8300 3700 8400
+Connection ~ 3700 8200
+Connection ~ 3700 8100
+Wire Wire Line
+	3700 8100 3700 8200
+Wire Wire Line
+	3700 8000 3700 8100
+Connection ~ 3700 7900
+Wire Wire Line
+	3700 7900 3700 8000
+Wire Wire Line
+	3700 7800 3700 7900
+Wire Wire Line
+	3700 8400 4000 8400
+Wire Wire Line
+	3300 8400 2800 8400
+Wire Wire Line
+	3300 8000 2800 8000
+$Comp
+L LED:HDSP-4830_2 BAR1
+U 1 1 60332800
+P 3500 8300
+F 0 "BAR1" H 3500 8967 50  0000 C CNN
+F 1 "HDSP-4830_2" H 3500 8876 50  0000 C CNN
+F 2 "Display:HDSP-4830" H 3500 7500 50  0001 C CNN
+F 3 "https://docs.broadcom.com/docs/AV02-1798EN" H 1500 8500 50  0001 C CNN
+	1    3500 8300
+	-1   0    0    1   
+$EndComp
+NoConn ~ 3900 6000
+Wire Wire Line
+	4000 4800 4300 4800
 Wire Bus Line
 	4100 7250 4100 10100
 Wire Bus Line
@@ -1235,8 +1230,7 @@ Wire Bus Line
 	2700 7450 2700 9900
 Wire Bus Line
 	4200 7450 4200 9700
-Text Label 9200 6550 0    50   ~ 0
-SDA
-Text Label 9200 6650 0    50   ~ 0
-SCL
+Connection ~ 7350 5050
+Wire Wire Line
+	7350 5050 7350 5200
 $EndSCHEMATC

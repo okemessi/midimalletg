@@ -14,10 +14,10 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L Connector_Generic:Conn_02x08_Odd_Even J?
+L Connector_Generic:Conn_02x08_Odd_Even J9
 U 1 1 60413EDC
 P 3500 9000
-F 0 "J?" H 3550 8375 50  0000 C CNN
+F 0 "J9" H 3550 8375 50  0000 C CNN
 F 1 "Conn_02x08_Odd_Even" H 3550 8466 50  0000 C CNN
 F 2 "" H 3500 9000 50  0001 C CNN
 F 3 "~" H 3500 9000 50  0001 C CNN
@@ -25,10 +25,10 @@ F 3 "~" H 3500 9000 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK1
 U 1 1 604111BD
 P 750 8400
-F 0 "MK?" H 750 8650 50  0000 L CNN
+F 0 "MK1" H 750 8650 50  0000 L CNN
 F 1 "Piezo" H 750 8550 50  0000 L CNN
 F 2 "" V 800 8330 50  0001 L CNN
 F 3 "~" V 750 8500 50  0001 C CNN
@@ -36,10 +36,10 @@ F 3 "~" V 750 8500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK2
 U 1 1 60448984
 P 1050 8400
-F 0 "MK?" H 1050 8650 50  0000 L CNN
+F 0 "MK2" H 1050 8650 50  0000 L CNN
 F 1 "Piezo" H 1050 8550 50  0000 L CNN
 F 2 "" V 1100 8330 50  0001 L CNN
 F 3 "~" V 1050 8500 50  0001 C CNN
@@ -47,10 +47,10 @@ F 3 "~" V 1050 8500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK4
 U 1 1 60448B24
 P 1350 8400
-F 0 "MK?" H 1350 8650 50  0000 L CNN
+F 0 "MK4" H 1350 8650 50  0000 L CNN
 F 1 "Piezo" H 1350 8550 50  0000 L CNN
 F 2 "" V 1400 8330 50  0001 L CNN
 F 3 "~" V 1350 8500 50  0001 C CNN
@@ -58,10 +58,10 @@ F 3 "~" V 1350 8500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK6
 U 1 1 60448CE2
 P 1650 8400
-F 0 "MK?" H 1650 8650 50  0000 L CNN
+F 0 "MK6" H 1650 8650 50  0000 L CNN
 F 1 "Piezo" H 1650 8550 50  0000 L CNN
 F 2 "" V 1700 8330 50  0001 L CNN
 F 3 "~" V 1650 8500 50  0001 C CNN
@@ -69,10 +69,10 @@ F 3 "~" V 1650 8500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK8
 U 1 1 60448EBE
 P 1950 8400
-F 0 "MK?" H 1950 8650 50  0000 L CNN
+F 0 "MK8" H 1950 8650 50  0000 L CNN
 F 1 "Piezo" H 1950 8550 50  0000 L CNN
 F 2 "" V 2000 8330 50  0001 L CNN
 F 3 "~" V 1950 8500 50  0001 C CNN
@@ -80,10 +80,10 @@ F 3 "~" V 1950 8500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK10
 U 1 1 604490DA
 P 2250 8400
-F 0 "MK?" H 2250 8650 50  0000 L CNN
+F 0 "MK10" H 2250 8650 50  0000 L CNN
 F 1 "Piezo" H 2250 8550 50  0000 L CNN
 F 2 "" V 2300 8330 50  0001 L CNN
 F 3 "~" V 2250 8500 50  0001 C CNN
@@ -91,10 +91,10 @@ F 3 "~" V 2250 8500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK11
 U 1 1 60449314
 P 2550 8400
-F 0 "MK?" H 2550 8650 50  0000 L CNN
+F 0 "MK11" H 2550 8650 50  0000 L CNN
 F 1 "Piezo" H 2550 8550 50  0000 L CNN
 F 2 "" V 2600 8330 50  0001 L CNN
 F 3 "~" V 2550 8500 50  0001 C CNN
@@ -102,10 +102,10 @@ F 3 "~" V 2550 8500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK12
 U 1 1 6044954A
 P 2850 8400
-F 0 "MK?" H 2850 8650 50  0000 L CNN
+F 0 "MK12" H 2850 8650 50  0000 L CNN
 F 1 "Piezo" H 2850 8550 50  0000 L CNN
 F 2 "" V 2900 8330 50  0001 L CNN
 F 3 "~" V 2850 8500 50  0001 C CNN
@@ -207,10 +207,10 @@ Wire Wire Line
 Wire Wire Line
 	3700 9350 3700 9300
 $Comp
-L Connector_Generic:Conn_02x08_Odd_Even J?
+L Connector_Generic:Conn_02x08_Odd_Even J19
 U 1 1 6048EFFF
 P 6800 9000
-F 0 "J?" H 6850 8375 50  0000 C CNN
+F 0 "J19" H 6850 8375 50  0000 C CNN
 F 1 "Conn_02x08_Odd_Even" H 6850 8466 50  0000 C CNN
 F 2 "" H 6800 9000 50  0001 C CNN
 F 3 "~" H 6800 9000 50  0001 C CNN
@@ -218,10 +218,10 @@ F 3 "~" H 6800 9000 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK15
 U 1 1 6048F005
 P 4050 8400
-F 0 "MK?" H 4050 8650 50  0000 L CNN
+F 0 "MK15" H 4050 8650 50  0000 L CNN
 F 1 "Piezo" H 4050 8550 50  0000 L CNN
 F 2 "" V 4100 8330 50  0001 L CNN
 F 3 "~" V 4050 8500 50  0001 C CNN
@@ -229,10 +229,10 @@ F 3 "~" V 4050 8500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK17
 U 1 1 6048F00B
 P 4350 8400
-F 0 "MK?" H 4350 8650 50  0000 L CNN
+F 0 "MK17" H 4350 8650 50  0000 L CNN
 F 1 "Piezo" H 4350 8550 50  0000 L CNN
 F 2 "" V 4400 8330 50  0001 L CNN
 F 3 "~" V 4350 8500 50  0001 C CNN
@@ -240,10 +240,10 @@ F 3 "~" V 4350 8500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK19
 U 1 1 6048F011
 P 4650 8400
-F 0 "MK?" H 4650 8650 50  0000 L CNN
+F 0 "MK19" H 4650 8650 50  0000 L CNN
 F 1 "Piezo" H 4650 8550 50  0000 L CNN
 F 2 "" V 4700 8330 50  0001 L CNN
 F 3 "~" V 4650 8500 50  0001 C CNN
@@ -251,10 +251,10 @@ F 3 "~" V 4650 8500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK21
 U 1 1 6048F017
 P 4950 8400
-F 0 "MK?" H 4950 8650 50  0000 L CNN
+F 0 "MK21" H 4950 8650 50  0000 L CNN
 F 1 "Piezo" H 4950 8550 50  0000 L CNN
 F 2 "" V 5000 8330 50  0001 L CNN
 F 3 "~" V 4950 8500 50  0001 C CNN
@@ -262,10 +262,10 @@ F 3 "~" V 4950 8500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK23
 U 1 1 6048F01D
 P 5250 8400
-F 0 "MK?" H 5250 8650 50  0000 L CNN
+F 0 "MK23" H 5250 8650 50  0000 L CNN
 F 1 "Piezo" H 5250 8550 50  0000 L CNN
 F 2 "" V 5300 8330 50  0001 L CNN
 F 3 "~" V 5250 8500 50  0001 C CNN
@@ -273,10 +273,10 @@ F 3 "~" V 5250 8500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK25
 U 1 1 6048F023
 P 5550 8400
-F 0 "MK?" H 5550 8650 50  0000 L CNN
+F 0 "MK25" H 5550 8650 50  0000 L CNN
 F 1 "Piezo" H 5550 8550 50  0000 L CNN
 F 2 "" V 5600 8330 50  0001 L CNN
 F 3 "~" V 5550 8500 50  0001 C CNN
@@ -284,10 +284,10 @@ F 3 "~" V 5550 8500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK26
 U 1 1 6048F029
 P 5850 8400
-F 0 "MK?" H 5850 8650 50  0000 L CNN
+F 0 "MK26" H 5850 8650 50  0000 L CNN
 F 1 "Piezo" H 5850 8550 50  0000 L CNN
 F 2 "" V 5900 8330 50  0001 L CNN
 F 3 "~" V 5850 8500 50  0001 C CNN
@@ -295,10 +295,10 @@ F 3 "~" V 5850 8500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK27
 U 1 1 6048F02F
 P 6150 8400
-F 0 "MK?" H 6150 8650 50  0000 L CNN
+F 0 "MK27" H 6150 8650 50  0000 L CNN
 F 1 "Piezo" H 6150 8550 50  0000 L CNN
 F 2 "" V 6200 8330 50  0001 L CNN
 F 3 "~" V 6150 8500 50  0001 C CNN
@@ -400,10 +400,10 @@ Wire Wire Line
 Wire Wire Line
 	7000 9350 7000 9300
 $Comp
-L Connector_Generic:Conn_02x08_Odd_Even J?
+L Connector_Generic:Conn_02x08_Odd_Even J32
 U 1 1 604C967A
 P 10200 9000
-F 0 "J?" H 10250 8375 50  0000 C CNN
+F 0 "J32" H 10250 8375 50  0000 C CNN
 F 1 "Conn_02x08_Odd_Even" H 10250 8466 50  0000 C CNN
 F 2 "" H 10200 9000 50  0001 C CNN
 F 3 "~" H 10200 9000 50  0001 C CNN
@@ -411,10 +411,10 @@ F 3 "~" H 10200 9000 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK31
 U 1 1 604C9680
 P 7450 8400
-F 0 "MK?" H 7450 8650 50  0000 L CNN
+F 0 "MK31" H 7450 8650 50  0000 L CNN
 F 1 "Piezo" H 7450 8550 50  0000 L CNN
 F 2 "" V 7500 8330 50  0001 L CNN
 F 3 "~" V 7450 8500 50  0001 C CNN
@@ -422,10 +422,10 @@ F 3 "~" V 7450 8500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK33
 U 1 1 604C9686
 P 7750 8400
-F 0 "MK?" H 7750 8650 50  0000 L CNN
+F 0 "MK33" H 7750 8650 50  0000 L CNN
 F 1 "Piezo" H 7750 8550 50  0000 L CNN
 F 2 "" V 7800 8330 50  0001 L CNN
 F 3 "~" V 7750 8500 50  0001 C CNN
@@ -433,10 +433,10 @@ F 3 "~" V 7750 8500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK35
 U 1 1 604C968C
 P 8050 8400
-F 0 "MK?" H 8050 8650 50  0000 L CNN
+F 0 "MK35" H 8050 8650 50  0000 L CNN
 F 1 "Piezo" H 8050 8550 50  0000 L CNN
 F 2 "" V 8100 8330 50  0001 L CNN
 F 3 "~" V 8050 8500 50  0001 C CNN
@@ -444,10 +444,10 @@ F 3 "~" V 8050 8500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK37
 U 1 1 604C9692
 P 8350 8400
-F 0 "MK?" H 8350 8650 50  0000 L CNN
+F 0 "MK37" H 8350 8650 50  0000 L CNN
 F 1 "Piezo" H 8350 8550 50  0000 L CNN
 F 2 "" V 8400 8330 50  0001 L CNN
 F 3 "~" V 8350 8500 50  0001 C CNN
@@ -455,10 +455,10 @@ F 3 "~" V 8350 8500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK39
 U 1 1 604C9698
 P 8650 8400
-F 0 "MK?" H 8650 8650 50  0000 L CNN
+F 0 "MK39" H 8650 8650 50  0000 L CNN
 F 1 "Piezo" H 8650 8550 50  0000 L CNN
 F 2 "" V 8700 8330 50  0001 L CNN
 F 3 "~" V 8650 8500 50  0001 C CNN
@@ -466,10 +466,10 @@ F 3 "~" V 8650 8500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK41
 U 1 1 604C969E
 P 8950 8400
-F 0 "MK?" H 8950 8650 50  0000 L CNN
+F 0 "MK41" H 8950 8650 50  0000 L CNN
 F 1 "Piezo" H 8950 8550 50  0000 L CNN
 F 2 "" V 9000 8330 50  0001 L CNN
 F 3 "~" V 8950 8500 50  0001 C CNN
@@ -477,10 +477,10 @@ F 3 "~" V 8950 8500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK42
 U 1 1 604C96A4
 P 9250 8400
-F 0 "MK?" H 9250 8650 50  0000 L CNN
+F 0 "MK42" H 9250 8650 50  0000 L CNN
 F 1 "Piezo" H 9250 8550 50  0000 L CNN
 F 2 "" V 9300 8330 50  0001 L CNN
 F 3 "~" V 9250 8500 50  0001 C CNN
@@ -488,10 +488,10 @@ F 3 "~" V 9250 8500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK43
 U 1 1 604C96AA
 P 9550 8400
-F 0 "MK?" H 9550 8650 50  0000 L CNN
+F 0 "MK43" H 9550 8650 50  0000 L CNN
 F 1 "Piezo" H 9550 8550 50  0000 L CNN
 F 2 "" V 9600 8330 50  0001 L CNN
 F 3 "~" V 9550 8500 50  0001 C CNN
@@ -593,10 +593,10 @@ Wire Wire Line
 Wire Wire Line
 	10400 9350 10400 9300
 $Comp
-L Connector_Generic:Conn_02x08_Odd_Even J?
+L Connector_Generic:Conn_02x08_Odd_Even J40
 U 1 1 604C96DF
 P 13500 9000
-F 0 "J?" H 13550 8375 50  0000 C CNN
+F 0 "J40" H 13550 8375 50  0000 C CNN
 F 1 "Conn_02x08_Odd_Even" H 13550 8466 50  0000 C CNN
 F 2 "" H 13500 9000 50  0001 C CNN
 F 3 "~" H 13500 9000 50  0001 C CNN
@@ -604,10 +604,10 @@ F 3 "~" H 13500 9000 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK47
 U 1 1 604C96E5
 P 10750 8400
-F 0 "MK?" H 10750 8650 50  0000 L CNN
+F 0 "MK47" H 10750 8650 50  0000 L CNN
 F 1 "Piezo" H 10750 8550 50  0000 L CNN
 F 2 "" V 10800 8330 50  0001 L CNN
 F 3 "~" V 10750 8500 50  0001 C CNN
@@ -615,10 +615,10 @@ F 3 "~" V 10750 8500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK49
 U 1 1 604C96EB
 P 11050 8400
-F 0 "MK?" H 11050 8650 50  0000 L CNN
+F 0 "MK49" H 11050 8650 50  0000 L CNN
 F 1 "Piezo" H 11050 8550 50  0000 L CNN
 F 2 "" V 11100 8330 50  0001 L CNN
 F 3 "~" V 11050 8500 50  0001 C CNN
@@ -626,10 +626,10 @@ F 3 "~" V 11050 8500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK51
 U 1 1 604C96F1
 P 11350 8400
-F 0 "MK?" H 11350 8650 50  0000 L CNN
+F 0 "MK51" H 11350 8650 50  0000 L CNN
 F 1 "Piezo" H 11350 8550 50  0000 L CNN
 F 2 "" V 11400 8330 50  0001 L CNN
 F 3 "~" V 11350 8500 50  0001 C CNN
@@ -637,10 +637,10 @@ F 3 "~" V 11350 8500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK53
 U 1 1 604C96F7
 P 11650 8400
-F 0 "MK?" H 11650 8650 50  0000 L CNN
+F 0 "MK53" H 11650 8650 50  0000 L CNN
 F 1 "Piezo" H 11650 8550 50  0000 L CNN
 F 2 "" V 11700 8330 50  0001 L CNN
 F 3 "~" V 11650 8500 50  0001 C CNN
@@ -648,10 +648,10 @@ F 3 "~" V 11650 8500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK54
 U 1 1 604C96FD
 P 11950 8400
-F 0 "MK?" H 11950 8650 50  0000 L CNN
+F 0 "MK54" H 11950 8650 50  0000 L CNN
 F 1 "Piezo" H 11950 8550 50  0000 L CNN
 F 2 "" V 12000 8330 50  0001 L CNN
 F 3 "~" V 11950 8500 50  0001 C CNN
@@ -659,10 +659,10 @@ F 3 "~" V 11950 8500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK55
 U 1 1 604C9703
 P 12250 8400
-F 0 "MK?" H 12250 8650 50  0000 L CNN
+F 0 "MK55" H 12250 8650 50  0000 L CNN
 F 1 "Piezo" H 12250 8550 50  0000 L CNN
 F 2 "" V 12300 8330 50  0001 L CNN
 F 3 "~" V 12250 8500 50  0001 C CNN
@@ -670,10 +670,10 @@ F 3 "~" V 12250 8500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK56
 U 1 1 604C9709
 P 12550 8400
-F 0 "MK?" H 12550 8650 50  0000 L CNN
+F 0 "MK56" H 12550 8650 50  0000 L CNN
 F 1 "Piezo" H 12550 8550 50  0000 L CNN
 F 2 "" V 12600 8330 50  0001 L CNN
 F 3 "~" V 12550 8500 50  0001 C CNN
@@ -681,10 +681,10 @@ F 3 "~" V 12550 8500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK57
 U 1 1 604C970F
 P 12850 8400
-F 0 "MK?" H 12850 8650 50  0000 L CNN
+F 0 "MK57" H 12850 8650 50  0000 L CNN
 F 1 "Piezo" H 12850 8550 50  0000 L CNN
 F 2 "" V 12900 8330 50  0001 L CNN
 F 3 "~" V 12850 8500 50  0001 C CNN
@@ -786,10 +786,10 @@ Wire Wire Line
 Wire Wire Line
 	13700 9350 13700 9300
 $Comp
-L Connector_Generic:Conn_02x08_Odd_Even J?
+L Connector_Generic:Conn_02x08_Odd_Even J46
 U 1 1 60576781
 P 15600 9000
-F 0 "J?" H 15650 8375 50  0000 C CNN
+F 0 "J46" H 15650 8375 50  0000 C CNN
 F 1 "Conn_02x08_Odd_Even" H 15650 8466 50  0000 C CNN
 F 2 "" H 15600 9000 50  0001 C CNN
 F 3 "~" H 15600 9000 50  0001 C CNN
@@ -797,10 +797,10 @@ F 3 "~" H 15600 9000 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK58
 U 1 1 60576787
 P 14050 8400
-F 0 "MK?" H 14050 8650 50  0000 L CNN
+F 0 "MK58" H 14050 8650 50  0000 L CNN
 F 1 "Piezo" H 14050 8550 50  0000 L CNN
 F 2 "" V 14100 8330 50  0001 L CNN
 F 3 "~" V 14050 8500 50  0001 C CNN
@@ -808,10 +808,10 @@ F 3 "~" V 14050 8500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK59
 U 1 1 6057678D
 P 14350 8400
-F 0 "MK?" H 14350 8650 50  0000 L CNN
+F 0 "MK59" H 14350 8650 50  0000 L CNN
 F 1 "Piezo" H 14350 8550 50  0000 L CNN
 F 2 "" V 14400 8330 50  0001 L CNN
 F 3 "~" V 14350 8500 50  0001 C CNN
@@ -819,10 +819,10 @@ F 3 "~" V 14350 8500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK60
 U 1 1 60576793
 P 14650 8400
-F 0 "MK?" H 14650 8650 50  0000 L CNN
+F 0 "MK60" H 14650 8650 50  0000 L CNN
 F 1 "Piezo" H 14650 8550 50  0000 L CNN
 F 2 "" V 14700 8330 50  0001 L CNN
 F 3 "~" V 14650 8500 50  0001 C CNN
@@ -830,10 +830,10 @@ F 3 "~" V 14650 8500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK61
 U 1 1 60576799
 P 14950 8400
-F 0 "MK?" H 14950 8650 50  0000 L CNN
+F 0 "MK61" H 14950 8650 50  0000 L CNN
 F 1 "Piezo" H 14950 8550 50  0000 L CNN
 F 2 "" V 15000 8330 50  0001 L CNN
 F 3 "~" V 14950 8500 50  0001 C CNN
@@ -899,10 +899,10 @@ Wire Notes Line
 Wire Notes Line
 	7250 9400 16000 9400
 $Comp
-L Connector:DB15_Female J?
+L Connector:DB15_Female J44
 U 1 1 6048C6EF
 P 14900 6600
-F 0 "J?" V 14900 7650 50  0000 C CNN
+F 0 "J44" V 14900 7650 50  0000 C CNN
 F 1 "DB15_Female" V 14800 7650 50  0000 C CNN
 F 2 "" H 14900 6600 50  0001 C CNN
 F 3 " ~" H 14900 6600 50  0001 C CNN
@@ -910,10 +910,10 @@ F 3 " ~" H 14900 6600 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Connector:Conn_01x05_Female J?
+L Connector:Conn_01x05_Female J2
 U 1 1 604E9548
 P 1950 8000
-F 0 "J?" V 1888 7712 50  0000 R CNN
+F 0 "J2" V 1888 7712 50  0000 R CNN
 F 1 "Conn_01x05_Female" V 1797 7712 50  0000 R CNN
 F 2 "" H 1950 8000 50  0001 C CNN
 F 3 "~" H 1950 8000 50  0001 C CNN
@@ -921,10 +921,10 @@ F 3 "~" H 1950 8000 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Connector:Conn_01x02_Female J?
+L Connector:Conn_01x02_Female J7
 U 1 1 604EC23D
 P 3150 8000
-F 0 "J?" V 3088 7812 50  0000 R CNN
+F 0 "J7" V 3088 7812 50  0000 R CNN
 F 1 "Conn_01x02_Female" V 2997 7812 50  0000 R CNN
 F 2 "" H 3150 8000 50  0001 C CNN
 F 3 "~" H 3150 8000 50  0001 C CNN
@@ -932,10 +932,10 @@ F 3 "~" H 3150 8000 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Connector:Conn_01x05_Female J?
+L Connector:Conn_01x05_Female J15
 U 1 1 6055710C
 P 5100 8000
-F 0 "J?" V 5038 7712 50  0000 R CNN
+F 0 "J15" V 5038 7712 50  0000 R CNN
 F 1 "Conn_01x05_Female" V 4947 7712 50  0000 R CNN
 F 2 "" H 5100 8000 50  0001 C CNN
 F 3 "~" H 5100 8000 50  0001 C CNN
@@ -943,10 +943,10 @@ F 3 "~" H 5100 8000 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Connector:Conn_01x02_Female J?
+L Connector:Conn_01x02_Female J18
 U 1 1 60557112
 P 6300 8000
-F 0 "J?" V 6238 7812 50  0000 R CNN
+F 0 "J18" V 6238 7812 50  0000 R CNN
 F 1 "Conn_01x02_Female" V 6147 7812 50  0000 R CNN
 F 2 "" H 6300 8000 50  0001 C CNN
 F 3 "~" H 6300 8000 50  0001 C CNN
@@ -954,10 +954,10 @@ F 3 "~" H 6300 8000 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Connector:Conn_01x05_Female J?
+L Connector:Conn_01x05_Female J27
 U 1 1 6057AB43
 P 8850 8000
-F 0 "J?" V 8788 7712 50  0000 R CNN
+F 0 "J27" V 8788 7712 50  0000 R CNN
 F 1 "Conn_01x05_Female" V 8697 7712 50  0000 R CNN
 F 2 "" H 8850 8000 50  0001 C CNN
 F 3 "~" H 8850 8000 50  0001 C CNN
@@ -965,10 +965,10 @@ F 3 "~" H 8850 8000 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Connector:Conn_01x02_Female J?
+L Connector:Conn_01x02_Female J31
 U 1 1 6057AB49
 P 10050 8000
-F 0 "J?" V 9988 7812 50  0000 R CNN
+F 0 "J31" V 9988 7812 50  0000 R CNN
 F 1 "Conn_01x02_Female" V 9897 7812 50  0000 R CNN
 F 2 "" H 10050 8000 50  0001 C CNN
 F 3 "~" H 10050 8000 50  0001 C CNN
@@ -976,10 +976,10 @@ F 3 "~" H 10050 8000 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Connector:Conn_01x05_Female J?
+L Connector:Conn_01x05_Female J34
 U 1 1 60692E07
 P 11650 8000
-F 0 "J?" V 11588 7712 50  0000 R CNN
+F 0 "J34" V 11588 7712 50  0000 R CNN
 F 1 "Conn_01x05_Female" V 11497 7712 50  0000 R CNN
 F 2 "" H 11650 8000 50  0001 C CNN
 F 3 "~" H 11650 8000 50  0001 C CNN
@@ -987,10 +987,10 @@ F 3 "~" H 11650 8000 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Connector:Conn_01x02_Female J?
+L Connector:Conn_01x02_Female J38
 U 1 1 60692E0D
 P 12850 8000
-F 0 "J?" V 12788 7812 50  0000 R CNN
+F 0 "J38" V 12788 7812 50  0000 R CNN
 F 1 "Conn_01x02_Female" V 12697 7812 50  0000 R CNN
 F 2 "" H 12850 8000 50  0001 C CNN
 F 3 "~" H 12850 8000 50  0001 C CNN
@@ -998,10 +998,10 @@ F 3 "~" H 12850 8000 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Connector:Conn_01x05_Female J?
+L Connector:Conn_01x05_Female J43
 U 1 1 606B7010
 P 14400 8000
-F 0 "J?" V 14338 7712 50  0000 R CNN
+F 0 "J43" V 14338 7712 50  0000 R CNN
 F 1 "Conn_01x05_Female" V 14247 7712 50  0000 R CNN
 F 2 "" H 14400 8000 50  0001 C CNN
 F 3 "~" H 14400 8000 50  0001 C CNN
@@ -1009,10 +1009,10 @@ F 3 "~" H 14400 8000 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Connector:Conn_01x02_Female J?
+L Connector:Conn_01x02_Female J45
 U 1 1 606B7016
 P 15600 8000
-F 0 "J?" V 15538 7812 50  0000 R CNN
+F 0 "J45" V 15538 7812 50  0000 R CNN
 F 1 "Conn_01x02_Female" V 15447 7812 50  0000 R CNN
 F 2 "" H 15600 8000 50  0001 C CNN
 F 3 "~" H 15600 8000 50  0001 C CNN
@@ -1200,10 +1200,10 @@ Wire Notes Line
 Wire Notes Line
 	7250 7050 7250 9400
 $Comp
-L Connector:Conn_01x05_Female J?
+L Connector:Conn_01x05_Female J1
 U 1 1 611CF832
 P 1550 5300
-F 0 "J?" V 1488 5012 50  0000 R CNN
+F 0 "J1" V 1488 5012 50  0000 R CNN
 F 1 "Conn_01x05_Female" V 1397 5012 50  0000 R CNN
 F 2 "" H 1550 5300 50  0001 C CNN
 F 3 "~" H 1550 5300 50  0001 C CNN
@@ -1211,10 +1211,10 @@ F 3 "~" H 1550 5300 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Connector:Conn_01x05_Female J?
+L Connector:Conn_01x05_Female J13
 U 1 1 611CF83E
 P 4700 5300
-F 0 "J?" V 4638 5012 50  0000 R CNN
+F 0 "J13" V 4638 5012 50  0000 R CNN
 F 1 "Conn_01x05_Female" V 4547 5012 50  0000 R CNN
 F 2 "" H 4700 5300 50  0001 C CNN
 F 3 "~" H 4700 5300 50  0001 C CNN
@@ -1222,10 +1222,10 @@ F 3 "~" H 4700 5300 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Connector:Conn_01x02_Female J?
+L Connector:Conn_01x02_Female J16
 U 1 1 611CF844
 P 5900 5400
-F 0 "J?" V 5838 5212 50  0000 R CNN
+F 0 "J16" V 5838 5212 50  0000 R CNN
 F 1 "Conn_01x02_Female" V 5747 5212 50  0000 R CNN
 F 2 "" H 5900 5400 50  0001 C CNN
 F 3 "~" H 5900 5400 50  0001 C CNN
@@ -1233,10 +1233,10 @@ F 3 "~" H 5900 5400 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Connector:Conn_01x05_Female J?
+L Connector:Conn_01x05_Female J25
 U 1 1 611CF84A
 P 8450 5300
-F 0 "J?" V 8388 5012 50  0000 R CNN
+F 0 "J25" V 8388 5012 50  0000 R CNN
 F 1 "Conn_01x05_Female" V 8297 5012 50  0000 R CNN
 F 2 "" H 8450 5300 50  0001 C CNN
 F 3 "~" H 8450 5300 50  0001 C CNN
@@ -1244,10 +1244,10 @@ F 3 "~" H 8450 5300 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Connector:Conn_01x02_Female J?
+L Connector:Conn_01x02_Female J30
 U 1 1 611CF850
 P 9650 5400
-F 0 "J?" V 9588 5212 50  0000 R CNN
+F 0 "J30" V 9588 5212 50  0000 R CNN
 F 1 "Conn_01x02_Female" V 9497 5212 50  0000 R CNN
 F 2 "" H 9650 5400 50  0001 C CNN
 F 3 "~" H 9650 5400 50  0001 C CNN
@@ -1255,10 +1255,10 @@ F 3 "~" H 9650 5400 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Connector:Conn_01x05_Female J?
+L Connector:Conn_01x05_Female J33
 U 1 1 611CF856
 P 11250 5300
-F 0 "J?" V 11188 5012 50  0000 R CNN
+F 0 "J33" V 11188 5012 50  0000 R CNN
 F 1 "Conn_01x05_Female" V 11097 5012 50  0000 R CNN
 F 2 "" H 11250 5300 50  0001 C CNN
 F 3 "~" H 11250 5300 50  0001 C CNN
@@ -1266,10 +1266,10 @@ F 3 "~" H 11250 5300 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Connector:Conn_01x02_Female J?
+L Connector:Conn_01x02_Female J36
 U 1 1 611CF85C
 P 12450 5400
-F 0 "J?" V 12388 5212 50  0000 R CNN
+F 0 "J36" V 12388 5212 50  0000 R CNN
 F 1 "Conn_01x02_Female" V 12297 5212 50  0000 R CNN
 F 2 "" H 12450 5400 50  0001 C CNN
 F 3 "~" H 12450 5400 50  0001 C CNN
@@ -1380,10 +1380,10 @@ Wire Wire Line
 Wire Wire Line
 	2750 5200 2750 4850
 $Comp
-L Connector:Conn_01x02_Female J?
+L Connector:Conn_01x02_Female J4
 U 1 1 611CF838
 P 2750 5400
-F 0 "J?" V 2688 5212 50  0000 R CNN
+F 0 "J4" V 2688 5212 50  0000 R CNN
 F 1 "Conn_01x02_Female" V 2597 5212 50  0000 R CNN
 F 2 "" H 2750 5400 50  0001 C CNN
 F 3 "~" H 2750 5400 50  0001 C CNN
@@ -1393,10 +1393,10 @@ $EndComp
 Wire Wire Line
 	11050 4450 11650 4450
 $Comp
-L Connector:AudioJack2 J?
+L Connector:AudioJack2 J12
 U 1 1 61540508
 P 4700 2600
-F 0 "J?" V 4400 2550 50  0000 L CNN
+F 0 "J12" V 4400 2550 50  0000 L CNN
 F 1 "AudioJack2" V 4500 2300 50  0000 L CNN
 F 2 "" H 4700 2600 50  0001 C CNN
 F 3 "~" H 4700 2600 50  0001 C CNN
@@ -1404,10 +1404,10 @@ F 3 "~" H 4700 2600 50  0001 C CNN
 	0    -1   1    0   
 $EndComp
 $Comp
-L Device:R_POT RV?
+L Device:R_POT RV4
 U 1 1 6154C05F
 P 2650 3050
-F 0 "RV?" H 2581 3096 50  0000 R CNN
+F 0 "RV4" H 2581 3096 50  0000 R CNN
 F 1 "50KB" H 2581 3005 50  0000 R CNN
 F 2 "" H 2650 3050 50  0001 C CNN
 F 3 "~" H 2650 3050 50  0001 C CNN
@@ -1415,10 +1415,10 @@ F 3 "~" H 2650 3050 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Switch:SW_DIP_x01 SW?
+L Switch:SW_DIP_x01 SW1
 U 1 1 61554940
 P 9600 2800
-F 0 "SW?" V 9200 2800 50  0000 L CNN
+F 0 "SW1" V 9200 2800 50  0000 L CNN
 F 1 "SW_Panel" V 9300 2800 50  0000 L CNN
 F 2 "" H 9600 2800 50  0001 C CNN
 F 3 "~" H 9600 2800 50  0001 C CNN
@@ -1426,10 +1426,10 @@ F 3 "~" H 9600 2800 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Connector:DIN-5_180degree J?
+L Connector:DIN-5_180degree J26
 U 1 1 61565123
 P 8850 3000
-F 0 "J?" H 8850 2725 50  0000 C CNN
+F 0 "J26" H 8850 2725 50  0000 C CNN
 F 1 "DIN-5_180degree" H 8850 2634 50  0000 C CNN
 F 2 "" H 8850 3000 50  0001 C CNN
 F 3 "http://www.mouser.com/ds/2/18/40_c091_abd_e-75918.pdf" H 8850 3000 50  0001 C CNN
@@ -1437,10 +1437,10 @@ F 3 "http://www.mouser.com/ds/2/18/40_c091_abd_e-75918.pdf" H 8850 3000 50  0001
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector:DIN-5_180degree J?
+L Connector:DIN-5_180degree J22
 U 1 1 6156F93E
 P 7800 3000
-F 0 "J?" H 7800 2725 50  0000 C CNN
+F 0 "J22" H 7800 2725 50  0000 C CNN
 F 1 "DIN-5_180degree" H 7800 2634 50  0000 C CNN
 F 2 "" H 7800 3000 50  0001 C CNN
 F 3 "http://www.mouser.com/ds/2/18/40_c091_abd_e-75918.pdf" H 7800 3000 50  0001 C CNN
@@ -1448,21 +1448,21 @@ F 3 "http://www.mouser.com/ds/2/18/40_c091_abd_e-75918.pdf" H 7800 3000 50  0001
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector:Jack-DC J?
+L Connector:Jack-DC J28
 U 1 1 61572579
-P 9000 4000
-F 0 "J?" H 8770 4050 50  0000 R CNN
-F 1 "Jack-DC" H 8770 3959 50  0000 R CNN
-F 2 "" H 9050 3960 50  0001 C CNN
-F 3 "~" H 9050 3960 50  0001 C CNN
-	1    9000 4000
+P 9600 4000
+F 0 "J28" H 9370 4050 50  0000 R CNN
+F 1 "Jack-DC" H 9370 3959 50  0000 R CNN
+F 2 "" H 9650 3960 50  0001 C CNN
+F 3 "~" H 9650 3960 50  0001 C CNN
+	1    9600 4000
 	-1   0    0    -1  
 $EndComp
 $Comp
-L Connector:Conn_01x05_Female J?
+L Connector:Conn_01x05_Female J3
 U 1 1 615C2EB0
 P 2150 4350
-F 0 "J?" V 2088 4062 50  0000 R CNN
+F 0 "J3" V 2088 4062 50  0000 R CNN
 F 1 "Conn_01x05_Female" V 1997 4062 50  0000 R CNN
 F 2 "" H 2150 4350 50  0001 C CNN
 F 3 "~" H 2150 4350 50  0001 C CNN
@@ -1470,10 +1470,10 @@ F 3 "~" H 2150 4350 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Connector:Conn_01x02_Female J?
+L Connector:Conn_01x02_Female J8
 U 1 1 615C2EB6
 P 3350 4350
-F 0 "J?" V 3288 4162 50  0000 R CNN
+F 0 "J8" V 3288 4162 50  0000 R CNN
 F 1 "Conn_01x02_Female" V 3197 4162 50  0000 R CNN
 F 2 "" H 3350 4350 50  0001 C CNN
 F 3 "~" H 3350 4350 50  0001 C CNN
@@ -1481,10 +1481,10 @@ F 3 "~" H 3350 4350 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Connector_Generic:Conn_02x09_Odd_Even J?
+L Connector_Generic:Conn_02x09_Odd_Even J14
 U 1 1 616C6186
 P 4900 3650
-F 0 "J?" H 4950 4267 50  0000 C CNN
+F 0 "J14" H 4950 4267 50  0000 C CNN
 F 1 "Conn_02x09_Odd_Even" H 4950 4176 50  0000 C CNN
 F 2 "" H 4900 3650 50  0001 C CNN
 F 3 "~" H 4900 3650 50  0001 C CNN
@@ -1508,10 +1508,10 @@ Wire Wire Line
 Wire Wire Line
 	12850 6100 12850 6050
 $Comp
-L Connector_Generic:Conn_02x08_Odd_Even J?
+L Connector_Generic:Conn_02x08_Odd_Even J37
 U 1 1 607B42EE
 P 12650 6450
-F 0 "J?" H 12700 5825 50  0000 C CNN
+F 0 "J37" H 12700 5825 50  0000 C CNN
 F 1 "Conn_02x08_Odd_Even" H 12700 5916 50  0000 C CNN
 F 2 "" H 12650 6450 50  0001 C CNN
 F 3 "~" H 12650 6450 50  0001 C CNN
@@ -1519,10 +1519,10 @@ F 3 "~" H 12650 6450 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK28
 U 1 1 607B428F
 P 6700 5850
-F 0 "MK?" H 6700 6100 50  0000 L CNN
+F 0 "MK28" H 6700 6100 50  0000 L CNN
 F 1 "Piezo" H 6700 6000 50  0000 L CNN
 F 2 "" V 6750 5780 50  0001 L CNN
 F 3 "~" V 6700 5950 50  0001 C CNN
@@ -1530,10 +1530,10 @@ F 3 "~" V 6700 5950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK29
 U 1 1 607B4295
 P 7000 5850
-F 0 "MK?" H 7000 6100 50  0000 L CNN
+F 0 "MK29" H 7000 6100 50  0000 L CNN
 F 1 "Piezo" H 7000 6000 50  0000 L CNN
 F 2 "" V 7050 5780 50  0001 L CNN
 F 3 "~" V 7000 5950 50  0001 C CNN
@@ -1635,10 +1635,10 @@ Wire Wire Line
 Wire Wire Line
 	8800 6050 9150 6050
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK40
 U 1 1 607B42B9
 P 8800 5850
-F 0 "MK?" H 8800 6100 50  0000 L CNN
+F 0 "MK40" H 8800 6100 50  0000 L CNN
 F 1 "Piezo" H 8800 6000 50  0000 L CNN
 F 2 "" V 8850 5780 50  0001 L CNN
 F 3 "~" V 8800 5950 50  0001 C CNN
@@ -1646,10 +1646,10 @@ F 3 "~" V 8800 5950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK38
 U 1 1 607B42B3
 P 8500 5850
-F 0 "MK?" H 8500 6100 50  0000 L CNN
+F 0 "MK38" H 8500 6100 50  0000 L CNN
 F 1 "Piezo" H 8500 6000 50  0000 L CNN
 F 2 "" V 8550 5780 50  0001 L CNN
 F 3 "~" V 8500 5950 50  0001 C CNN
@@ -1657,10 +1657,10 @@ F 3 "~" V 8500 5950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK36
 U 1 1 607B42AD
 P 8200 5850
-F 0 "MK?" H 8200 6100 50  0000 L CNN
+F 0 "MK36" H 8200 6100 50  0000 L CNN
 F 1 "Piezo" H 8200 6000 50  0000 L CNN
 F 2 "" V 8250 5780 50  0001 L CNN
 F 3 "~" V 8200 5950 50  0001 C CNN
@@ -1668,10 +1668,10 @@ F 3 "~" V 8200 5950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK34
 U 1 1 607B42A7
 P 7900 5850
-F 0 "MK?" H 7900 6100 50  0000 L CNN
+F 0 "MK34" H 7900 6100 50  0000 L CNN
 F 1 "Piezo" H 7900 6000 50  0000 L CNN
 F 2 "" V 7950 5780 50  0001 L CNN
 F 3 "~" V 7900 5950 50  0001 C CNN
@@ -1679,10 +1679,10 @@ F 3 "~" V 7900 5950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK32
 U 1 1 607B42A1
 P 7600 5850
-F 0 "MK?" H 7600 6100 50  0000 L CNN
+F 0 "MK32" H 7600 6100 50  0000 L CNN
 F 1 "Piezo" H 7600 6000 50  0000 L CNN
 F 2 "" V 7650 5780 50  0001 L CNN
 F 3 "~" V 7600 5950 50  0001 C CNN
@@ -1690,10 +1690,10 @@ F 3 "~" V 7600 5950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK30
 U 1 1 607B429B
 P 7300 5850
-F 0 "MK?" H 7300 6100 50  0000 L CNN
+F 0 "MK30" H 7300 6100 50  0000 L CNN
 F 1 "Piezo" H 7300 6000 50  0000 L CNN
 F 2 "" V 7350 5780 50  0001 L CNN
 F 3 "~" V 7300 5950 50  0001 C CNN
@@ -1701,10 +1701,10 @@ F 3 "~" V 7300 5950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_02x08_Odd_Even J?
+L Connector_Generic:Conn_02x08_Odd_Even J29
 U 1 1 607B4289
 P 9450 6450
-F 0 "J?" H 9500 5825 50  0000 C CNN
+F 0 "J29" H 9500 5825 50  0000 C CNN
 F 1 "Conn_02x08_Odd_Even" H 9500 5916 50  0000 C CNN
 F 2 "" H 9450 6450 50  0001 C CNN
 F 3 "~" H 9450 6450 50  0001 C CNN
@@ -1796,10 +1796,10 @@ Wire Wire Line
 Wire Wire Line
 	5400 6050 5750 6050
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK24
 U 1 1 607B4254
 P 5400 5850
-F 0 "MK?" H 5400 6100 50  0000 L CNN
+F 0 "MK24" H 5400 6100 50  0000 L CNN
 F 1 "Piezo" H 5400 6000 50  0000 L CNN
 F 2 "" V 5450 5780 50  0001 L CNN
 F 3 "~" V 5400 5950 50  0001 C CNN
@@ -1807,10 +1807,10 @@ F 3 "~" V 5400 5950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK22
 U 1 1 607B424E
 P 5100 5850
-F 0 "MK?" H 5100 6100 50  0000 L CNN
+F 0 "MK22" H 5100 6100 50  0000 L CNN
 F 1 "Piezo" H 5100 6000 50  0000 L CNN
 F 2 "" V 5150 5780 50  0001 L CNN
 F 3 "~" V 5100 5950 50  0001 C CNN
@@ -1818,10 +1818,10 @@ F 3 "~" V 5100 5950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK20
 U 1 1 607B4248
 P 4800 5850
-F 0 "MK?" H 4800 6100 50  0000 L CNN
+F 0 "MK20" H 4800 6100 50  0000 L CNN
 F 1 "Piezo" H 4800 6000 50  0000 L CNN
 F 2 "" V 4850 5780 50  0001 L CNN
 F 3 "~" V 4800 5950 50  0001 C CNN
@@ -1829,10 +1829,10 @@ F 3 "~" V 4800 5950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK18
 U 1 1 607B4242
 P 4500 5850
-F 0 "MK?" H 4500 6100 50  0000 L CNN
+F 0 "MK18" H 4500 6100 50  0000 L CNN
 F 1 "Piezo" H 4500 6000 50  0000 L CNN
 F 2 "" V 4550 5780 50  0001 L CNN
 F 3 "~" V 4500 5950 50  0001 C CNN
@@ -1840,10 +1840,10 @@ F 3 "~" V 4500 5950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK16
 U 1 1 607B423C
 P 4200 5850
-F 0 "MK?" H 4200 6100 50  0000 L CNN
+F 0 "MK16" H 4200 6100 50  0000 L CNN
 F 1 "Piezo" H 4200 6000 50  0000 L CNN
 F 2 "" V 4250 5780 50  0001 L CNN
 F 3 "~" V 4200 5950 50  0001 C CNN
@@ -1851,10 +1851,10 @@ F 3 "~" V 4200 5950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK14
 U 1 1 607B4236
 P 3900 5850
-F 0 "MK?" H 3900 6100 50  0000 L CNN
+F 0 "MK14" H 3900 6100 50  0000 L CNN
 F 1 "Piezo" H 3900 6000 50  0000 L CNN
 F 2 "" V 3950 5780 50  0001 L CNN
 F 3 "~" V 3900 5950 50  0001 C CNN
@@ -1862,10 +1862,10 @@ F 3 "~" V 3900 5950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK13
 U 1 1 607B4230
 P 3600 5850
-F 0 "MK?" H 3600 6100 50  0000 L CNN
+F 0 "MK13" H 3600 6100 50  0000 L CNN
 F 1 "Piezo" H 3600 6000 50  0000 L CNN
 F 2 "" V 3650 5780 50  0001 L CNN
 F 3 "~" V 3600 5950 50  0001 C CNN
@@ -1873,10 +1873,10 @@ F 3 "~" V 3600 5950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_02x08_Odd_Even J?
+L Connector_Generic:Conn_02x08_Odd_Even J17
 U 1 1 607B4224
 P 6050 6450
-F 0 "J?" H 6100 5825 50  0000 C CNN
+F 0 "J17" H 6100 5825 50  0000 C CNN
 F 1 "Conn_02x08_Odd_Even" H 6100 5916 50  0000 C CNN
 F 2 "" H 6050 6450 50  0001 C CNN
 F 3 "~" H 6050 6450 50  0001 C CNN
@@ -1938,10 +1938,10 @@ Wire Wire Line
 Wire Wire Line
 	2100 6450 2450 6450
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK9
 U 1 1 607B41FB
 P 2100 6250
-F 0 "MK?" H 2100 6500 50  0000 L CNN
+F 0 "MK9" H 2100 6500 50  0000 L CNN
 F 1 "Piezo" H 2100 6400 50  0000 L CNN
 F 2 "" V 2150 6180 50  0001 L CNN
 F 3 "~" V 2100 6350 50  0001 C CNN
@@ -1949,10 +1949,10 @@ F 3 "~" V 2100 6350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK7
 U 1 1 607B41F5
 P 1800 6250
-F 0 "MK?" H 1800 6500 50  0000 L CNN
+F 0 "MK7" H 1800 6500 50  0000 L CNN
 F 1 "Piezo" H 1800 6400 50  0000 L CNN
 F 2 "" V 1850 6180 50  0001 L CNN
 F 3 "~" V 1800 6350 50  0001 C CNN
@@ -1960,10 +1960,10 @@ F 3 "~" V 1800 6350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK5
 U 1 1 607B41EF
 P 1500 6250
-F 0 "MK?" H 1500 6500 50  0000 L CNN
+F 0 "MK5" H 1500 6500 50  0000 L CNN
 F 1 "Piezo" H 1500 6400 50  0000 L CNN
 F 2 "" V 1550 6180 50  0001 L CNN
 F 3 "~" V 1500 6350 50  0001 C CNN
@@ -1971,10 +1971,10 @@ F 3 "~" V 1500 6350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK3
 U 1 1 607B41E9
 P 1200 6250
-F 0 "MK?" H 1200 6500 50  0000 L CNN
+F 0 "MK3" H 1200 6500 50  0000 L CNN
 F 1 "Piezo" H 1200 6400 50  0000 L CNN
 F 2 "" V 1250 6180 50  0001 L CNN
 F 3 "~" V 1200 6350 50  0001 C CNN
@@ -1982,10 +1982,10 @@ F 3 "~" V 1200 6350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_02x08_Odd_Even J?
+L Connector_Generic:Conn_02x08_Odd_Even J5
 U 1 1 607B41E3
 P 2750 6450
-F 0 "J?" H 2800 5825 50  0000 C CNN
+F 0 "J5" H 2800 5825 50  0000 C CNN
 F 1 "Conn_02x08_Odd_Even" H 2800 5916 50  0000 C CNN
 F 2 "" H 2750 6450 50  0001 C CNN
 F 3 "~" H 2750 6450 50  0001 C CNN
@@ -2028,10 +2028,10 @@ Wire Wire Line
 Wire Wire Line
 	11600 5650 11450 5650
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK52
 U 1 1 607B431E
 P 11600 5850
-F 0 "MK?" H 11600 6100 50  0000 L CNN
+F 0 "MK52" H 11600 6100 50  0000 L CNN
 F 1 "Piezo" H 11600 6000 50  0000 L CNN
 F 2 "" V 11650 5780 50  0001 L CNN
 F 3 "~" V 11600 5950 50  0001 C CNN
@@ -2039,10 +2039,10 @@ F 3 "~" V 11600 5950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK50
 U 1 1 607B4318
 P 11300 5850
-F 0 "MK?" H 11300 6100 50  0000 L CNN
+F 0 "MK50" H 11300 6100 50  0000 L CNN
 F 1 "Piezo" H 11300 6000 50  0000 L CNN
 F 2 "" V 11350 5780 50  0001 L CNN
 F 3 "~" V 11300 5950 50  0001 C CNN
@@ -2050,10 +2050,10 @@ F 3 "~" V 11300 5950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK48
 U 1 1 607B4312
 P 11000 5850
-F 0 "MK?" H 11000 6100 50  0000 L CNN
+F 0 "MK48" H 11000 6100 50  0000 L CNN
 F 1 "Piezo" H 11000 6000 50  0000 L CNN
 F 2 "" V 11050 5780 50  0001 L CNN
 F 3 "~" V 11000 5950 50  0001 C CNN
@@ -2061,10 +2061,10 @@ F 3 "~" V 11000 5950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK46
 U 1 1 607B430C
 P 10700 5850
-F 0 "MK?" H 10700 6100 50  0000 L CNN
+F 0 "MK46" H 10700 6100 50  0000 L CNN
 F 1 "Piezo" H 10700 6000 50  0000 L CNN
 F 2 "" V 10750 5780 50  0001 L CNN
 F 3 "~" V 10700 5950 50  0001 C CNN
@@ -2072,10 +2072,10 @@ F 3 "~" V 10700 5950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK45
 U 1 1 607B4306
 P 10400 5850
-F 0 "MK?" H 10400 6100 50  0000 L CNN
+F 0 "MK45" H 10400 6100 50  0000 L CNN
 F 1 "Piezo" H 10400 6000 50  0000 L CNN
 F 2 "" V 10450 5780 50  0001 L CNN
 F 3 "~" V 10400 5950 50  0001 C CNN
@@ -2083,10 +2083,10 @@ F 3 "~" V 10400 5950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Microphone_Crystal MK?
+L Device:Microphone_Crystal MK44
 U 1 1 607B4300
 P 10100 5850
-F 0 "MK?" H 10100 6100 50  0000 L CNN
+F 0 "MK44" H 10100 6100 50  0000 L CNN
 F 1 "Piezo" H 10100 6000 50  0000 L CNN
 F 2 "" V 10150 5780 50  0001 L CNN
 F 3 "~" V 10100 5950 50  0001 C CNN
@@ -2094,10 +2094,10 @@ F 3 "~" V 10100 5950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R_POT RV?
+L Device:R_POT RV5
 U 1 1 61830259
 P 11900 5850
-F 0 "RV?" H 11830 5804 50  0000 R CNN
+F 0 "RV5" H 11830 5804 50  0000 R CNN
 F 1 "50kA" H 11830 5895 50  0000 R CNN
 F 2 "" H 11900 5850 50  0001 C CNN
 F 3 "~" H 11900 5850 50  0001 C CNN
@@ -2143,10 +2143,10 @@ Wire Wire Line
 Wire Wire Line
 	9950 6600 12850 6600
 $Comp
-L Connector:AudioJack2 J?
+L Connector:AudioJack2 J11
 U 1 1 62665D52
 P 4350 2600
-F 0 "J?" V 4050 2550 50  0000 L CNN
+F 0 "J11" V 4050 2550 50  0000 L CNN
 F 1 "AudioJack2" V 4150 2400 50  0000 L CNN
 F 2 "" H 4350 2600 50  0001 C CNN
 F 3 "~" H 4350 2600 50  0001 C CNN
@@ -2154,10 +2154,10 @@ F 3 "~" H 4350 2600 50  0001 C CNN
 	0    -1   1    0   
 $EndComp
 $Comp
-L Connector:AudioJack3_SwitchTR J?
+L Connector:AudioJack3_SwitchTR J10
 U 1 1 626B4D1E
 P 3700 2600
-F 0 "J?" V 3250 2550 50  0000 L CNN
+F 0 "J10" V 3250 2550 50  0000 L CNN
 F 1 "AudioJack3_SwitchTR" V 3350 2000 50  0000 L CNN
 F 2 "" H 3700 2600 50  0001 C CNN
 F 3 "~" H 3700 2600 50  0001 C CNN
@@ -2171,10 +2171,10 @@ Connection ~ 3350 3200
 Wire Wire Line
 	3350 3200 2950 3200
 $Comp
-L Connector:AudioJack3_SwitchTR J?
+L Connector:AudioJack3_SwitchTR J6
 U 1 1 626C080B
 P 3050 2600
-F 0 "J?" V 2600 2550 50  0000 L CNN
+F 0 "J6" V 2600 2550 50  0000 L CNN
 F 1 "AudioJack3_SwitchTR" V 2700 2200 50  0000 L CNN
 F 2 "" H 3050 2600 50  0001 C CNN
 F 3 "~" H 3050 2600 50  0001 C CNN
@@ -2190,10 +2190,10 @@ Wire Wire Line
 	4600 3200 4250 3200
 Connection ~ 4250 3200
 $Comp
-L Device:R_POT RV?
+L Device:R_POT RV3
 U 1 1 62B6F2A0
 P 2200 3050
-F 0 "RV?" H 2131 3096 50  0000 R CNN
+F 0 "RV3" H 2131 3096 50  0000 R CNN
 F 1 "50KB" H 2131 3005 50  0000 R CNN
 F 2 "" H 2200 3050 50  0001 C CNN
 F 3 "~" H 2200 3050 50  0001 C CNN
@@ -2201,10 +2201,10 @@ F 3 "~" H 2200 3050 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R_POT RV?
+L Device:R_POT RV2
 U 1 1 62B6F9BE
 P 1750 3050
-F 0 "RV?" H 1681 3096 50  0000 R CNN
+F 0 "RV2" H 1681 3096 50  0000 R CNN
 F 1 "50KB" H 1681 3005 50  0000 R CNN
 F 2 "" H 1750 3050 50  0001 C CNN
 F 3 "~" H 1750 3050 50  0001 C CNN
@@ -2212,10 +2212,10 @@ F 3 "~" H 1750 3050 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R_POT RV?
+L Device:R_POT RV1
 U 1 1 62B7002E
 P 1300 3050
-F 0 "RV?" H 1231 3096 50  0000 R CNN
+F 0 "RV1" H 1231 3096 50  0000 R CNN
 F 1 "50KB" H 1231 3005 50  0000 R CNN
 F 2 "" H 1300 3050 50  0001 C CNN
 F 3 "~" H 1300 3050 50  0001 C CNN
@@ -2362,10 +2362,10 @@ Wire Wire Line
 Wire Wire Line
 	3400 4150 3350 4150
 $Comp
-L Connector:Conn_01x04_Female J?
+L Connector:Conn_01x04_Female J20
 U 1 1 63F6B130
 P 6850 4000
-F 0 "J?" H 6742 3575 50  0000 C CNN
+F 0 "J20" H 6742 3575 50  0000 C CNN
 F 1 "Conn_01x04_Female" H 6742 3666 50  0000 C CNN
 F 2 "" H 6850 4000 50  0001 C CNN
 F 3 "~" H 6850 4000 50  0001 C CNN
@@ -2373,10 +2373,10 @@ F 3 "~" H 6850 4000 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Connector:Conn_01x04_Female J?
+L Connector:Conn_01x04_Female J23
 U 1 1 63F769DD
 P 7900 4000
-F 0 "J?" H 7792 3575 50  0000 C CNN
+F 0 "J23" H 7792 3575 50  0000 C CNN
 F 1 "Conn_01x04_Female" H 7792 3666 50  0000 C CNN
 F 2 "" H 7900 4000 50  0001 C CNN
 F 3 "~" H 7900 4000 50  0001 C CNN
@@ -2392,10 +2392,10 @@ Wire Wire Line
 Wire Wire Line
 	7700 4100 7050 4100
 $Comp
-L Connector_Generic:Conn_02x09_Odd_Even J?
+L Connector_Generic:Conn_02x09_Odd_Even J39
 U 1 1 640E9A2F
 P 12900 3400
-F 0 "J?" H 12950 4017 50  0000 C CNN
+F 0 "J39" H 12950 4017 50  0000 C CNN
 F 1 "Conn_02x09_Odd_Even" H 12950 3926 50  0000 C CNN
 F 2 "" H 12900 3400 50  0001 C CNN
 F 3 "~" H 12900 3400 50  0001 C CNN
@@ -2403,10 +2403,10 @@ F 3 "~" H 12900 3400 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Switch:SW_DIP_x01 SW?
+L Switch:SW_DIP_x01 SW2
 U 1 1 64153073
 P 10000 2800
-F 0 "SW?" V 9600 2800 50  0000 L CNN
+F 0 "SW2" V 9600 2800 50  0000 L CNN
 F 1 "SW_Panel" V 9700 2800 50  0000 L CNN
 F 2 "" H 10000 2800 50  0001 C CNN
 F 3 "~" H 10000 2800 50  0001 C CNN
@@ -2414,10 +2414,10 @@ F 3 "~" H 10000 2800 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Switch:SW_DIP_x01 SW?
+L Switch:SW_DIP_x01 SW3
 U 1 1 641535F3
 P 10400 2800
-F 0 "SW?" V 10000 2800 50  0000 L CNN
+F 0 "SW3" V 10000 2800 50  0000 L CNN
 F 1 "SW_Panel" V 10100 2800 50  0000 L CNN
 F 2 "" H 10400 2800 50  0001 C CNN
 F 3 "~" H 10400 2800 50  0001 C CNN
@@ -2425,10 +2425,10 @@ F 3 "~" H 10400 2800 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Switch:SW_DIP_x01 SW?
+L Switch:SW_DIP_x01 SW4
 U 1 1 64153B1B
 P 10800 2800
-F 0 "SW?" V 10400 2800 50  0000 L CNN
+F 0 "SW4" V 10400 2800 50  0000 L CNN
 F 1 "SW_Panel" V 10500 2800 50  0000 L CNN
 F 2 "" H 10800 2800 50  0001 C CNN
 F 3 "~" H 10800 2800 50  0001 C CNN
@@ -2436,10 +2436,10 @@ F 3 "~" H 10800 2800 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Switch:SW_DIP_x01 SW?
+L Switch:SW_DIP_x01 SW5
 U 1 1 6415406B
 P 11200 2800
-F 0 "SW?" V 10800 2800 50  0000 L CNN
+F 0 "SW5" V 10800 2800 50  0000 L CNN
 F 1 "SW_Panel" V 10900 2800 50  0000 L CNN
 F 2 "" H 11200 2800 50  0001 C CNN
 F 3 "~" H 11200 2800 50  0001 C CNN
@@ -2447,10 +2447,10 @@ F 3 "~" H 11200 2800 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Switch:SW_DIP_x01 SW?
+L Switch:SW_DIP_x01 SW6
 U 1 1 641545B7
 P 11600 2800
-F 0 "SW?" V 11200 2800 50  0000 L CNN
+F 0 "SW6" V 11200 2800 50  0000 L CNN
 F 1 "SW_Panel" V 11300 2800 50  0000 L CNN
 F 2 "" H 11600 2800 50  0001 C CNN
 F 3 "~" H 11600 2800 50  0001 C CNN
@@ -2458,10 +2458,10 @@ F 3 "~" H 11600 2800 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Switch:SW_DIP_x01 SW?
+L Switch:SW_DIP_x01 SW7
 U 1 1 64154B2B
 P 12000 2800
-F 0 "SW?" V 11600 2800 50  0000 L CNN
+F 0 "SW7" V 11600 2800 50  0000 L CNN
 F 1 "SW_Panel" V 11700 2800 50  0000 L CNN
 F 2 "" H 12000 2800 50  0001 C CNN
 F 3 "~" H 12000 2800 50  0001 C CNN
@@ -2469,10 +2469,10 @@ F 3 "~" H 12000 2800 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Switch:SW_DIP_x01 SW?
+L Switch:SW_DIP_x01 SW8
 U 1 1 6415509B
 P 12400 2800
-F 0 "SW?" V 12000 2800 50  0000 L CNN
+F 0 "SW8" V 12000 2800 50  0000 L CNN
 F 1 "SW_Panel" V 12100 2800 50  0000 L CNN
 F 2 "" H 12400 2800 50  0001 C CNN
 F 3 "~" H 12400 2800 50  0001 C CNN
@@ -2544,10 +2544,10 @@ Wire Wire Line
 Wire Wire Line
 	12400 3100 12700 3100
 $Comp
-L Connector:Conn_01x05_Female J?
+L Connector:Conn_01x05_Female J35
 U 1 1 6496AF89
 P 11850 4100
-F 0 "J?" V 11788 4348 50  0000 L CNN
+F 0 "J35" V 11788 4348 50  0000 L CNN
 F 1 "Conn_01x05_Female" V 11697 4348 50  0000 L CNN
 F 2 "" H 11850 4100 50  0001 C CNN
 F 3 "~" H 11850 4100 50  0001 C CNN
@@ -2569,10 +2569,10 @@ Wire Wire Line
 Wire Wire Line
 	12050 4300 12050 4650
 $Comp
-L Connector:Conn_01x05_Female J?
+L Connector:Conn_01x05_Female J21
 U 1 1 64B89D82
 P 7050 2400
-F 0 "J?" H 6942 2785 50  0000 C CNN
+F 0 "J21" H 6942 2785 50  0000 C CNN
 F 1 "Conn_01x05_Female" H 6942 2694 50  0000 C CNN
 F 2 "" H 7050 2400 50  0001 C CNN
 F 3 "~" H 7050 2400 50  0001 C CNN
@@ -2600,10 +2600,10 @@ Wire Wire Line
 Wire Wire Line
 	8100 2500 8100 2900
 $Comp
-L Connector:Conn_01x02_Female J?
+L Connector:Conn_01x02_Female J24
 U 1 1 64FC92A6
 P 8400 3900
-F 0 "J?" H 8292 4085 50  0000 C CNN
+F 0 "J24" H 8292 4085 50  0000 C CNN
 F 1 "Conn_01x02_Female" H 8292 3994 50  0000 C CNN
 F 2 "" H 8400 3900 50  0001 C CNN
 F 3 "~" H 8400 3900 50  0001 C CNN
@@ -2614,13 +2614,11 @@ Wire Wire Line
 	8600 3900 8700 3900
 Wire Wire Line
 	8600 4000 8600 4100
-Wire Wire Line
-	8600 4100 8700 4100
 $Comp
-L Connector_Generic:Conn_02x09_Odd_Even J?
+L Connector_Generic:Conn_02x09_Odd_Even J42
 U 1 1 65185E8E
 P 14050 3050
-F 0 "J?" V 14146 3530 50  0000 L CNN
+F 0 "J42" V 14146 3530 50  0000 L CNN
 F 1 "Conn_02x09_Odd_Even" V 14055 3530 50  0000 L CNN
 F 2 "" H 14050 3050 50  0001 C CNN
 F 3 "~" H 14050 3050 50  0001 C CNN
@@ -2642,10 +2640,10 @@ Wire Wire Line
 Wire Wire Line
 	13750 5950 13700 5950
 $Comp
-L Connector:DB15_Male J?
+L Connector:DB15_Male J41
 U 1 1 60490EA3
 P 13850 6250
-F 0 "J?" V 13800 7250 50  0000 C CNN
+F 0 "J41" V 13800 7250 50  0000 C CNN
 F 1 "DB15_Male" V 13900 7350 50  0000 C CNN
 F 2 "" H 13850 6250 50  0001 C CNN
 F 3 " ~" H 13850 6250 50  0001 C CNN
@@ -2825,4 +2823,22 @@ Wire Notes Line
 	9800 5050 9800 6900
 Wire Notes Line
 	6450 4350 15450 4350
+$Comp
+L Switch:SW_DIP_x01 SW9
+U 1 1 60499D91
+P 9000 3900
+F 0 "SW9" H 9000 4167 50  0000 C CNN
+F 1 "SW_DIP_x01" H 9000 4076 50  0000 C CNN
+F 2 "" H 9000 3900 50  0001 C CNN
+F 3 "~" H 9000 3900 50  0001 C CNN
+	1    9000 3900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8600 4100 9300 4100
+NoConn ~ 7500 3000
+NoConn ~ 8100 3000
+NoConn ~ 7800 2700
+NoConn ~ 8550 3000
+NoConn ~ 9150 3000
 $EndSCHEMATC

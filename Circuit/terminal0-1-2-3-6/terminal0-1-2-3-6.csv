@@ -1,0 +1,23 @@
+Reference, Value, Footprint, Datasheet, terminal1-2-3-6
+"U1","4051","Package_DIP:DIP-16_W7.62mm","http://www.intersil.com/content/dam/Intersil/documents/cd40/cd4051bms-52bms-53bms.pdf", terminal1-2-3-6
+"C2","0.1u","Capacitor_THT:C_Disc_D3.0mm_W1.6mm_P2.50mm","~", terminal1-2-3-6
+"C1","10u","Capacitor_THT:CP_Radial_D5.0mm_P2.50mm","~", terminal1-2-3-6
+"J1","Conn_01x05_Male","Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Horizontal","~", terminal1-2-3-6
+"R1","1Meg","Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal","~", terminal1-2-3-6
+"R2","1Meg","Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal","~", terminal1-2-3-6
+"R3","1Meg","Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal","~", terminal1-2-3-6
+"R4","1Meg","Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal","~", terminal1-2-3-6
+"R5","1Meg","Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal","~", terminal1-2-3-6
+"R6","1Meg","Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal","~", terminal1-2-3-6
+"R7","1Meg","Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal","~", terminal1-2-3-6
+"R8","1Meg","Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal","~", terminal1-2-3-6
+"J3","Conn_01x02_Male","Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Horizontal","~", terminal1-2-3-6
+"R9","220","Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal","~", terminal1-2-3-6
+"R10","220","Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal","~", terminal1-2-3-6
+"R11","220","Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal","~", terminal1-2-3-6
+"R12","220","Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal","~", terminal1-2-3-6
+"R13","220","Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal","~", terminal1-2-3-6
+"R14","220","Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal","~", terminal1-2-3-6
+"R15","220","Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal","~", terminal1-2-3-6
+"R16","220","Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal","~", terminal1-2-3-6
+"J2","Conn_02x08_Odd_Even","Connector_PinHeader_2.54mm:PinHeader_2x08_P2.54mm_Horizontal","~", terminal1-2-3-6
