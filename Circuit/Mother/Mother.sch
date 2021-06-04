@@ -1256,36 +1256,7 @@ F 3 "" H 3100 4650 50  0001 C CNN
 	1    3100 4650
 	1    0    0    -1  
 $EndComp
-$Comp
-L Device:R R1
-U 1 1 60A9C419
-P 4500 2600
-F 0 "R1" V 4700 2600 50  0000 C CNN
-F 1 "1k" V 4600 2600 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 4430 2600 50  0001 C CNN
-F 3 "~" H 4500 2600 50  0001 C CNN
-	1    4500 2600
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	4300 2600 4350 2600
 Connection ~ 4300 2600
-$Comp
-L Device:LED D1
-U 1 1 60B0C789
-P 5350 2750
-F 0 "D1" H 5343 2495 50  0000 C CNN
-F 1 "LED" H 5343 2586 50  0000 C CNN
-F 2 "LED_THT:LED_D3.0mm" H 5350 2750 50  0001 C CNN
-F 3 "~" H 5350 2750 50  0001 C CNN
-	1    5350 2750
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	3900 2900 4800 2900
-Wire Wire Line
-	4650 2600 4800 2600
-Connection ~ 4800 2600
 $Comp
 L Device:CP C9
 U 1 1 60B5D14C
@@ -1298,34 +1269,6 @@ F 3 "~" H 6200 2750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:CP C4
-U 1 1 60B5E5AB
-P 4800 2750
-F 0 "C4" H 4685 2704 50  0000 R CNN
-F 1 "10u" H 4685 2795 50  0000 R CNN
-F 2 "Capacitor_THT:CP_Radial_D5.0mm_P2.50mm" H 4838 2600 50  0001 C CNN
-F 3 "~" H 4800 2750 50  0001 C CNN
-	1    4800 2750
-	1    0    0    -1  
-$EndComp
-Connection ~ 5100 2600
-Wire Wire Line
-	5100 2600 5350 2600
-Wire Wire Line
-	4800 2600 5100 2600
-Connection ~ 5350 2600
-$Comp
-L Device:C C5
-U 1 1 60B80873
-P 5100 2750
-F 0 "C5" H 4985 2704 50  0000 R CNN
-F 1 "0.1u" H 4985 2795 50  0000 R CNN
-F 2 "Capacitor_THT:C_Disc_D3.0mm_W1.6mm_P2.50mm" H 5138 2600 50  0001 C CNN
-F 3 "~" H 5100 2750 50  0001 C CNN
-	1    5100 2750
-	-1   0    0    1   
-$EndComp
-$Comp
 L Device:C C8
 U 1 1 60B81778
 P 5700 2750
@@ -1336,20 +1279,9 @@ F 3 "~" H 5700 2750 50  0001 C CNN
 	1    5700 2750
 	-1   0    0    1   
 $EndComp
-Wire Wire Line
-	5350 2600 5700 2600
 Connection ~ 5700 2600
 Wire Wire Line
 	5700 2600 6200 2600
-Wire Wire Line
-	4800 2900 5100 2900
-Connection ~ 4800 2900
-Connection ~ 5100 2900
-Wire Wire Line
-	5100 2900 5350 2900
-Connection ~ 5350 2900
-Wire Wire Line
-	5350 2900 5700 2900
 Connection ~ 5700 2900
 Wire Wire Line
 	5700 2900 6200 2900
@@ -1462,12 +1394,12 @@ Connection ~ 3200 3550
 $Comp
 L Device:Polyfuse F1
 U 1 1 62039685
-P 3000 2600
-F 0 "F1" V 2775 2600 50  0000 C CNN
-F 1 "RXEF050" V 2866 2600 50  0000 C CNN
-F 2 "Capacitor_THT:C_Disc_D8.0mm_W2.5mm_P5.00mm" H 3050 2400 50  0001 L CNN
-F 3 "https://akizukidenshi.com/download/ds/tyco/rxef050.pdf" H 3000 2600 50  0001 C CNN
-	1    3000 2600
+P 2700 2600
+F 0 "F1" V 2475 2600 50  0000 C CNN
+F 1 "RXEF050" V 2566 2600 50  0000 C CNN
+F 2 "Capacitor_THT:C_Disc_D8.0mm_W2.5mm_P5.00mm" H 2750 2400 50  0001 L CNN
+F 3 "https://akizukidenshi.com/download/ds/tyco/rxef050.pdf" H 2700 2600 50  0001 C CNN
+	1    2700 2600
 	0    1    1    0   
 $EndComp
 Connection ~ 3350 2600
@@ -1632,7 +1564,7 @@ Wire Wire Line
 	3200 2700 3200 2900
 Connection ~ 2800 2700
 Wire Wire Line
-	2800 2700 3200 2700
+	2800 2700 2850 2700
 $Comp
 L power:PWR_FLAG #FLG01
 U 1 1 619DB888
@@ -1647,18 +1579,32 @@ $EndComp
 $Comp
 L Diode:1N4007 D3
 U 1 1 6044A8F3
-P 2700 2600
-F 0 "D3" H 2700 2383 50  0000 C CNN
-F 1 "1N4007" H 2700 2474 50  0000 C CNN
-F 2 "Diode_THT:D_DO-41_SOD81_P2.54mm_Vertical_AnodeUp" H 2700 2425 50  0001 C CNN
-F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 2700 2600 50  0001 C CNN
-	1    2700 2600
+P 3000 2650
+F 0 "D3" H 3000 2433 50  0000 C CNN
+F 1 "1N4007" H 3000 2524 50  0000 C CNN
+F 2 "Diode_THT:D_DO-41_SOD81_P2.54mm_Vertical_AnodeUp" H 3000 2475 50  0001 C CNN
+F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 3000 2650 50  0001 C CNN
+	1    3000 2650
 	-1   0    0    1   
 $EndComp
-Wire Wire Line
-	3150 2600 3300 2600
 Wire Wire Line
 	2300 2600 2550 2600
 Wire Wire Line
 	2300 2700 2800 2700
+Wire Wire Line
+	3900 2900 5700 2900
+Wire Wire Line
+	4300 2600 5700 2600
+Wire Wire Line
+	2850 2600 3150 2600
+Wire Wire Line
+	3150 2650 3150 2600
+Connection ~ 3150 2600
+Wire Wire Line
+	3150 2600 3300 2600
+Wire Wire Line
+	2850 2650 2850 2700
+Connection ~ 2850 2700
+Wire Wire Line
+	2850 2700 3200 2700
 $EndSCHEMATC
