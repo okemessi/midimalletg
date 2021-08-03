@@ -43,8 +43,10 @@
 
 #include "mcc_generated_files/mcc.h"
 
-void TMR0_Event(void);
+void TMR1_Event(void);
 void TMR2_Event(void);
+void TMR3_Event(void);
+void I2C_Event(void);
 void printbar(signed char);
 void printd1(unsigned short);
 void printd2(signed char);
@@ -68,8 +70,9 @@ bool matrix[7][7] = {0};
  */
 
 unsigned char current_anode = 0;
-
+unsigned char current_bar = 0;
 unsigned char trigger[4] = {0};
+unsigned char i2c_command = 0;
 
 /*  d1  d2  bar bank*/
 
@@ -80,8 +83,10 @@ void main(void)
 {
     // initialize the device
     SYSTEM_Initialize();
-    TMR0_SetInterruptHandler(TMR0_Event);
+    TMR1_SetInterruptHandler(TMR1_Event);
     TMR2_SetInterruptHandler(TMR2_Event);
+    TMR3_SetInterruptHandler(TMR3_Event);
+    I2C1_SlaveSetReadIntHandler(I2C_Event);
     
     // When using interrupts, you need to set the Global and Peripheral Interrupt Enable bits
     // Use the following macros to:
@@ -108,7 +113,11 @@ void main(void)
     }
 }
 
-void TMR0_Event(void){
+void TMR1_Event(void){//100ms counter for bar decrement
+    if(current_bar>0) printbar(current_bar-1);
+}
+
+void TMR2_Event(void){//1ms counter for dynamic lighting
     unsigned char i;
     setanode(current_anode,0);
     current_anode ++;
@@ -119,15 +128,34 @@ void TMR0_Event(void){
     setanode(current_anode,1);
 }
 
-void TMR2_Event(void){
+void TMR3_Event(void){//1s counter for debugging
+    printd1(123);
+    printd2(-1);
+    printbar(9);
+    printbank(2);
+}
+
+void I2C_Event(void){//1s counter for debugging
     unsigned char i;
-    setanode(current_anode,0);
-    current_anode ++;
-    if(current_anode > 6) current_anode = 0;
-    for(i = 0; i < 7; i++){
-        setkathode(i,matrix[current_anode][i]);
+    i=I2C1_Read();
+    if(i & 0x80){
+        i2c_command = 0x7F & i;
+    }else{
+        switch(i2c_command){
+            case 1:
+                printd1(i);
+                break;
+            case 2:
+                printd2((signed char)i);
+                break;
+            case 3:
+                printbar(i);
+                break;
+            case 4:
+                printbank(i);
+                break;
+        }
     }
-    setanode(current_anode,1);
 }
 
 void printd1(unsigned short input){
@@ -169,6 +197,8 @@ void printbar(signed char input){
     if(input>2) matrix[6][0]=1; else matrix[6][0]=0;
     if(input>1) matrix[6][1]=1; else matrix[6][1]=0;
     if(input>0) matrix[6][2]=1; else matrix[6][2]=0;
+    current_bar=input;
+    TMR1_Reload();
     return;
 }
 void printbank(signed char input){
