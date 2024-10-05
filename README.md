@@ -2,7 +2,7 @@ Wiki: https://github.com/okemessi/midimalletg/wiki
 
 # midimalletg
 
-Midimalletg is a MIDI mallet controller for marimba/other keyboard percussion players. This project is currently being maintained by a single amateur developer.
+Midimalletg is a MIDI mallet controller for marimba/other keyboard percussion players. This project is developed as a hobby and personal project by okemessi. It is provided as-is because it is still under development. 
 
 ## Specifications
 
